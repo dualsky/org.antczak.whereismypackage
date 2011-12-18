@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/menuStartMonitoring" android:title="@string/menu_start_monitoring"
+		android:icon="@drawable/ic_menu_view"></item>
+	<item android:id="@+id/menuStopMonitoring" android:title="@string/menu_stop_monitoring"
+		android:icon="@drawable/ic_menu_view_delete"></item>
+	<item android:id="@+id/menuOrderDesc" android:title="@string/menu_details_sort_desc"
+		android:icon="@drawable/ic_menu_sort_by_size_desc"></item>
+	<item android:id="@+id/menuOrderAsc" android:title="@string/menu_details_sort_asc"
+		android:icon="@drawable/ic_menu_sort_by_size_asc"></item>
+</menu>

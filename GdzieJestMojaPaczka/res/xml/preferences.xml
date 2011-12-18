@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/preferences_section_order" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="saveed"
+            android:summary="@string/preferences_save_courier_hint"
+            android:title="@string/preferences_save_courier" />
+        <Preference
+            android:key="couriersOrder"
+            android:summary="@string/preferences_couriers_order_hint"
+            android:title="@string/preferences_couriers_order" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="org.antczak.whereIsMyPackage.PreferencesCourierOrder"
+                android:targetPackage="org.antczak.whereIsMyPackage" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_section_monitor" >
+        <ListPreference
+            android:defaultValue="30"
+            android:entries="@array/frequencyTitles"
+            android:entryValues="@array/frequencyValues"
+            android:key="frequency"
+            android:summary="@string/preferences_frequency_hint"
+            android:title="@string/preferences_frequency_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="wifi"
+            android:summary="@string/preferences_wifi_hint"
+            android:title="@string/preferences_wifi_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="autoStart"
+            android:summary="@string/preferences_auto_start_hint"
+            android:title="@string/preferences_auto_start_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_section_other" >
+        <ListPreference
+            android:defaultValue="true"
+            android:entries="@array/sortingTitles"
+            android:entryValues="@array/sortingValues"
+            android:key="sorting"
+            android:summary="@string/preferences_sorting_hint"
+            android:title="@string/preferences_sorting_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
