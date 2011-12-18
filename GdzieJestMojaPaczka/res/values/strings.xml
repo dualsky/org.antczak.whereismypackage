@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Gdzie jest moja paczka!?</string>
+	<string name="app_name_launcher">Gdzie jest paczka!?</string>
+	<string name="preferences">Ustawienia</string>
+	<string name="preferences_courier_order">Ustawienia kolejności firm</string>
+
+	<string name="GA">***REMOVED***</string>
+
+	<string name="hint">Numer paczki...</string>
+
+	<string name="enter_package_number">Podaj numer paczki...</string>
+
+	<string name="receiving">pobieranie...</string>
+	<string name="receiving_error">Problem z pobraniem danych</string>
+	<string name="receiving_no_data">Brak historii paczki</string>
+
+	<string name="dialog_delete_from_history">Usuń z historii</string>
+	<string name="dialog_check_package">Sprawdź paczkę</string>
+	<string name="dialog_start_monitoring">Monitoruj</string>
+	<string name="dialog_stop_monitoring">Przestań monitorować</string>
+	<string name="dialog_add_desc_title">Wprowadź opis</string>
+	<string name="dialog_add_desc">Dodaj opis</string>
+	<string name="dialog_add_desc_add">Dodaj</string>
+	<string name="dialog_add_desc_cancel">Zrezygnuj</string>
+	<string name="dialog_delete_desc">Usuń opis</string>	
+
+	<string name="title_details">Szczegóły</string>
+	<string name="title_details_history">Historia</string>
+
+	<string name="no_network">Sieć niedostępna</string>
+	<string name="api_url">***REMOVED***</string>
+	<!-- <string name="api_url">***REMOVED***</string> -->
+
+	<string name="separator_monitor">Monitorowane paczki</string>
+	<string name="separator_history">Historia</string>
+
+	<string name="menu_revert">Przywróć ustawienia domyślne</string>
+	
+	<string name="menu_details_sort_desc">Sortuj według daty malejąco</string>
+	<string name="menu_details_sort_asc">Sortuj według daty rosnąco</string>
+	<string name="menu_start_monitoring">Monitoruj przesyłkę</string>
+	<string name="menu_stop_monitoring">Przestań monitorować</string>
+
+	<string name="menu_about">Informacje</string>
+	<string name="menu_settings">Ustawienia</string>
+	<string name="menu_clean_monitoring">Wyczyść monitorowane</string>
+	<string name="menu_clean_history">Wyczyść historię</string>
+	<string name="menu_rate">Oceń aplikację</string>
+	<string name="menu_close">Zamknij</string>
+
+	<string name="notification">Status przesyłki został zaktualizowany</string>
+	
+	<string name="preferences_save_courier">Pamiętaj firmę</string>
+	<string name="preferences_save_courier_hint">Jeśli zaznaczone, poprzednio użyta firma będzie ustawiona na listcie kurierów.</string>	
+	<string name="preferences_couriers_order">Kolejność firm</string>
+	<string name="preferences_couriers_order_hint">Szczegółowe ustawienia listy kurierów</string>
+	<string name="preferences_frequency_title">Częstotliwość</string>
+	<string name="preferences_frequency_hint">W jakich odstępach czasu sprawdzać czy status przesyłki zmienił się.</string>
+	<string name="preferences_wifi_title">Sprawdzaj przez WiFi</string>
+	<string name="preferences_wifi_hint">Jeśli zaznaczone, tylko połączenie Wifi będzie wykorzystywane do monitorowania.</string>
+	<string name="preferences_auto_start_title">Sprawdzaj po restarcie</string>
+	<string name="preferences_auto_start_hint">Jeśli włączone, monitorowanie uruchomi się automatycznie po restarcie urządzenia.</string>
+	<string name="preferences_sorting_title">Sortowanie</string>
+	<string name="preferences_sorting_hint">Sposób sortowania historii przesyłki.</string>
+	<string name="preferences_sorting_tip">Zmieniaj kolejność chwytając za ikonę.\nUsuń pozycję przesuwająć ją w prawą stronę.</string>
+	<string name="preferences_sorting_last_one">Nie możesz usunać ostatniej firmy...</string>
+	
+	<string name="preferences_section_order">Lista firm kurierskich</string>
+	<string name="preferences_section_monitor">Monitorowanie</string>
+	<string name="preferences_section_other">Pozostałe</string>
+
+	<string name="about_dialog_title">Informacje</string>
+	<string name="about_close_button">Zamknij</string>
+	<string name="about_text">Program korzysta z informacji udostępnianych publicznie przez firmy kurierskie. Wszystkie znaki towarowe zostały użyte tylko w celach informacyjnych i należą do ich właścicieli.</string>
+	<string name="about_me">Paweł Antczak</string>
+	<string name="about_email">***REMOVED***</string>
+	<string name="about_web">http://antczak.org</string>
+
+	<string name="whats_new_title">Co nowego?</string>
+	<string name="whats_new">v1.3.0
+		\nDodano zaawansowane zarzadzanie listą firm.
+		\nPoprawiono małe/wielkie litery w opisie paczki.
+		\nDwie nowe firmy:
+		\n - DB Schenker
+		\n - K-EX
+		\n - Opek	
+		\n\nv1.2.1
+		\nNaprawa błędu.
+		\n\nv1.2.0
+		\nDodano możliwość ustawienia opisu przy każdym numerze paczki.
+		\nPoprawiono mechanizm skanowania.
+		\n\nv1.1.0
+		\nTrzy nowe firmy:
+		\n - InPost
+		\n - GLS
+		\n - Poczta Polska
+		\nBugfix.
+		\nKosmetyka.
+		\n\nJeśli masz propozycje dotyczące aplikacji, zapraszam na stronę. Link znajduje się w menu \'Informacje\'.
+		\n\nPozdrawiam. </string>
+</resources>

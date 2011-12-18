@@ -1,0 +1,21 @@
+<LinearLayout android:id="@+id/linearLayout1"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:paddingLeft="10px" android:paddingRight="10px"
+	android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:id="@+id/textView1"
+		android:gravity="center" android:text="@string/about_text"></TextView>
+	<TextView android:gravity="center" android:layout_height="wrap_content"
+		android:id="@+id/textView2" android:text="@string/about_me"
+		android:paddingTop="5dp" android:layout_width="fill_parent"></TextView>
+	<TextView android:gravity="center" android:layout_height="wrap_content"
+		android:id="@+id/textView3" android:text="@string/about_email"
+		android:autoLink="email" android:layout_width="fill_parent"></TextView>
+	<TextView android:gravity="center" android:layout_height="wrap_content"
+		android:id="@+id/textView4" android:text="@string/about_web"
+		android:autoLink="web" android:layout_width="fill_parent"></TextView>
+	<TextView android:textAppearance="?android:attr/textAppearanceSmall"
+		android:paddingTop="5dp" android:layout_height="wrap_content"
+		android:id="@+id/textView5" android:text="" android:layout_width="fill_parent"
+		android:gravity="center"></TextView>
+</LinearLayout>

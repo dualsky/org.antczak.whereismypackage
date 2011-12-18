@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- Used in View/Spinner1.java -->
+	<string-array name="curiers">
+		<item>DB Schenker</item>
+		<item>DHL</item>
+		<item>DPD</item>
+		<item>GLS</item>
+		<item>InPost</item>
+		<item>K-EX</item>
+		<item>Opek</item>
+		<item>Poczta Polska</item>
+		<item>Pocztex</item>
+		<item>Siódemka</item>
+		<item>TNT</item>
+		<item>UPS</item>
+	</string-array>
+
+	<string-array name="curiersCodes">
+		<item>schenker</item>
+		<item>dhl</item>
+		<item>dpd</item>
+		<item>gls</item>
+		<item>inpost</item>
+		<item>kex</item>
+		<item>opek</item>
+		<item>poczta</item>
+		<item>pocztex</item>
+		<item>siodemka</item>
+		<item>tnt</item>
+		<item>ups</item>
+	</string-array>
+
+	<integer-array name="curiersIsMonitorable">
+		<item>1</item>
+		<item>1</item>
+		<item>1</item>
+		<item>0</item>
+		<item>0</item>
+		<item>0</item>
+		<item>0</item>
+		<item>0</item>
+		<item>0</item>
+		<item>0</item>
+	</integer-array>
+
+	<string-array name="frequencyTitles">
+		<item>Co pół godziny</item>
+		<item>Co godzinę</item>
+		<item>Co 2 godziny</item>
+		<item>Co 4 godziny</item>
+		<item>Co 8 godzin</item>
+		<item>Co 12 godzin</item>
+		<item>Raz dziennie</item>
+	</string-array>
+
+	<string-array name="frequencyValues">
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>240</item>
+		<item>480</item>
+		<item>720</item>
+		<item>1440</item>
+	</string-array>
+
+	<string-array name="sortingTitles">
+		<item>Według daty rosnąco</item>
+		<item>Według daty malejąco</item>
+	</string-array>
+
+	<string-array name="sortingValues">
+		<item>true</item>
+		<item>false</item>
+	</string-array>
+</resources>
