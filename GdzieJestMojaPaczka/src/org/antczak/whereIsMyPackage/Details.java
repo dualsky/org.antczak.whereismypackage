@@ -25,7 +25,7 @@ import android.widget.TextView;
 public class Details extends Activity {
 
 	private static final String TAG = "Details";
-	
+
 	List<Map<String, String>> groupData;
 	boolean currentSortAsc;
 	boolean currentMonitoringStatus;
