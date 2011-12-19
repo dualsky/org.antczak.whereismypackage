@@ -62,7 +62,7 @@ public class Main extends Activity {
 	ImageButton scanBar;
 	ImageButton checkPackage;
 	EditText packageNumber;
-	Spinner courierName;
+	Spinner courierNameDropdown;
 	Toast info;
 	SharedPreferences prefs;
 	SharedPreferences.Editor prefsEditor;
@@ -126,7 +126,7 @@ public class Main extends Activity {
 		packageNumber = (EditText) findViewById(R.id.editText1);
 		packageNumber.setOnKeyListener(packageNumberListiner);
 
-		courierName = (Spinner) findViewById(R.id.spinner1);
+		courierNameDropdown = (Spinner) findViewById(R.id.spinner1);
 		readCustomCuriersOrder();
 		
 		historyList = (ListView) findViewById(R.id.listView1);
@@ -145,6 +145,10 @@ public class Main extends Activity {
 			checkPackageThread.cancel(true);
 		this.history.closeConnection();
 		this.history = null;
+		if (tracker != null && CheckInternet.haveAnyConnection(this)) {
+			tracker.dispatch();
+			tracker.stop();
+		}
 	}
 
 	@Override
@@ -154,6 +158,8 @@ public class Main extends Activity {
 			history = new History(this);
 		readCustomCuriersOrder();
 		refreshHistory();
+		tracker = GoogleAnalyticsTracker.getInstance();
+		tracker.start(getString(R.string.GA), this);
 	}
 
 	@Override
@@ -175,7 +181,7 @@ public class Main extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-			prefsEditor.putInt("selectedCourier", arg2);
+			prefsEditor.putInt("selectedCourier", getRealCourierId(courierNameDropdown.getSelectedItem().toString()));
 			prefsEditor.commit();
 		}
 
@@ -203,8 +209,8 @@ public class Main extends Activity {
 				checkPackage(
 						packageNumber.getText().toString()
 								.replaceAll("[^a-zA-Z0-9]", "").toUpperCase(),
-						(String) courierName.getSelectedItem(),
-						courierCodes[courierName.getSelectedItemPosition()],
+						(String) courierNameDropdown.getSelectedItem(),
+						courierCodes[getRealCourierId(courierNameDropdown.getSelectedItem().toString())],
 						"0");
 				packageNumber.setText("");
 			}
@@ -384,7 +390,7 @@ public class Main extends Activity {
 
 	private void startDetailsIntent(String packageNumber,
 			String packageDetails, String courierName, String courierCode,
-			String monitor) {
+			String monitor, boolean isMonitorable) {
 		Intent i = new Intent(Main.this, Details.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		i.putExtra("packageNumber", packageNumber);
@@ -392,6 +398,7 @@ public class Main extends Activity {
 		i.putExtra("courierCode", courierCode);
 		i.putExtra("courierName", courierName);
 		i.putExtra("monitor", monitor);
+		i.putExtra("isMonitorable", isCourierMonitorable(courierCode) == true ? "1" : "0");
 		startActivity(i);
 	}
 
@@ -459,7 +466,7 @@ public class Main extends Activity {
 				if (packageDetails != null && packageDetails.length() > 0) {
 					startDetailsIntent(packageData[0],
 							packageDetails.toString(), packageData[1],
-							packageData[2], packageData[3]);
+							packageData[2], packageData[3], isCourierMonitorable(packageData[2]));
 				} else {
 					if (packageDetails == null)
 						showToast(getString(R.string.receiving_error));
@@ -579,36 +586,47 @@ public class Main extends Activity {
 		courierIsMonitorable = res.getIntArray(R.array.curiersIsMonitorable);
 		courierNames = res.getStringArray(R.array.curiers);
 		
-		Spinner s1 = (Spinner) findViewById(R.id.spinner1);
 		ArrayAdapter<String> adapter;
 		ArrayList<String> couriersArray;
 		String order = prefs.getString("curiersOrder", null);
 		if (order == null) {
 			couriersArray = new ArrayList<String>(
 					Arrays.asList(courierNames));
-			
+			customCuriersOrder = courierNames;
 		} else {
 			try {
 				JSONArray items = new JSONArray(order);
 				int count = items.length();
-				String[] result = new String[count];
+				customCuriersOrder = new String[count];
 				for (int i = 0; i < count; i++)
-					result[i] = items.getString(i);
+					customCuriersOrder[i] = items.getString(i);
 				couriersArray = new ArrayList<String>(
-						Arrays.asList(result));
+						Arrays.asList(customCuriersOrder));
 			} catch (JSONException e) {
 				couriersArray = new ArrayList<String>(
 						Arrays.asList(courierNames));
+				customCuriersOrder = courierNames;
 			}
 		}
 		adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_couriers_list, couriersArray);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s1.setAdapter(adapter);
-		s1.setOnItemSelectedListener(selectCourierListiner);
-		//s1.setSelection(prefs.getInt("selectedCourier", 0), true);
-
-
+		courierNameDropdown.setAdapter(adapter);
+		if (prefs.getBoolean("savedCourier", false))
+			courierNameDropdown.setSelection(getCustomCourierId(prefs.getInt("selectedCourier", 0)));
+		courierNameDropdown.setOnItemSelectedListener(selectCourierListiner);
 		
 	}
 	
+	private int getRealCourierId(String courierName) {
+		for(int i = 0; i < courierNames.length; i++) {
+			if (courierNames[i].equals(courierName)) return i;
+		}
+		return 0;
+	}
+	private int getCustomCourierId(int courierId) {
+		for(int i = 0; i < customCuriersOrder.length; i++) {
+			if (courierNames[courierId].equals(customCuriersOrder[i])) return i;
+		}
+		return 0;
+	}
 }

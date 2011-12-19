@@ -78,6 +78,7 @@ public class PreferencesCourierOrder extends ListActivity {
 			items.put(adapter.getItem(i));
 		}
 		prefsEditor.putString("curiersOrder", items.toString());
+		prefsEditor.putInt("selectedCourier", 0);
 		prefsEditor.commit();
 	}
 

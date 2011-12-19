@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/preferences_section_order" >
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="saveed"
+            android:key="savedCourier"
             android:summary="@string/preferences_save_courier_hint"
             android:title="@string/preferences_save_courier" />
         <Preference
