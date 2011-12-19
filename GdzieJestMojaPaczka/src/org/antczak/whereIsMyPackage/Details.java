@@ -32,6 +32,7 @@ public class Details extends Activity {
 	SharedPreferences prefs;
 	History history;
 	String packageNumber;
+	String isMonitorable;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class Details extends Activity {
 								+ getIntent().getExtras().getString(
 										"courierCode"), "drawable",
 						"org.antczak.whereIsMyPackage")));
+		isMonitorable = getIntent().getExtras().getString("isMonitorable");
 		packageNumber = getIntent().getExtras().getString("packageNumber");
 
 		((TextView) findViewById(R.id.textViewDetails1)).setText(packageNumber);
@@ -116,11 +118,16 @@ public class Details extends Activity {
 			menu.getItem(2).setVisible(false);
 			menu.getItem(3).setVisible(true);
 		}
-		if (currentMonitoringStatus) {
-			menu.getItem(0).setVisible(false);
-			menu.getItem(1).setVisible(true);
+		if (isMonitorable.equals("1")) {
+			if (currentMonitoringStatus) {
+				menu.getItem(0).setVisible(false);
+				menu.getItem(1).setVisible(true);
+			} else {
+				menu.getItem(0).setVisible(true);
+				menu.getItem(1).setVisible(false);
+			}
 		} else {
-			menu.getItem(0).setVisible(true);
+			menu.getItem(0).setVisible(false);
 			menu.getItem(1).setVisible(false);
 		}
 		return super.onPrepareOptionsMenu(menu);
