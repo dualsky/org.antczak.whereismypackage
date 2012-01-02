@@ -1,0 +1,203 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentActivity
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.view.PagerTitleStrip
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context)
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+com.google.android.apps.analytics.AnalyticsReceiver
+org.antczak.whereIsMyPackage.Details
+org.antczak.whereIsMyPackage.Main
+org.antczak.whereIsMyPackage.Preferences
+org.antczak.whereIsMyPackage.PreferencesCourierOrder
+org.antczak.whereIsMyPackage.R$array: int curiers
+org.antczak.whereIsMyPackage.R$array: int curiersCodes
+org.antczak.whereIsMyPackage.R$array: int curiersIsMonitorable
+org.antczak.whereIsMyPackage.R$array: int frequencyTitles
+org.antczak.whereIsMyPackage.R$array: int frequencyValues
+org.antczak.whereIsMyPackage.R$array: int sortingTitles
+org.antczak.whereIsMyPackage.R$array: int sortingValues
+org.antczak.whereIsMyPackage.R$attr: int dragndrop_background
+org.antczak.whereIsMyPackage.R$attr: int expanded_height
+org.antczak.whereIsMyPackage.R$attr: int grabber
+org.antczak.whereIsMyPackage.R$attr: int normal_height
+org.antczak.whereIsMyPackage.R$attr: int remove_mode
+org.antczak.whereIsMyPackage.R$drawable: int background
+org.antczak.whereIsMyPackage.R$drawable: int barcode
+org.antczak.whereIsMyPackage.R$drawable: int bg
+org.antczak.whereIsMyPackage.R$drawable: int courier_dhl
+org.antczak.whereIsMyPackage.R$drawable: int courier_dpd
+org.antczak.whereIsMyPackage.R$drawable: int courier_gls
+org.antczak.whereIsMyPackage.R$drawable: int courier_inpost
+org.antczak.whereIsMyPackage.R$drawable: int courier_kex
+org.antczak.whereIsMyPackage.R$drawable: int courier_opek
+org.antczak.whereIsMyPackage.R$drawable: int courier_poczta
+org.antczak.whereIsMyPackage.R$drawable: int courier_pocztex
+org.antczak.whereIsMyPackage.R$drawable: int courier_schenker
+org.antczak.whereIsMyPackage.R$drawable: int courier_siodemka
+org.antczak.whereIsMyPackage.R$drawable: int courier_tnt
+org.antczak.whereIsMyPackage.R$drawable: int courier_ups
+org.antczak.whereIsMyPackage.R$drawable: int ic_grabber
+org.antczak.whereIsMyPackage.R$drawable: int ic_launcher
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_clear_playlist
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_close_clear_cancel
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_compose
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_compose_delete
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_delete
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_info_details
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_preferences
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_revert
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_search
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_search_full
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_sort_by_size_asc
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_sort_by_size_desc
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_star
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_view
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_view_delete
+org.antczak.whereIsMyPackage.R$drawable: int ic_stat_notify
+org.antczak.whereIsMyPackage.R$id: int button1
+org.antczak.whereIsMyPackage.R$id: int button2
+org.antczak.whereIsMyPackage.R$id: int desc
+org.antczak.whereIsMyPackage.R$id: int editText1
+org.antczak.whereIsMyPackage.R$id: int fling
+org.antczak.whereIsMyPackage.R$id: int icon
+org.antczak.whereIsMyPackage.R$id: int imageViewDetails1
+org.antczak.whereIsMyPackage.R$id: int imageViewList1
+org.antczak.whereIsMyPackage.R$id: int imageViewOptionsMenu1
+org.antczak.whereIsMyPackage.R$id: int label
+org.antczak.whereIsMyPackage.R$id: int linearLayout1
+org.antczak.whereIsMyPackage.R$id: int listView1
+org.antczak.whereIsMyPackage.R$id: int listViewDetails1
+org.antczak.whereIsMyPackage.R$id: int menuAbout
+org.antczak.whereIsMyPackage.R$id: int menuClearHistory
+org.antczak.whereIsMyPackage.R$id: int menuClearMonitored
+org.antczak.whereIsMyPackage.R$id: int menuClose
+org.antczak.whereIsMyPackage.R$id: int menuOrderAsc
+org.antczak.whereIsMyPackage.R$id: int menuOrderDesc
+org.antczak.whereIsMyPackage.R$id: int menuPreferences
+org.antczak.whereIsMyPackage.R$id: int menuRate
+org.antczak.whereIsMyPackage.R$id: int menuRevert
+org.antczak.whereIsMyPackage.R$id: int menuStartMonitoring
+org.antczak.whereIsMyPackage.R$id: int menuStopMonitoring
+org.antczak.whereIsMyPackage.R$id: int none
+org.antczak.whereIsMyPackage.R$id: int scrollView1
+org.antczak.whereIsMyPackage.R$id: int slide
+org.antczak.whereIsMyPackage.R$id: int slideLeft
+org.antczak.whereIsMyPackage.R$id: int slideRight
+org.antczak.whereIsMyPackage.R$id: int spinner1
+org.antczak.whereIsMyPackage.R$id: int textView1
+org.antczak.whereIsMyPackage.R$id: int textView2
+org.antczak.whereIsMyPackage.R$id: int textView3
+org.antczak.whereIsMyPackage.R$id: int textView4
+org.antczak.whereIsMyPackage.R$id: int textView5
+org.antczak.whereIsMyPackage.R$id: int textViewDetails1
+org.antczak.whereIsMyPackage.R$id: int textViewDetails2
+org.antczak.whereIsMyPackage.R$id: int textViewHistory1
+org.antczak.whereIsMyPackage.R$id: int textViewHistory2
+org.antczak.whereIsMyPackage.R$id: int textViewHistory3
+org.antczak.whereIsMyPackage.R$id: int textViewList1
+org.antczak.whereIsMyPackage.R$id: int textViewList2
+org.antczak.whereIsMyPackage.R$id: int textViewList3
+org.antczak.whereIsMyPackage.R$id: int textViewOptionsMenu1
+org.antczak.whereIsMyPackage.R$id: int textViewSeparator1
+org.antczak.whereIsMyPackage.R$layout: int about
+org.antczak.whereIsMyPackage.R$layout: int add_desc
+org.antczak.whereIsMyPackage.R$layout: int details
+org.antczak.whereIsMyPackage.R$layout: int list_separator
+org.antczak.whereIsMyPackage.R$layout: int main
+org.antczak.whereIsMyPackage.R$layout: int options_menu
+org.antczak.whereIsMyPackage.R$layout: int preferences_courier_order_layout
+org.antczak.whereIsMyPackage.R$layout: int preferences_courier_order_layout_row
+org.antczak.whereIsMyPackage.R$layout: int simple_list_item_package_history
+org.antczak.whereIsMyPackage.R$layout: int simple_list_item_search_history
+org.antczak.whereIsMyPackage.R$layout: int simple_spinner_item_couriers_list
+org.antczak.whereIsMyPackage.R$layout: int whats_new
+org.antczak.whereIsMyPackage.R$menu: int menu_details
+org.antczak.whereIsMyPackage.R$menu: int menu_main
+org.antczak.whereIsMyPackage.R$menu: int menu_preferences_courier_order
+org.antczak.whereIsMyPackage.R$string: int GA
+org.antczak.whereIsMyPackage.R$string: int about_close_button
+org.antczak.whereIsMyPackage.R$string: int about_dialog_title
+org.antczak.whereIsMyPackage.R$string: int about_email
+org.antczak.whereIsMyPackage.R$string: int about_me
+org.antczak.whereIsMyPackage.R$string: int about_text
+org.antczak.whereIsMyPackage.R$string: int about_web
+org.antczak.whereIsMyPackage.R$string: int api_url
+org.antczak.whereIsMyPackage.R$string: int app_name
+org.antczak.whereIsMyPackage.R$string: int app_name_launcher
+org.antczak.whereIsMyPackage.R$string: int dialog_add_desc
+org.antczak.whereIsMyPackage.R$string: int dialog_add_desc_add
+org.antczak.whereIsMyPackage.R$string: int dialog_add_desc_cancel
+org.antczak.whereIsMyPackage.R$string: int dialog_add_desc_title
+org.antczak.whereIsMyPackage.R$string: int dialog_check_package
+org.antczak.whereIsMyPackage.R$string: int dialog_delete_desc
+org.antczak.whereIsMyPackage.R$string: int dialog_delete_from_history
+org.antczak.whereIsMyPackage.R$string: int dialog_start_monitoring
+org.antczak.whereIsMyPackage.R$string: int dialog_stop_monitoring
+org.antczak.whereIsMyPackage.R$string: int enter_package_number
+org.antczak.whereIsMyPackage.R$string: int hint
+org.antczak.whereIsMyPackage.R$string: int menu_about
+org.antczak.whereIsMyPackage.R$string: int menu_clean_history
+org.antczak.whereIsMyPackage.R$string: int menu_clean_monitoring
+org.antczak.whereIsMyPackage.R$string: int menu_close
+org.antczak.whereIsMyPackage.R$string: int menu_details_sort_asc
+org.antczak.whereIsMyPackage.R$string: int menu_details_sort_desc
+org.antczak.whereIsMyPackage.R$string: int menu_rate
+org.antczak.whereIsMyPackage.R$string: int menu_revert
+org.antczak.whereIsMyPackage.R$string: int menu_settings
+org.antczak.whereIsMyPackage.R$string: int menu_start_monitoring
+org.antczak.whereIsMyPackage.R$string: int menu_stop_monitoring
+org.antczak.whereIsMyPackage.R$string: int no_network
+org.antczak.whereIsMyPackage.R$string: int notification
+org.antczak.whereIsMyPackage.R$string: int preferences
+org.antczak.whereIsMyPackage.R$string: int preferences_auto_start_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_auto_start_title
+org.antczak.whereIsMyPackage.R$string: int preferences_courier_order
+org.antczak.whereIsMyPackage.R$string: int preferences_couriers_order
+org.antczak.whereIsMyPackage.R$string: int preferences_couriers_order_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_frequency_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_frequency_title
+org.antczak.whereIsMyPackage.R$string: int preferences_save_courier
+org.antczak.whereIsMyPackage.R$string: int preferences_save_courier_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_section_monitor
+org.antczak.whereIsMyPackage.R$string: int preferences_section_order
+org.antczak.whereIsMyPackage.R$string: int preferences_section_other
+org.antczak.whereIsMyPackage.R$string: int preferences_sorting_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_sorting_last_one
+org.antczak.whereIsMyPackage.R$string: int preferences_sorting_tip
+org.antczak.whereIsMyPackage.R$string: int preferences_sorting_title
+org.antczak.whereIsMyPackage.R$string: int preferences_wifi_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_wifi_title
+org.antczak.whereIsMyPackage.R$string: int receiving
+org.antczak.whereIsMyPackage.R$string: int receiving_error
+org.antczak.whereIsMyPackage.R$string: int receiving_no_data
+org.antczak.whereIsMyPackage.R$string: int separator_history
+org.antczak.whereIsMyPackage.R$string: int separator_monitor
+org.antczak.whereIsMyPackage.R$string: int title_details
+org.antczak.whereIsMyPackage.R$string: int title_details_history
+org.antczak.whereIsMyPackage.R$string: int whats_new
+org.antczak.whereIsMyPackage.R$string: int whats_new_title
+org.antczak.whereIsMyPackage.R$styleable: int[] TouchListView
+org.antczak.whereIsMyPackage.R$styleable: int TouchListView_dragndrop_background
+org.antczak.whereIsMyPackage.R$styleable: int TouchListView_expanded_height
+org.antczak.whereIsMyPackage.R$styleable: int TouchListView_grabber
+org.antczak.whereIsMyPackage.R$styleable: int TouchListView_normal_height
+org.antczak.whereIsMyPackage.R$styleable: int TouchListView_remove_mode
+org.antczak.whereIsMyPackage.R$xml: int preferences
+org.antczak.whereIsMyPackage.service.BootBrodcastReceiver
+org.antczak.whereIsMyPackage.service.MonitorService
+org.antczak.whereIsMyPackage.views.TouchListView
+org.antczak.whereIsMyPackage.views.TouchListView: TouchListView(android.content.Context,android.util.AttributeSet)
+org.antczak.whereIsMyPackage.views.TouchListView: TouchListView(android.content.Context,android.util.AttributeSet,int)

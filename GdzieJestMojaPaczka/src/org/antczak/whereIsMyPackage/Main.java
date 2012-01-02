@@ -3,7 +3,6 @@ package org.antczak.whereIsMyPackage;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.antczak.whereIsMyPackage.adpaters.ArrayAdapterCourierOrder;
 import org.antczak.whereIsMyPackage.adpaters.ArrayAdapterMenu;
 import org.antczak.whereIsMyPackage.adpaters.SimpleCursorAdapterHistory;
 import org.antczak.whereIsMyPackage.service.MonitorService;
@@ -139,7 +138,7 @@ public class Main extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		Log.i(TAG, "onPause()");
+		Log.v(TAG, "onPause()");
 		// checkPackageThread.suspend();
 		if (checkPackageThread != null)
 			checkPackageThread.cancel(true);
@@ -611,9 +610,10 @@ public class Main extends Activity {
 		adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_couriers_list, couriersArray);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		courierNameDropdown.setAdapter(adapter);
-		if (prefs.getBoolean("savedCourier", false))
-			courierNameDropdown.setSelection(getCustomCourierId(prefs.getInt("selectedCourier", 0)));
 		courierNameDropdown.setOnItemSelectedListener(selectCourierListiner);
+		if (prefs.getBoolean("savedCourier", false))
+			courierNameDropdown.setSelection(getCustomCourierId(prefs.getInt("selectedCourier", 0)), true);
+		
 		
 	}
 	
