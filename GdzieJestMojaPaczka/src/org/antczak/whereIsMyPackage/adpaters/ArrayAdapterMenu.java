@@ -38,7 +38,7 @@ public class ArrayAdapterMenu extends ArrayAdapter<Object> {
 				.findViewById(R.id.textViewOptionsMenu1);
 		tv.setText((String) objectArray[position][0]);
 		if (!isEnabled(position)) {
-			Log.e(TAG, "notEnabled: " + position);
+			Log.v(TAG, "notEnabled: " + position);
 			tv.setTextColor(-7829368);
 		} else
 			tv.setTextColor(-1);
