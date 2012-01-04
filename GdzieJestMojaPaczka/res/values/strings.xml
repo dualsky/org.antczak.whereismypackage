@@ -4,7 +4,8 @@
 	<string name="app_name_launcher">Gdzie jest paczka!?</string>
 	<string name="preferences">Ustawienia</string>
 	<string name="preferences_courier_order">Ustawienia kolejności firm</string>
-
+	<string name="donate">Wesprzyj autora</string>
+	
 	<string name="GA">***REMOVED***</string>
 
 	<string name="hint">Numer paczki...</string>
@@ -47,6 +48,7 @@
 	<string name="menu_clean_monitoring">Wyczyść monitorowane</string>
 	<string name="menu_clean_history">Wyczyść historię</string>
 	<string name="menu_rate">Oceń aplikację</string>
+	<string name="menu_donate">Wesprzyj autora</string>
 	<string name="menu_close">Zamknij</string>
 
 	<string name="notification">Status przesyłki został zaktualizowany</string>
@@ -65,7 +67,12 @@
 	<string name="preferences_sorting_hint">Sposób sortowania historii przesyłki.</string>
 	<string name="preferences_sorting_tip">Zmieniaj kolejność chwytając za ikonę.\nUsuń pozycję przesuwająć ją w prawą stronę.</string>
 	<string name="preferences_sorting_last_one">Nie możesz usunać ostatniej firmy...</string>
-	
+	<string name="preferences_autocheck_title">Sprawdź skanowane</string>
+	<string name="preferences_autocheck_hint">Jeśli zaznaczone, zeskanowane paczki będą sprawdzane automatycznie.</string>
+	<string name="preferences_barcode_scanner_hint">Kliknij aby zainstalować program Barcode Scanner z Marketu.</string>
+	<string name="preferences_barcode_scanner_title">Zainstaluj skaner</string>
+			
+	<string name="preferences_section_check">Opcje skanowania</string>
 	<string name="preferences_section_order">Lista firm kurierskich</string>
 	<string name="preferences_section_monitor">Monitorowanie</string>
 	<string name="preferences_section_other">Pozostałe</string>
@@ -78,7 +85,9 @@
 	<string name="about_web">http://antczak.org</string>
 
 	<string name="whats_new_title">Co nowego?</string>
-	<string name="whats_new">v1.3.0
+	<string name="whats_new">v.1.4.0
+	    \nDodano automatyczne sprawdzanie zeskanowanych paczek.
+	    \n\nv1.3.0
 		\nDodano zaawansowane zarzadzanie listą firm.
 		\nPoprawiono małe/wielkie litery w opisie paczki.
 		\nPoprawiono monitorowanie.
