@@ -136,6 +136,13 @@ public class Main extends Activity {
 	}
 
 	@Override
+	protected void onStart() {
+		super.onStart();
+		if (history == null)
+			history = new History(this);
+	}
+	
+	@Override
 	protected void onPause() {
 		super.onPause();
 		Log.v(TAG, "onPause()");
@@ -364,6 +371,8 @@ public class Main extends Activity {
 				String contents = intent.getStringExtra("SCAN_RESULT");
 				// String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
 				packageNumber.setText(contents);
+				if (prefs.getBoolean("autoCheck", false))
+					checkPackage.performClick();
 			}
 		}
 	}
@@ -496,6 +505,11 @@ public class Main extends Activity {
 		// Handle item selection
 		Log.v(TAG, "Menu: " + item.getItemId());
 		switch (item.getItemId()) {
+		case R.id.menuDonate:
+			Intent launchDonateIntent = new Intent().setClass(this,
+					Donate.class);
+			startActivityForResult(launchDonateIntent, 1);
+			return true;
 		case R.id.menuPreferences:
 			Intent launchPreferencesIntent = new Intent().setClass(this,
 					Preferences.class);

@@ -1,43 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="org.antczak.whereIsMyPackage" android:installLocation="auto" android:versionName="1.3.0" android:versionCode="5">
-	<application android:icon="@drawable/ic_launcher"
-		android:label="@string/app_name">
+    android:installLocation="auto"
+    package="org.antczak.whereIsMyPackage"
+    android:versionCode="6"
+    android:versionName="1.4.0" >
 
-		<activity android:name="Main" android:label="@string/app_name_launcher"
-			android:windowSoftInputMode="stateVisible|adjustPan">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
+    <uses-sdk android:minSdkVersion="4" />
 
-		<activity class=".Details" android:label="@string/app_name"
-			android:name="Details" android:screenOrientation="sensor"></activity>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-		<activity class=".Preferences" android:label="@string/preferences"
-			android:name="Preferences" android:screenOrientation="sensor"></activity>
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name="Main"
+            android:label="@string/app_name_launcher"
+            android:windowSoftInputMode="stateVisible|adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-		<activity class=".PreferencesCourierOrder" android:label="@string/preferences_courier_order"
-			android:name="PreferencesCourierOrder" android:screenOrientation="sensor"></activity>
-		
-		<receiver android:name=".service.BootBrodcastReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED">
-				</action>
-			</intent-filter>
-		</receiver>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="Details"
+            class=".Details"
+            android:label="@string/app_name"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="Preferences"
+            class=".Preferences"
+            android:label="@string/preferences"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="PreferencesCourierOrder"
+            class=".PreferencesCourierOrder"
+            android:label="@string/preferences_courier_order"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="Donate"
+            class=".Donate"
+            android:label="@string/donate"
+            android:screenOrientation="sensor" >
+        </activity>
+		<activity android:name="com.paypal.android.MEP.PayPalActivity"
+				  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+				  android:configChanges="keyboardHidden|orientation"/>
+        <receiver android:name=".service.BootBrodcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
 
-		<service android:name=".service.MonitorService">
-			<intent-filter>
-				<action android:name="org.antczak.whereIsMyPackage.MonitorService">
-				</action>
-			</intent-filter>
-		</service>
+        <service android:name=".service.MonitorService" >
+            <intent-filter>
+                <action android:name="org.antczak.whereIsMyPackage.MonitorService" >
+                </action>
+            </intent-filter>
+        </service>
+    </application>
 
-	</application>
-	<uses-sdk android:minSdkVersion="4" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>
