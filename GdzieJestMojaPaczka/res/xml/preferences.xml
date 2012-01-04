@@ -4,9 +4,11 @@
     <PreferenceCategory android:title="@string/preferences_section_order" >
         <CheckBoxPreference
             android:defaultValue="false"
+            android:disableDependentsState="false"
             android:key="savedCourier"
             android:summary="@string/preferences_save_courier_hint"
             android:title="@string/preferences_save_courier" />
+
         <Preference
             android:key="couriersOrder"
             android:summary="@string/preferences_couriers_order_hint"
@@ -17,6 +19,24 @@
                 android:targetPackage="org.antczak.whereIsMyPackage" />
         </Preference>
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_section_check" android:key="scanning">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="savedCourier"
+            android:key="autoCheck"
+            android:shouldDisableView="true"
+            android:summary="@string/preferences_autocheck_hint"
+            android:title="@string/preferences_autocheck_title" />
+        <Preference
+            android:key="barcodeScanner"
+            android:summary="@string/preferences_barcode_scanner_hint"
+            android:title="@string/preferences_barcode_scanner_title" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="market://details?id=com.google.zxing.client.android"
+                 />
+        </Preference>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_section_monitor" >
         <ListPreference
             android:defaultValue="30"
@@ -25,6 +45,7 @@
             android:key="frequency"
             android:summary="@string/preferences_frequency_hint"
             android:title="@string/preferences_frequency_title" />
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="wifi"

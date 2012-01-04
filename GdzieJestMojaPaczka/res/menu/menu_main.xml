@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<item android:id="@+id/menuRate" android:title="@string/menu_rate"
+	<item android:id="@+id/menuDonate" android:title="@string/menu_donate"
+		android:icon="@drawable/ic_menu_love"></item>
+    <item android:id="@+id/menuRate" android:title="@string/menu_rate"
 		android:icon="@drawable/ic_menu_star"></item>
 	<item android:id="@+id/menuAbout" android:title="@string/menu_about"
 		android:icon="@drawable/ic_menu_info_details"></item>
