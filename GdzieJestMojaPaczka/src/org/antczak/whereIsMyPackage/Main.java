@@ -411,7 +411,7 @@ public class Main extends Activity {
 
 	private void startDetailsIntent(String packageNumber,
 			String packageDetails, String courierName, String courierCode,
-			String monitor, boolean isMonitorable) {
+			String monitor, String isMonitorable) {
 		Intent i = new Intent(Main.this, Details.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		i.putExtra("packageNumber", packageNumber);
@@ -419,8 +419,7 @@ public class Main extends Activity {
 		i.putExtra("courierCode", courierCode);
 		i.putExtra("courierName", courierName);
 		i.putExtra("monitor", monitor);
-		i.putExtra("isMonitorable",
-				isCourierMonitorable(courierCode) == true ? "1" : "0");
+		i.putExtra("isMonitorable", isMonitorable);
 		startActivity(i);
 	}
 
@@ -488,7 +487,7 @@ public class Main extends Activity {
 					startDetailsIntent(packageData[0],
 							packageDetails.toString(), packageData[1],
 							packageData[2], packageData[3],
-							isCourierMonitorable(packageData[2]));
+							isCourierMonitorable(packageData[2]) == true ? "1" : "0");
 				} else {
 					if (packageDetails == null)
 						showToast(getString(R.string.receiving_error));
