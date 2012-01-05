@@ -127,7 +127,7 @@ public class Main extends Activity {
 
 		courierNameDropdown = (Spinner) findViewById(R.id.spinner1);
 		readCustomCuriersOrder();
-		
+
 		historyList = (ListView) findViewById(R.id.listView1);
 		historyList.setOnItemClickListener(historyListListiner);
 
@@ -141,7 +141,7 @@ public class Main extends Activity {
 		if (history == null)
 			history = new History(this);
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -187,7 +187,9 @@ public class Main extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-			prefsEditor.putInt("selectedCourier", getRealCourierId(courierNameDropdown.getSelectedItem().toString()));
+			prefsEditor.putInt("selectedCourier",
+					getRealCourierId(courierNameDropdown.getSelectedItem()
+							.toString()));
 			prefsEditor.commit();
 		}
 
@@ -216,8 +218,8 @@ public class Main extends Activity {
 						packageNumber.getText().toString()
 								.replaceAll("[^a-zA-Z0-9]", "").toUpperCase(),
 						(String) courierNameDropdown.getSelectedItem(),
-						courierCodes[getRealCourierId(courierNameDropdown.getSelectedItem().toString())],
-						"0");
+						courierCodes[getRealCourierId(courierNameDropdown
+								.getSelectedItem().toString())], "0");
 				packageNumber.setText("");
 			}
 
@@ -235,6 +237,7 @@ public class Main extends Activity {
 			final boolean isMonitorable = isCourierMonitorable(courierCode);
 			final String monitor = searchHistory.getString(4);
 			final boolean desc = searchHistory.isNull(5);
+			final String descText = desc ? "" : searchHistory.getString(5);
 
 			AlertDialog.Builder builder = new AlertDialog.Builder(Main.this);
 			builder.setTitle(courierName + ": " + packageNumber);
@@ -253,7 +256,7 @@ public class Main extends Activity {
 									: R.drawable.ic_menu_view, isMonitorable },
 					new Object[] {
 							desc ? getString(R.string.dialog_add_desc)
-									: getString(R.string.dialog_delete_desc),
+									: getString(R.string.dialog_modify_desc_long),
 							desc ? R.drawable.ic_menu_compose
 									: R.drawable.ic_menu_compose_delete },
 					new Object[] {
@@ -300,40 +303,50 @@ public class Main extends Activity {
 						refreshHistory();
 						break;
 					case 2:
-						if (desc) {
-							LayoutInflater factory = LayoutInflater
-									.from(Main.this);
-							final View textEntryView = factory.inflate(
-									R.layout.add_desc, null);
-							AlertDialog.Builder builder = new AlertDialog.Builder(
-									Main.this)
-									.setIcon(R.drawable.ic_menu_compose)
-									.setTitle(R.string.dialog_add_desc_title)
-									.setView(textEntryView)
-									.setPositiveButton(
-											R.string.dialog_add_desc_add,
-											new DialogInterface.OnClickListener() {
-												public void onClick(
-														DialogInterface dialog,
-														int whichButton) {
-													history.addDesc(
-															packageNumber,
-															((EditText) textEntryView
-																	.findViewById(R.id.desc))
-																	.getText()
-																	.toString());
-													refreshHistory();
-												}
-											})
-									.setNegativeButton(
-											R.string.dialog_add_desc_cancel,
-											null);
-							AlertDialog dialog = builder.create();
-							dialog.show();
+						LayoutInflater factory = LayoutInflater.from(Main.this);
+						View textEntryView = factory.inflate(R.layout.add_desc,
+								null);
+						final EditText descView = (EditText) textEntryView
+								.findViewById(R.id.desc);
+						DialogInterface.OnClickListener addListiner = new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								history.addDesc(packageNumber, descView
+										.getText().toString());
+								refreshHistory();
+
+							}
+						};
+						DialogInterface.OnClickListener delListiner = new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								history.deleteDesc(packageNumber);
+								refreshHistory();
+							}
+						};
+
+						AlertDialog.Builder builder = new AlertDialog.Builder(
+								Main.this)
+								.setIcon(R.drawable.ic_menu_compose)
+								.setTitle(R.string.dialog_add_desc_title)
+								.setView(textEntryView)
+
+								.setNegativeButton(
+										R.string.dialog_add_desc_cancel, null);
+						if (!desc) {
+							descView.setText(descText);
+							builder.setNeutralButton(
+									R.string.dialog_delete_desc, delListiner);
+							builder.setPositiveButton(
+									R.string.dialog_modify_desc, addListiner);
+
 						} else {
-							history.deleteDesc(packageNumber);
-							refreshHistory();
+							builder.setPositiveButton(
+									R.string.dialog_add_desc_add, addListiner);
 						}
+						AlertDialog dialog = builder.create();
+						dialog.show();
+
 						break;
 					case 3:
 						history.deleteFromHistory(packageNumber);
@@ -406,7 +419,8 @@ public class Main extends Activity {
 		i.putExtra("courierCode", courierCode);
 		i.putExtra("courierName", courierName);
 		i.putExtra("monitor", monitor);
-		i.putExtra("isMonitorable", isCourierMonitorable(courierCode) == true ? "1" : "0");
+		i.putExtra("isMonitorable",
+				isCourierMonitorable(courierCode) == true ? "1" : "0");
 		startActivity(i);
 	}
 
@@ -434,7 +448,6 @@ public class Main extends Activity {
 
 		@Override
 		protected void onPreExecute() {
-			// TODO Auto-generated method stub
 			super.onPreExecute();
 			setTitle(getTitle() + " - " + getString(R.string.receiving));
 			setProgressBarIndeterminateVisibility(true);
@@ -474,7 +487,8 @@ public class Main extends Activity {
 				if (packageDetails != null && packageDetails.length() > 0) {
 					startDetailsIntent(packageData[0],
 							packageDetails.toString(), packageData[1],
-							packageData[2], packageData[3], isCourierMonitorable(packageData[2]));
+							packageData[2], packageData[3],
+							isCourierMonitorable(packageData[2]));
 				} else {
 					if (packageDetails == null)
 						showToast(getString(R.string.receiving_error));
@@ -522,9 +536,6 @@ public class Main extends Activity {
 		case R.id.menuClearMonitored:
 			history.clearMonitored();
 			refreshHistory();
-			return true;
-		case R.id.menuClose:
-			finish();
 			return true;
 		case R.id.menuAbout:
 			LayoutInflater factory = LayoutInflater.from(this);
@@ -592,19 +603,18 @@ public class Main extends Activity {
 		}
 		return false;
 	}
-	
+
 	private void readCustomCuriersOrder() {
 		Resources res = getResources();
 		courierCodes = res.getStringArray(R.array.curiersCodes);
 		courierIsMonitorable = res.getIntArray(R.array.curiersIsMonitorable);
 		courierNames = res.getStringArray(R.array.curiers);
-		
+
 		ArrayAdapter<String> adapter;
 		ArrayList<String> couriersArray;
 		String order = prefs.getString("curiersOrder", null);
 		if (order == null) {
-			couriersArray = new ArrayList<String>(
-					Arrays.asList(courierNames));
+			couriersArray = new ArrayList<String>(Arrays.asList(courierNames));
 			customCuriersOrder = courierNames;
 		} else {
 			try {
@@ -621,25 +631,30 @@ public class Main extends Activity {
 				customCuriersOrder = courierNames;
 			}
 		}
-		adapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_couriers_list, couriersArray);
+		adapter = new ArrayAdapter<String>(this,
+				R.layout.simple_spinner_item_couriers_list, couriersArray);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		courierNameDropdown.setAdapter(adapter);
 		courierNameDropdown.setOnItemSelectedListener(selectCourierListiner);
 		if (prefs.getBoolean("savedCourier", false))
-			courierNameDropdown.setSelection(getCustomCourierId(prefs.getInt("selectedCourier", 0)), true);
-		
-		
+			courierNameDropdown.setSelection(
+					getCustomCourierId(prefs.getInt("selectedCourier", 0)),
+					true);
+
 	}
-	
+
 	private int getRealCourierId(String courierName) {
-		for(int i = 0; i < courierNames.length; i++) {
-			if (courierNames[i].equals(courierName)) return i;
+		for (int i = 0; i < courierNames.length; i++) {
+			if (courierNames[i].equals(courierName))
+				return i;
 		}
 		return 0;
 	}
+
 	private int getCustomCourierId(int courierId) {
-		for(int i = 0; i < customCuriersOrder.length; i++) {
-			if (courierNames[courierId].equals(customCuriersOrder[i])) return i;
+		for (int i = 0; i < customCuriersOrder.length; i++) {
+			if (courierNames[courierId].equals(customCuriersOrder[i]))
+				return i;
 		}
 		return 0;
 	}
