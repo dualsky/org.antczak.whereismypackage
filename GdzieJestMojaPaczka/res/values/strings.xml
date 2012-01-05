@@ -106,12 +106,13 @@
 	<string name="about_web">http://antczak.org</string>
 
 	<string name="whats_new_title">Co nowego?</string>
-	<string name="whats_new">v.1.4.0
+	<string name="whats_new">v1.4.1
 	    \nDodano automatyczne sprawdzanie zeskanowanych paczek.
 	    \nDodano możliwość zainstalowania skanera kodów kreskowych.
 	    \nDodano możliwość edycji opisu paczki.
 	    \nDodano mozliwość wsparcia autora poprzez \u00A9PayPal.
 	    \nPoprawiono zapamiętywanie wybranego kuriera.
+	    \nKosmetyka.
 	    \n\nv1.3.0
 		\nDodano zaawansowane zarzadzanie listą firm.
 		\nPoprawiono małe/wielkie litery w opisie paczki.
