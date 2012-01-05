@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/donateContent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
     android:orientation="vertical" >
-
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    </LinearLayout>
     <TextView
-        android:id="@+id/donatetextView1"
-        android:layout_width="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:id="@+id/donateStatus"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:textSize="20dp"
+        android:layout_weight="1"
+        android:paddingBottom="2dp"
+        android:text="@string/donate_init" />
+    <TextView
+        android:gravity="bottom|center_horizontal"
+        android:id="@+id/donateMessage"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:paddingBottom="10dp" />
 
 </LinearLayout>

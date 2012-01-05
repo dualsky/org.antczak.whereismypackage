@@ -29,7 +29,6 @@ public class Preferences extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
-		setContentView(R.layout.preferences_layout);
 		
 		monitorService = PendingIntent.getService(this, 0, new Intent(this,
 				MonitorService.class), PendingIntent.FLAG_UPDATE_CURRENT);

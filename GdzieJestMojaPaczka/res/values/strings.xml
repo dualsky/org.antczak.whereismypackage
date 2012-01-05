@@ -5,6 +5,9 @@
 	<string name="preferences">Ustawienia</string>
 	<string name="preferences_courier_order">Ustawienia kolejności firm</string>
 	<string name="donate">Wesprzyj autora</string>
+		
+	<string name="donate_recipient">***REMOVED***</string>
+	
 	
 	<string name="GA">***REMOVED***</string>
 
@@ -22,9 +25,12 @@
 	<string name="dialog_stop_monitoring">Przestań monitorować</string>
 	<string name="dialog_add_desc_title">Wprowadź opis</string>
 	<string name="dialog_add_desc">Dodaj opis</string>
+	<string name="dialog_modify_desc">Zapisz</string>
+	<string name="dialog_modify_desc_long">Modyfikuj opis</string>		
 	<string name="dialog_add_desc_add">Dodaj</string>
 	<string name="dialog_add_desc_cancel">Zrezygnuj</string>
-	<string name="dialog_delete_desc">Usuń opis</string>	
+	<string name="dialog_delete_desc">Usuń</string>	
+	
 
 	<string name="title_details">Szczegóły</string>
 	<string name="title_details_history">Historia</string>
@@ -77,6 +83,21 @@
 	<string name="preferences_section_monitor">Monitorowanie</string>
 	<string name="preferences_section_other">Pozostałe</string>
 
+	<string name="preferences_donate_currency">Wybierz walutę</string>
+	<string name="preferences_donate_amount">Wpisz kwotę</string>
+	<string name="preferences_donate_amount_ok">Zatwierdź</string>
+	<string name="preferences_donate_amount_notok">Zrezygnuj</string>	
+	
+	<string name="donate_init">Inicjalizuję \u00A9PayPal...</string>
+	<string name="donate_pp_ok">"\u00A9PayPal OK"</string>
+	<string name="donate_pp_notok">"Błąd \u00A9PayPal"</string>
+	<string name="donate_result_ok_status">Sukces!</string>
+	<string name="donate_result_ok_message">Transfer wykonany poprawnie. Dzięki!</string>
+	<string name="donate_result_cancel_status">Anulowano!</string>
+	<string name="donate_result_cancel_message">Transfer został anulowany</string>
+	<string name="donate_result_error_status">Błąd!</string>
+	<string name="donate_result_error_message">Komunikat: </string>
+		
 	<string name="about_dialog_title">Informacje</string>
 	<string name="about_close_button">Zamknij</string>
 	<string name="about_text">Program korzysta z informacji udostępnianych publicznie przez firmy kurierskie. Wszystkie znaki towarowe zostały użyte tylko w celach informacyjnych i należą do ich właścicieli.</string>
@@ -87,6 +108,10 @@
 	<string name="whats_new_title">Co nowego?</string>
 	<string name="whats_new">v.1.4.0
 	    \nDodano automatyczne sprawdzanie zeskanowanych paczek.
+	    \nDodano możliwość zainstalowania skanera kodów kreskowych.
+	    \nDodano możliwość edycji opisu paczki.
+	    \nDodano mozliwość wsparcia autora poprzez \u00A9PayPal.
+	    \nPoprawiono zapamiętywanie wybranego kuriera.
 	    \n\nv1.3.0
 		\nDodano zaawansowane zarzadzanie listą firm.
 		\nPoprawiono małe/wielkie litery w opisie paczki.
