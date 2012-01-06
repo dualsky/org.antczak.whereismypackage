@@ -106,7 +106,9 @@
 	<string name="about_web">http://antczak.org</string>
 
 	<string name="whats_new_title">Co nowego?</string>
-	<string name="whats_new">v1.4.1
+	<string name="whats_new">v1.4.2
+	    \nPoprawiono automatyczne skanowanie
+	    \n\nv1.4.1
 	    \nDodano automatyczne sprawdzanie zeskanowanych paczek.
 	    \nDodano możliwość zainstalowania skanera kodów kreskowych.
 	    \nDodano możliwość edycji opisu paczki.
