@@ -160,6 +160,12 @@ public class Main extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		Log.v(TAG, "onResume()");
+		onCustomResume();
+	}
+
+	private void onCustomResume() {
+		Log.v(TAG, "onCustomResume()");
 		if (history == null)
 			history = new History(this);
 		readCustomCuriersOrder();
@@ -167,7 +173,7 @@ public class Main extends Activity {
 		tracker = GoogleAnalyticsTracker.getInstance();
 		tracker.start(getString(R.string.GA), this);
 	}
-
+	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -222,7 +228,6 @@ public class Main extends Activity {
 								.getSelectedItem().toString())], "0");
 				packageNumber.setText("");
 			}
-
 		}
 	};
 
@@ -379,6 +384,7 @@ public class Main extends Activity {
 	// Scan
 	// ////////////////////////////////////////////////////////////////////////////////
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		onCustomResume();
 		if (requestCode == 0) {
 			if (resultCode == RESULT_OK) {
 				String contents = intent.getStringExtra("SCAN_RESULT");
