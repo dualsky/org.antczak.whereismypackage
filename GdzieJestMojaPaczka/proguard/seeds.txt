@@ -18,13 +18,72 @@ android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.uti
 android.support.v4.view.ViewPager$SavedState
 android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
 com.google.android.apps.analytics.AnalyticsReceiver
+com.paypal.android.MEP.CheckoutButton
+com.paypal.android.MEP.CheckoutButton: CheckoutButton(android.content.Context)
+com.paypal.android.MEP.PayPalActivity
+com.paypal.android.MEP.a.a
+com.paypal.android.MEP.a.a: a(android.content.Context)
+com.paypal.android.MEP.a.a$a: com.paypal.android.MEP.a.a$a[] values()
+com.paypal.android.MEP.a.a$a: com.paypal.android.MEP.a.a$a valueOf(java.lang.String)
+com.paypal.android.MEP.a.b
+com.paypal.android.MEP.a.b: b(android.content.Context)
+com.paypal.android.MEP.a.c
+com.paypal.android.MEP.a.c: c(android.content.Context)
+com.paypal.android.MEP.a.d
+com.paypal.android.MEP.a.d: d(android.content.Context)
+com.paypal.android.MEP.a.d$a: com.paypal.android.MEP.a.d$a[] values()
+com.paypal.android.MEP.a.d$a: com.paypal.android.MEP.a.d$a valueOf(java.lang.String)
+com.paypal.android.MEP.a.e
+com.paypal.android.MEP.a.e: e(android.content.Context)
+com.paypal.android.MEP.a.e$a: com.paypal.android.MEP.a.e$a[] values()
+com.paypal.android.MEP.a.e$a: com.paypal.android.MEP.a.e$a valueOf(java.lang.String)
+com.paypal.android.MEP.a.f
+com.paypal.android.MEP.a.f: f(android.content.Context)
+com.paypal.android.MEP.a.g
+com.paypal.android.MEP.a.g: g(android.content.Context)
+com.paypal.android.MEP.a.g$a: com.paypal.android.MEP.a.g$a[] values()
+com.paypal.android.MEP.a.g$a: com.paypal.android.MEP.a.g$a valueOf(java.lang.String)
+com.paypal.android.MEP.a.h
+com.paypal.android.MEP.a.h: h(android.content.Context)
+com.paypal.android.MEP.b.a
+com.paypal.android.MEP.b.a$a: com.paypal.android.MEP.b.a$a[] values()
+com.paypal.android.MEP.b.a$a: com.paypal.android.MEP.b.a$a valueOf(java.lang.String)
+com.paypal.android.MEP.b.b
+com.paypal.android.MEP.b.c
+com.paypal.android.MEP.b.e
+com.paypal.android.MEP.b.e: e(android.content.Context)
+com.paypal.android.a.o$a: com.paypal.android.a.o$a[] values()
+com.paypal.android.a.o$a: com.paypal.android.a.o$a valueOf(java.lang.String)
+com.paypal.android.b.a
+com.paypal.android.b.a: a(android.content.Context)
+com.paypal.android.b.b
+com.paypal.android.b.b: b(android.content.Context)
+com.paypal.android.b.c
+com.paypal.android.b.c: c(android.content.Context)
+com.paypal.android.b.d
+com.paypal.android.b.d: d(android.content.Context)
+com.paypal.android.b.e
+com.paypal.android.b.e: e(android.content.Context)
+com.paypal.android.b.f
+com.paypal.android.b.g
+com.paypal.android.b.g: g(android.content.Context)
+com.paypal.android.b.h
+com.paypal.android.b.i
+com.paypal.android.b.i$a: com.paypal.android.b.i$a[] values()
+com.paypal.android.b.i$a: com.paypal.android.b.i$a valueOf(java.lang.String)
+com.paypal.android.b.j
+com.paypal.android.b.j: j(android.content.Context)
+com.paypal.android.b.k
+com.paypal.android.b.k: k(android.content.Context)
 org.antczak.whereIsMyPackage.Details
+org.antczak.whereIsMyPackage.Donate
 org.antczak.whereIsMyPackage.Main
 org.antczak.whereIsMyPackage.Preferences
 org.antczak.whereIsMyPackage.PreferencesCourierOrder
 org.antczak.whereIsMyPackage.R$array: int curiers
 org.antczak.whereIsMyPackage.R$array: int curiersCodes
 org.antczak.whereIsMyPackage.R$array: int curiersIsMonitorable
+org.antczak.whereIsMyPackage.R$array: int currency
 org.antczak.whereIsMyPackage.R$array: int frequencyTitles
 org.antczak.whereIsMyPackage.R$array: int frequencyValues
 org.antczak.whereIsMyPackage.R$array: int sortingTitles
@@ -57,6 +116,7 @@ org.antczak.whereIsMyPackage.R$drawable: int ic_menu_compose
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_compose_delete
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_delete
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_info_details
+org.antczak.whereIsMyPackage.R$drawable: int ic_menu_love
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_preferences
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_revert
 org.antczak.whereIsMyPackage.R$drawable: int ic_menu_search
@@ -70,6 +130,9 @@ org.antczak.whereIsMyPackage.R$drawable: int ic_stat_notify
 org.antczak.whereIsMyPackage.R$id: int button1
 org.antczak.whereIsMyPackage.R$id: int button2
 org.antczak.whereIsMyPackage.R$id: int desc
+org.antczak.whereIsMyPackage.R$id: int donateContent
+org.antczak.whereIsMyPackage.R$id: int donateMessage
+org.antczak.whereIsMyPackage.R$id: int donateStatus
 org.antczak.whereIsMyPackage.R$id: int editText1
 org.antczak.whereIsMyPackage.R$id: int fling
 org.antczak.whereIsMyPackage.R$id: int icon
@@ -83,7 +146,7 @@ org.antczak.whereIsMyPackage.R$id: int listViewDetails1
 org.antczak.whereIsMyPackage.R$id: int menuAbout
 org.antczak.whereIsMyPackage.R$id: int menuClearHistory
 org.antczak.whereIsMyPackage.R$id: int menuClearMonitored
-org.antczak.whereIsMyPackage.R$id: int menuClose
+org.antczak.whereIsMyPackage.R$id: int menuDonate
 org.antczak.whereIsMyPackage.R$id: int menuOrderAsc
 org.antczak.whereIsMyPackage.R$id: int menuOrderDesc
 org.antczak.whereIsMyPackage.R$id: int menuPreferences
@@ -115,6 +178,7 @@ org.antczak.whereIsMyPackage.R$id: int textViewSeparator1
 org.antczak.whereIsMyPackage.R$layout: int about
 org.antczak.whereIsMyPackage.R$layout: int add_desc
 org.antczak.whereIsMyPackage.R$layout: int details
+org.antczak.whereIsMyPackage.R$layout: int donate
 org.antczak.whereIsMyPackage.R$layout: int list_separator
 org.antczak.whereIsMyPackage.R$layout: int main
 org.antczak.whereIsMyPackage.R$layout: int options_menu
@@ -144,8 +208,21 @@ org.antczak.whereIsMyPackage.R$string: int dialog_add_desc_title
 org.antczak.whereIsMyPackage.R$string: int dialog_check_package
 org.antczak.whereIsMyPackage.R$string: int dialog_delete_desc
 org.antczak.whereIsMyPackage.R$string: int dialog_delete_from_history
+org.antczak.whereIsMyPackage.R$string: int dialog_modify_desc
+org.antczak.whereIsMyPackage.R$string: int dialog_modify_desc_long
 org.antczak.whereIsMyPackage.R$string: int dialog_start_monitoring
 org.antczak.whereIsMyPackage.R$string: int dialog_stop_monitoring
+org.antczak.whereIsMyPackage.R$string: int donate
+org.antczak.whereIsMyPackage.R$string: int donate_init
+org.antczak.whereIsMyPackage.R$string: int donate_pp_notok
+org.antczak.whereIsMyPackage.R$string: int donate_pp_ok
+org.antczak.whereIsMyPackage.R$string: int donate_recipient
+org.antczak.whereIsMyPackage.R$string: int donate_result_cancel_message
+org.antczak.whereIsMyPackage.R$string: int donate_result_cancel_status
+org.antczak.whereIsMyPackage.R$string: int donate_result_error_message
+org.antczak.whereIsMyPackage.R$string: int donate_result_error_status
+org.antczak.whereIsMyPackage.R$string: int donate_result_ok_message
+org.antczak.whereIsMyPackage.R$string: int donate_result_ok_status
 org.antczak.whereIsMyPackage.R$string: int enter_package_number
 org.antczak.whereIsMyPackage.R$string: int hint
 org.antczak.whereIsMyPackage.R$string: int menu_about
@@ -154,6 +231,7 @@ org.antczak.whereIsMyPackage.R$string: int menu_clean_monitoring
 org.antczak.whereIsMyPackage.R$string: int menu_close
 org.antczak.whereIsMyPackage.R$string: int menu_details_sort_asc
 org.antczak.whereIsMyPackage.R$string: int menu_details_sort_desc
+org.antczak.whereIsMyPackage.R$string: int menu_donate
 org.antczak.whereIsMyPackage.R$string: int menu_rate
 org.antczak.whereIsMyPackage.R$string: int menu_revert
 org.antczak.whereIsMyPackage.R$string: int menu_settings
@@ -164,13 +242,22 @@ org.antczak.whereIsMyPackage.R$string: int notification
 org.antczak.whereIsMyPackage.R$string: int preferences
 org.antczak.whereIsMyPackage.R$string: int preferences_auto_start_hint
 org.antczak.whereIsMyPackage.R$string: int preferences_auto_start_title
+org.antczak.whereIsMyPackage.R$string: int preferences_autocheck_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_autocheck_title
+org.antczak.whereIsMyPackage.R$string: int preferences_barcode_scanner_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_barcode_scanner_title
 org.antczak.whereIsMyPackage.R$string: int preferences_courier_order
 org.antczak.whereIsMyPackage.R$string: int preferences_couriers_order
 org.antczak.whereIsMyPackage.R$string: int preferences_couriers_order_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_donate_amount
+org.antczak.whereIsMyPackage.R$string: int preferences_donate_amount_notok
+org.antczak.whereIsMyPackage.R$string: int preferences_donate_amount_ok
+org.antczak.whereIsMyPackage.R$string: int preferences_donate_currency
 org.antczak.whereIsMyPackage.R$string: int preferences_frequency_hint
 org.antczak.whereIsMyPackage.R$string: int preferences_frequency_title
 org.antczak.whereIsMyPackage.R$string: int preferences_save_courier
 org.antczak.whereIsMyPackage.R$string: int preferences_save_courier_hint
+org.antczak.whereIsMyPackage.R$string: int preferences_section_check
 org.antczak.whereIsMyPackage.R$string: int preferences_section_monitor
 org.antczak.whereIsMyPackage.R$string: int preferences_section_order
 org.antczak.whereIsMyPackage.R$string: int preferences_section_other
@@ -196,6 +283,7 @@ org.antczak.whereIsMyPackage.R$styleable: int TouchListView_grabber
 org.antczak.whereIsMyPackage.R$styleable: int TouchListView_normal_height
 org.antczak.whereIsMyPackage.R$styleable: int TouchListView_remove_mode
 org.antczak.whereIsMyPackage.R$xml: int preferences
+org.antczak.whereIsMyPackage.R$xml: int preferences_donate
 org.antczak.whereIsMyPackage.service.BootBrodcastReceiver
 org.antczak.whereIsMyPackage.service.MonitorService
 org.antczak.whereIsMyPackage.views.TouchListView

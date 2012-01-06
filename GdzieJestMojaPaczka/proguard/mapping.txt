@@ -922,6 +922,1010 @@ com.google.android.apps.analytics.Transaction$Builder -> com.google.android.apps
     java.lang.String access$200(com.google.android.apps.analytics.Transaction$Builder) -> c
     double access$300(com.google.android.apps.analytics.Transaction$Builder) -> d
     double access$400(com.google.android.apps.analytics.Transaction$Builder) -> e
+com.paypal.android.MEP.CheckoutButton -> com.paypal.android.MEP.CheckoutButton:
+    int a -> a
+    int b -> b
+    int c -> c
+    int d -> d
+    boolean e -> e
+    android.widget.LinearLayout f -> f
+    android.graphics.drawable.GradientDrawable g -> g
+    android.widget.TextView h -> h
+    android.widget.TextView i -> i
+    android.widget.LinearLayout j -> j
+    android.content.Context k -> k
+    android.graphics.drawable.StateListDrawable l -> l
+    android.widget.TextView m -> m
+    android.widget.TextView n -> n
+    android.widget.ImageView o -> o
+    boolean p -> p
+    void a$255f295() -> a
+    void updateButton() -> b
+    void setActive(boolean) -> a
+    void onClick(android.view.View) -> onClick
+com.paypal.android.MEP.MEPAddress -> com.paypal.android.MEP.a:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    void setStreet1(java.lang.String) -> a
+    void setStreet2(java.lang.String) -> b
+    void setCity(java.lang.String) -> c
+    void setState(java.lang.String) -> d
+    void setPostalcode(java.lang.String) -> e
+    void setCountrycode(java.lang.String) -> f
+com.paypal.android.MEP.MEPAmounts -> com.paypal.android.MEP.b:
+    java.lang.String a -> a
+    java.math.BigDecimal b -> b
+    java.math.BigDecimal c -> c
+    java.math.BigDecimal d -> d
+    void setCurrency(java.lang.String) -> a
+    void setPaymentAmount(java.math.BigDecimal) -> a
+    java.math.BigDecimal getPaymentAmount() -> a
+    void setTax(java.math.BigDecimal) -> b
+    java.math.BigDecimal getTax() -> b
+    void setShipping(java.math.BigDecimal) -> c
+    java.math.BigDecimal getShipping() -> c
+com.paypal.android.MEP.MEPReceiverAmounts -> com.paypal.android.MEP.c:
+    com.paypal.android.MEP.MEPAmounts amounts -> a
+    java.lang.String receiver -> b
+com.paypal.android.MEP.PayPal -> com.paypal.android.MEP.d:
+    java.lang.String[] a -> a
+    java.lang.String[] b -> b
+    com.paypal.android.MEP.PayPal$a c -> c
+    com.paypal.android.MEP.PayPal$b d -> d
+    java.lang.Boolean e -> e
+    com.paypal.android.c.a f -> f
+    boolean g -> g
+    java.lang.String h -> h
+    java.lang.String i -> i
+    com.paypal.android.MEP.PayPal getInstance() -> a
+    com.paypal.android.MEP.PayPal initWithAppID$7fdd637f(android.content.Context,java.lang.String) -> a
+    void setLanguage(java.lang.String) -> a
+    boolean isLibraryInitialized() -> b
+    void setLibraryInitialized(boolean) -> a
+    void onInitializeCompletedOK$1ef468a() -> c
+    void onInitializeCompletedError$1ef468a() -> d
+    com.paypal.android.MEP.CheckoutButton getCheckoutButton$114c8a07(android.content.Context) -> a
+    android.content.Intent checkout(com.paypal.android.MEP.PayPalPayment,android.content.Context) -> a
+    com.paypal.android.MEP.PayPalAdvancedPayment getPayment() -> e
+    com.paypal.android.MEP.PayPalPreapproval getPreapproval() -> f
+    android.content.Context getParentContext() -> g
+    java.lang.String getAppID() -> h
+    java.lang.String getPreapprovalKey() -> i
+    java.lang.String getLanguage() -> j
+    java.lang.String getCancelUrl() -> k
+    java.lang.String getReturnUrl() -> l
+    int getServer() -> m
+    int getTextType() -> n
+    int getFeesPayer() -> o
+    boolean getShippingEnabled() -> p
+    boolean getDynamicAmountCalculationEnabled() -> q
+    void setCancelUrl(java.lang.String) -> b
+    void setReturnUrl(java.lang.String) -> c
+    void setFeesPayer$13462e() -> r
+    java.lang.String a(java.lang.String) -> h
+    java.lang.String getAccountName() -> s
+    void setAccountName(java.lang.String) -> d
+    java.lang.String getAccountEmail() -> t
+    void setAccountEmail(java.lang.String) -> e
+    java.lang.String getAccountPhone() -> u
+    void setAccountPhone(java.lang.String) -> f
+    int getAuthMethod() -> v
+    void setAuthMethod(int) -> a
+    void setIsRememberMe(boolean) -> b
+    boolean getIsRememberMe() -> w
+    int getAuthSetting() -> x
+    void setAuthSetting(int) -> b
+    boolean hasCreatedPIN() -> y
+    void setPINCreated(boolean) -> c
+    void resetAccount() -> z
+    java.lang.String getVersion() -> A
+    java.lang.String getVersionWithoutBuild() -> B
+    java.lang.String getBuild() -> C
+    java.lang.String getPayType(int) -> c
+    java.lang.String getPaySubtype(int) -> d
+    int getPayType() -> D
+    float getDensity() -> E
+    boolean isPersonalPayment() -> F
+    boolean shouldShowFees() -> G
+    boolean isHeavyCountry() -> H
+    boolean isLightCountry() -> I
+    boolean canShowCart() -> J
+    java.lang.String getAdjustPaymentError() -> K
+    void setAccountCountryDialingCode(java.lang.String) -> g
+    java.lang.String getAccountCountryDialingCode() -> L
+    int logd$16da0604() -> M
+    int loge(java.lang.String,java.lang.String) -> a
+com.paypal.android.MEP.PayPal$a -> com.paypal.android.MEP.e:
+    com.paypal.android.MEP.PayPalAdvancedPayment a -> a
+    com.paypal.android.MEP.PayPalPreapproval b -> b
+    com.paypal.android.MEP.CheckoutButton c -> c
+    android.content.Context d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    java.lang.String h -> h
+    java.lang.String i -> i
+    int j -> j
+    int k -> k
+    int l -> l
+    boolean m -> m
+    boolean n -> n
+com.paypal.android.MEP.PayPal$b -> com.paypal.android.MEP.f:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    int d -> d
+    int e -> e
+    boolean f -> f
+    com.paypal.android.MEP.PayPal g -> g
+com.paypal.android.MEP.PayPalActivity -> com.paypal.android.MEP.PayPalActivity:
+    com.paypal.android.MEP.PaymentAdjuster a -> n
+    com.paypal.android.MEP.PayPalResultDelegate b -> o
+    com.paypal.android.MEP.PayPalActivity c -> p
+    com.paypal.android.a.b _networkHandler -> a
+    com.paypal.android.MEP.PayPal _paypal -> b
+    java.util.Vector d -> q
+    android.view.animation.Animation e -> r
+    android.content.Intent f -> s
+    boolean g -> t
+    java.lang.String h -> u
+    boolean transactionSuccessful -> c
+    android.content.BroadcastReceiver i -> v
+    java.lang.String LOGIN_SUCCESS -> d
+    java.lang.String AUTH_SUCCESS -> e
+    java.lang.String LOGIN_FAIL -> f
+    java.lang.String CREATE_PAYMENT_SUCCESS -> g
+    java.lang.String CREATE_PAYMENT_FAIL -> h
+    java.lang.String FATAL_ERROR -> i
+    android.content.BroadcastReceiver j -> w
+    java.lang.String _pushIntent -> j
+    java.lang.String _popIntent -> k
+    java.lang.String _replaceIntent -> l
+    java.lang.String _updateIntent -> m
+    void onCreate(android.os.Bundle) -> onCreate
+    void b() -> f
+    java.lang.Object onRetainNonConfigurationInstance() -> onRetainNonConfigurationInstance
+    void onDestroy() -> onDestroy
+    void c() -> g
+    boolean a(int) -> a
+    com.paypal.android.MEP.PayPalActivity getInstance() -> a
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    java.util.Vector adjustAmountsAdvanced$408a809f() -> b
+    void paymentCanceled() -> c
+    void paymentFailed(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean,boolean) -> a
+    void paymentSucceeded(java.lang.String,java.lang.String) -> a
+    void paymentSucceeded(java.lang.String,java.lang.String,boolean) -> a
+    void setTransactionSuccessful$1385ff() -> d
+    java.lang.String a(java.lang.String) -> a
+    android.content.Intent a(com.paypal.android.MEP.PayPalActivity,android.content.Intent) -> a
+    com.paypal.android.MEP.PayPalActivity a() -> e
+    boolean a(com.paypal.android.MEP.PayPalActivity,int) -> a
+    boolean a(com.paypal.android.MEP.PayPalActivity) -> a
+    boolean b(com.paypal.android.MEP.PayPalActivity,int) -> b
+    void b(com.paypal.android.MEP.PayPalActivity) -> b
+com.paypal.android.MEP.PayPalAdvancedPayment -> com.paypal.android.MEP.g:
+    java.lang.String a -> a
+    java.util.ArrayList b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String getCurrencyType() -> a
+    java.util.ArrayList getReceivers() -> b
+    java.lang.String getIpnUrl() -> c
+    java.lang.String getMemo() -> d
+    void setCurrencyType(java.lang.String) -> a
+    void setIpnUrl(java.lang.String) -> b
+    void setMemo(java.lang.String) -> c
+    boolean isValid() -> e
+    boolean hasPrimaryReceiever() -> f
+    com.paypal.android.MEP.PayPalReceiverDetails getPrimaryReceiver() -> g
+    java.math.BigDecimal getTotal() -> h
+    java.math.BigDecimal getTotalTax() -> i
+    java.math.BigDecimal getTotalShipping() -> j
+    java.lang.String getMerchantName() -> k
+com.paypal.android.MEP.PayPalInvoiceData -> com.paypal.android.MEP.h:
+    java.math.BigDecimal b -> b
+    java.math.BigDecimal c -> c
+    java.util.ArrayList a -> a
+    java.math.BigDecimal getTax() -> a
+    java.math.BigDecimal getShipping() -> b
+    java.util.ArrayList getInvoiceItems() -> c
+    void setTax(java.math.BigDecimal) -> a
+    void setShipping(java.math.BigDecimal) -> b
+com.paypal.android.MEP.PayPalInvoiceItem -> com.paypal.android.MEP.i:
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.math.BigDecimal a -> a
+    java.math.BigDecimal d -> d
+    int e -> e
+    java.lang.String getName() -> a
+    java.lang.String getID() -> b
+    java.math.BigDecimal getTotalPrice() -> c
+    java.math.BigDecimal getUnitPrice() -> d
+    int getQuantity() -> e
+    boolean isValid() -> f
+com.paypal.android.MEP.PayPalPayment -> com.paypal.android.MEP.j:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.math.BigDecimal c -> c
+    com.paypal.android.MEP.PayPalInvoiceData d -> d
+    int e -> e
+    int f -> f
+    java.lang.String g -> g
+    java.lang.String h -> h
+    java.lang.String i -> i
+    java.lang.String j -> j
+    java.lang.String getCurrencyType() -> a
+    java.lang.String getRecipient() -> b
+    java.math.BigDecimal getSubtotal() -> c
+    com.paypal.android.MEP.PayPalInvoiceData getInvoiceData() -> d
+    int getPaymentType() -> e
+    int getPaymentSubtype() -> f
+    java.lang.String getCustomID() -> g
+    java.lang.String getMerchantName() -> h
+    java.lang.String getIpnUrl() -> i
+    java.lang.String getMemo() -> j
+    void setCurrencyType(java.lang.String) -> a
+    void setRecipient(java.lang.String) -> b
+    void setSubtotal(java.math.BigDecimal) -> a
+    void setPaymentType$13462e() -> k
+com.paypal.android.MEP.PayPalPreapproval -> com.paypal.android.MEP.k:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    int c -> c
+    java.math.BigDecimal d -> d
+    java.math.BigDecimal e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    boolean h -> h
+    boolean i -> i
+    int j -> j
+    int k -> k
+    int l -> l
+    int m -> m
+    java.lang.String n -> n
+    java.lang.String o -> o
+    int p -> p
+    java.lang.String getMerchantName() -> a
+    java.lang.String getStartDate() -> b
+    java.lang.String getEndDate() -> c
+    boolean getPinRequired() -> d
+    void setCurrencyType(java.lang.String) -> a
+    void setMaxNumberOfPayments(int) -> a
+    void setMaxAmountPerPayment(java.math.BigDecimal) -> a
+    void setMaxTotalAmountOfAllPayments(java.math.BigDecimal) -> b
+    void setStartDate(java.lang.String) -> b
+    void setEndDate(java.lang.String) -> c
+    void setIsApproved(boolean) -> a
+    void setPinRequired(boolean) -> b
+    void setPaymentPeriod(int) -> b
+    void setDayOfWeek(int) -> c
+    void setDayOfMonth(int) -> d
+    void setMaxNumberOfPaymentsPerPeriod(int) -> e
+    void setIpnUrl(java.lang.String) -> d
+    void setMemo(java.lang.String) -> e
+    boolean isValid() -> e
+    int getPaymentPeriodInt(java.lang.String) -> f
+    int getDayOfWeekInt(java.lang.String) -> g
+    int getType() -> f
+com.paypal.android.MEP.PayPalReceiverDetails -> com.paypal.android.MEP.l:
+    java.lang.String a -> a
+    java.math.BigDecimal b -> b
+    com.paypal.android.MEP.PayPalInvoiceData c -> c
+    int d -> d
+    int e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    java.lang.String h -> h
+    boolean i -> i
+    java.lang.String getRecipient() -> a
+    java.math.BigDecimal getSubtotal() -> b
+    com.paypal.android.MEP.PayPalInvoiceData getInvoiceData() -> c
+    int getPaymentType() -> d
+    int getPaymentSubtype() -> e
+    java.lang.String getDescription() -> f
+    java.lang.String getCustomID() -> g
+    java.lang.String getMerchantName() -> h
+    boolean getIsPrimary() -> i
+    void setRecipient(java.lang.String) -> a
+    void setSubtotal(java.math.BigDecimal) -> a
+    void setInvoiceData(com.paypal.android.MEP.PayPalInvoiceData) -> a
+    void setPaymentType(int) -> a
+    void setPaymentSubtype(int) -> b
+    void setDescription(java.lang.String) -> b
+    void setCustomID(java.lang.String) -> c
+    void setMerchantName(java.lang.String) -> d
+    void setIsPrimary$1385ff() -> j
+    boolean isEmailRecipient() -> k
+    boolean isPhoneRecipient() -> l
+    java.math.BigDecimal getTotal() -> m
+com.paypal.android.MEP.PayPalResultDelegate -> com.paypal.android.MEP.m:
+com.paypal.android.MEP.PaymentAdjuster -> com.paypal.android.MEP.n:
+    java.util.Vector adjustAmountsAdvanced$408a809f() -> a
+com.paypal.android.MEP.a -> com.paypal.android.MEP.o:
+    com.paypal.android.MEP.a a -> a
+    com.paypal.android.MEP.a a() -> a
+    void a(com.paypal.android.MEP.a$b,java.lang.String,java.lang.String) -> a
+    void a(com.paypal.android.MEP.a$b) -> a
+    void b(com.paypal.android.MEP.a$b,java.lang.String,java.lang.String) -> b
+com.paypal.android.MEP.a$a -> com.paypal.android.MEP.p:
+    com.paypal.android.MEP.a$b a -> a
+    void run() -> run
+com.paypal.android.MEP.a$b -> com.paypal.android.MEP.q:
+    void l() -> a
+    void a(java.lang.String,java.lang.Object) -> a
+    void a(int,java.lang.Object) -> a
+    void d(java.lang.String) -> a
+com.paypal.android.MEP.a.a -> com.paypal.android.MEP.a.a:
+    com.paypal.android.MEP.a.a$a b -> b
+    com.paypal.android.MEP.b.b c -> c
+    android.widget.Button d -> d
+    android.widget.Button e -> e
+    com.paypal.android.MEP.b.a f -> f
+    com.paypal.android.MEP.b.a g -> g
+    com.paypal.android.MEP.b.a h -> h
+    com.paypal.android.b.i i -> i
+    java.util.Hashtable a -> a
+    java.lang.String j -> j
+    android.widget.LinearLayout k -> k
+    android.widget.RelativeLayout l -> l
+    android.widget.TextView m -> m
+    com.paypal.android.b.e n -> n
+    android.content.Context o -> o
+    void a(android.content.Context) -> a
+    void a(com.paypal.android.MEP.a.a$a) -> a
+    com.paypal.android.MEP.a.a$a c() -> b
+    void onClick(android.view.View) -> onClick
+    void d() -> c
+    void a(com.paypal.android.b.g,int) -> a
+    void b() -> d
+    void a(java.lang.String) -> b
+    void a() -> e
+    void a(java.lang.String,java.lang.Object) -> a
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    void a(com.paypal.android.MEP.b.a,int) -> a
+com.paypal.android.MEP.a.a$1 -> com.paypal.android.MEP.a.i:
+    int[] a -> a
+com.paypal.android.MEP.a.a$a -> com.paypal.android.MEP.a.j:
+    com.paypal.android.MEP.a.a$a a -> a
+    com.paypal.android.MEP.a.a$a b -> b
+    com.paypal.android.MEP.a.a$a c -> c
+    com.paypal.android.MEP.a.a$a d -> d
+    com.paypal.android.MEP.a.a$a[] e -> e
+    com.paypal.android.MEP.a.a$a[] values() -> values
+    com.paypal.android.MEP.a.a$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.MEP.a.b -> com.paypal.android.MEP.a.b:
+    android.widget.Button a -> a
+    void onClick(android.view.View) -> onClick
+    void a() -> e
+    void b() -> d
+com.paypal.android.MEP.a.c -> com.paypal.android.MEP.a.c:
+    android.content.Intent c -> c
+    java.lang.String a -> a
+    java.lang.String b -> b
+    com.paypal.android.b.i d -> d
+    com.paypal.android.MEP.b.b e -> e
+    void a(android.content.Context) -> a
+    void b() -> d
+    void a() -> e
+    void onClick(android.view.View) -> onClick
+    void a(com.paypal.android.b.g,int) -> a
+com.paypal.android.MEP.a.c$1 -> com.paypal.android.MEP.a.k:
+    com.paypal.android.MEP.a.c a -> a
+    void onClick(android.view.View) -> onClick
+com.paypal.android.MEP.a.d -> com.paypal.android.MEP.a.d:
+    com.paypal.android.MEP.a.d$a b -> b
+    android.widget.Button c -> c
+    android.widget.Button d -> d
+    android.widget.Button e -> e
+    android.widget.TextView f -> f
+    com.paypal.android.MEP.b.b g -> g
+    com.paypal.android.b.i h -> h
+    com.paypal.android.b.i i -> i
+    android.widget.LinearLayout j -> j
+    android.widget.RelativeLayout k -> k
+    com.paypal.android.b.e l -> l
+    android.widget.TextView m -> m
+    com.paypal.android.MEP.b.e n -> n
+    com.paypal.android.b.a o -> o
+    android.webkit.WebView p -> p
+    java.lang.String q -> q
+    boolean a -> a
+    java.util.Hashtable r -> r
+    void a(android.content.Context) -> a
+    void d() -> c
+    void onClick(android.view.View) -> onClick
+    void a(com.paypal.android.MEP.a.d$a) -> a
+    com.paypal.android.MEP.a.d$a c() -> b
+    boolean e() -> f
+    void b() -> d
+    void a(com.paypal.android.b.g,int) -> a
+    void a() -> e
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    void a(java.lang.String,java.lang.Object) -> a
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    android.webkit.WebView a(com.paypal.android.MEP.a.d) -> a
+com.paypal.android.MEP.a.d$1 -> com.paypal.android.MEP.a.l:
+    void a(int) -> a
+    void a() -> a
+    void b(int) -> b
+    void b() -> b
+com.paypal.android.MEP.a.d$a -> com.paypal.android.MEP.a.m:
+    com.paypal.android.MEP.a.d$a a -> a
+    com.paypal.android.MEP.a.d$a b -> b
+    com.paypal.android.MEP.a.d$a c -> c
+    com.paypal.android.MEP.a.d$a d -> d
+    com.paypal.android.MEP.a.d$a[] e -> e
+    com.paypal.android.MEP.a.d$a[] values() -> values
+    com.paypal.android.MEP.a.d$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.MEP.a.d$b -> com.paypal.android.MEP.a.n:
+    com.paypal.android.MEP.a.d a -> a
+    boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
+com.paypal.android.MEP.a.e -> com.paypal.android.MEP.a.e:
+    com.paypal.android.MEP.a.e$a b -> b
+    java.lang.String c -> c
+    android.widget.LinearLayout d -> d
+    android.widget.RelativeLayout e -> e
+    com.paypal.android.MEP.b.b f -> f
+    android.widget.EditText g -> g
+    android.widget.EditText h -> h
+    android.widget.EditText i -> i
+    android.widget.Button j -> j
+    android.widget.Button k -> k
+    com.paypal.android.b.e l -> l
+    android.widget.TextView m -> m
+    java.util.Hashtable n -> n
+    java.lang.String a -> a
+    com.paypal.android.b.i o -> o
+    android.widget.LinearLayout p -> p
+    android.content.Context q -> q
+    void a(android.content.Context) -> a
+    boolean d() -> c
+    boolean e() -> f
+    void a() -> e
+    void b() -> d
+    void a(com.paypal.android.b.g,int) -> a
+    void onClick(android.view.View) -> onClick
+    void afterTextChanged(android.text.Editable) -> afterTextChanged
+    void beforeTextChanged(java.lang.CharSequence,int,int,int) -> beforeTextChanged
+    void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
+    void a(java.lang.String,boolean) -> a
+    void a(java.lang.String,java.lang.Object) -> a
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    void f() -> g
+    com.paypal.android.b.e c() -> b
+com.paypal.android.MEP.a.e$1 -> com.paypal.android.MEP.a.o:
+    void run() -> run
+com.paypal.android.MEP.a.e$a -> com.paypal.android.MEP.a.p:
+    com.paypal.android.MEP.a.e$a a -> a
+    com.paypal.android.MEP.a.e$a b -> b
+    com.paypal.android.MEP.a.e$a c -> c
+    com.paypal.android.MEP.a.e$a[] d -> d
+    com.paypal.android.MEP.a.e$a[] values() -> values
+    com.paypal.android.MEP.a.e$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.MEP.a.f -> com.paypal.android.MEP.a.f:
+    android.widget.Button a -> a
+    void a(android.content.Context) -> a
+    void onClick(android.view.View) -> onClick
+    void b() -> d
+    void a() -> e
+com.paypal.android.MEP.a.g -> com.paypal.android.MEP.a.g:
+    com.paypal.android.MEP.a.g$a a -> a
+    com.paypal.android.MEP.b.b b -> b
+    android.widget.Button c -> c
+    android.widget.Button d -> d
+    android.widget.Button e -> e
+    android.widget.Button f -> f
+    com.paypal.android.b.i g -> g
+    com.paypal.android.b.i h -> h
+    java.lang.String i -> i
+    android.widget.LinearLayout j -> j
+    android.widget.LinearLayout k -> k
+    android.widget.RelativeLayout l -> l
+    android.widget.TextView m -> m
+    com.paypal.android.b.e n -> n
+    void a(android.content.Context) -> a
+    void a(com.paypal.android.MEP.a.g$a) -> a
+    com.paypal.android.MEP.a.g$a c() -> b
+    void onClick(android.view.View) -> onClick
+    void a(com.paypal.android.b.g,int) -> a
+    void b() -> d
+    void a() -> e
+    void a(java.lang.String,java.lang.Object) -> a
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    void a(com.paypal.android.MEP.b.a,int) -> a
+com.paypal.android.MEP.a.g$a -> com.paypal.android.MEP.a.q:
+    com.paypal.android.MEP.a.g$a a -> a
+    com.paypal.android.MEP.a.g$a b -> b
+    com.paypal.android.MEP.a.g$a c -> c
+    com.paypal.android.MEP.a.g$a d -> d
+    com.paypal.android.MEP.a.g$a[] e -> e
+    com.paypal.android.MEP.a.g$a[] values() -> values
+    com.paypal.android.MEP.a.g$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.MEP.a.h -> com.paypal.android.MEP.a.h:
+    com.paypal.android.MEP.b.b b -> b
+    android.widget.Button c -> c
+    java.lang.String a -> a
+    void a(android.content.Context) -> a
+    void a() -> e
+    void b() -> d
+    void onClick(android.view.View) -> onClick
+    void a(com.paypal.android.b.g,int) -> a
+com.paypal.android.MEP.b -> com.paypal.android.MEP.r:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.paypal.android.MEP.b.a -> com.paypal.android.MEP.b.a:
+    android.graphics.drawable.GradientDrawable g -> g
+    android.graphics.drawable.GradientDrawable h -> h
+    com.paypal.android.MEP.b.a$a i -> i
+    android.widget.LinearLayout j -> j
+    android.widget.LinearLayout k -> k
+    com.paypal.android.b.e l -> l
+    android.widget.TextView m -> m
+    com.paypal.android.MEP.a.a n -> n
+    java.util.Vector o -> o
+    java.util.Vector p -> p
+    boolean e -> a
+    java.util.Vector f -> b
+    boolean q -> q
+    int r -> r
+    com.paypal.android.MEP.b.a$b s -> s
+    android.view.View$OnClickListener t -> t
+    java.lang.String u -> u
+    com.paypal.android.MEP.b.a$a b() -> b
+    void a(com.paypal.android.MEP.b.a$b) -> a
+    void a(android.content.Context,android.widget.LinearLayout) -> a
+    android.widget.Button a(android.content.Context,java.lang.String,int) -> a
+    void e() -> f
+    void c() -> c
+    void a(int) -> a
+    void a(java.lang.String,java.lang.Object) -> a
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    void c(boolean) -> c
+    void onClick(android.view.View) -> onClick
+    void b(boolean) -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    java.util.Vector a(com.paypal.android.MEP.b.a) -> a
+    java.util.Vector b(com.paypal.android.MEP.b.a) -> b
+    com.paypal.android.MEP.a.a c(com.paypal.android.MEP.b.a) -> c
+com.paypal.android.MEP.b.a$1 -> com.paypal.android.MEP.b.d:
+    int[] a -> a
+com.paypal.android.MEP.b.a$a -> com.paypal.android.MEP.b.f:
+    com.paypal.android.MEP.b.a$a a -> a
+    com.paypal.android.MEP.b.a$a b -> b
+    com.paypal.android.MEP.b.a$a c -> c
+    com.paypal.android.MEP.b.a$a[] d -> d
+    com.paypal.android.MEP.b.a$a[] values() -> values
+    com.paypal.android.MEP.b.a$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.MEP.b.a$b -> com.paypal.android.MEP.b.g:
+    void a(com.paypal.android.MEP.b.a,int) -> a
+com.paypal.android.MEP.b.b -> com.paypal.android.MEP.b.b:
+    com.paypal.android.b.f e -> a
+    boolean f -> b
+    android.graphics.drawable.GradientDrawable g -> g
+    android.graphics.drawable.GradientDrawable h -> h
+    void a(boolean,boolean) -> a
+    void b(boolean) -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.paypal.android.MEP.b.c -> com.paypal.android.MEP.b.c:
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    android.widget.LinearLayout a(android.content.Context,com.paypal.android.MEP.PayPalReceiverDetails,java.lang.String) -> a
+com.paypal.android.MEP.b.d -> com.paypal.android.MEP.b.h:
+    com.paypal.android.MEP.b.a a -> a
+    void onClick(android.view.View) -> onClick
+com.paypal.android.MEP.b.e -> com.paypal.android.MEP.b.e:
+    boolean a -> a
+    int b -> b
+    android.widget.LinearLayout c -> c
+    android.widget.LinearLayout d -> d
+    android.widget.ImageView e -> e
+    android.widget.ImageView f -> f
+    android.widget.ImageView g -> g
+    android.widget.ImageView h -> h
+    android.widget.TextView i -> i
+    android.widget.EditText j -> j
+    android.widget.EditText k -> k
+    android.graphics.drawable.GradientDrawable l -> l
+    void a(com.paypal.android.MEP.PayPal) -> a
+    void b(com.paypal.android.MEP.PayPal) -> b
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    android.widget.EditText c() -> c
+    android.widget.EditText d() -> d
+    void onClick(android.view.View) -> onClick
+    void e() -> e
+com.paypal.android.MEP.b.f -> com.paypal.android.MEP.b.i:
+    android.widget.Button a -> a
+    android.widget.Button b -> b
+    void onClick(android.view.View) -> onClick
+com.paypal.android.MEP.c -> com.paypal.android.MEP.s:
+    com.paypal.android.MEP.PayPalActivity a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.paypal.android.a.a -> com.paypal.android.a.a:
+    byte[] a -> a
+    byte[] b -> b
+    byte[] c -> c
+    byte[] d -> d
+    byte[] e -> e
+    byte[] f -> f
+    byte[] a$45536f7a(byte[],int,int,byte[],int) -> a
+    java.lang.String a$79bb807(byte[]) -> a
+    java.lang.String a$5fb0bea7$55a39fc4(byte[],int) -> a
+com.paypal.android.a.a.a -> com.paypal.android.a.a.a:
+    java.math.BigDecimal a -> a
+    java.lang.String b -> b
+    java.math.BigDecimal a() -> a
+    void a(java.lang.String) -> a
+    java.lang.String b() -> b
+    void b(java.lang.String) -> b
+    com.paypal.android.a.a.a a(org.w3c.dom.Element) -> a
+com.paypal.android.a.a.c -> com.paypal.android.a.a.b:
+    java.lang.String e -> e
+    com.paypal.android.a.a.a a -> a
+    com.paypal.android.a.a.a b -> b
+    com.paypal.android.a.a.f c -> c
+    java.util.Vector d -> d
+    java.lang.String a() -> a
+    void a(java.lang.String) -> a
+    com.paypal.android.a.a.c a(org.w3c.dom.Element) -> a
+com.paypal.android.a.a.f -> com.paypal.android.a.a.c:
+    com.paypal.android.a.a.a a -> a
+    com.paypal.android.a.a.a b -> b
+    java.lang.String c -> c
+    java.lang.String a() -> a
+    com.paypal.android.a.a.f a(org.w3c.dom.Element) -> a
+com.paypal.android.a.a.g -> com.paypal.android.a.a.d:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    void a(java.lang.String) -> a
+    java.lang.String c() -> c
+    void b(java.lang.String) -> b
+    com.paypal.android.a.a.g a(org.w3c.dom.Element) -> a
+com.paypal.android.a.a.h -> com.paypal.android.a.a.e:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    java.lang.String h -> h
+    boolean a(org.w3c.dom.Element) -> a
+    java.lang.String a() -> a
+    java.lang.String b() -> b
+    void a(java.lang.String) -> a
+    java.lang.String c() -> c
+    void b(java.lang.String) -> b
+    java.lang.String d() -> d
+    void c(java.lang.String) -> c
+    java.lang.String e() -> e
+    void d(java.lang.String) -> d
+    java.lang.String f() -> f
+    void e(java.lang.String) -> e
+    java.lang.String g() -> g
+    void f(java.lang.String) -> f
+    java.lang.String h() -> h
+    void g(java.lang.String) -> g
+com.paypal.android.a.a.i -> com.paypal.android.a.a.f:
+    boolean a -> a
+    boolean b -> b
+    boolean c -> c
+com.paypal.android.a.a.j -> com.paypal.android.a.a.g:
+    java.util.Hashtable a -> a
+    java.util.Hashtable b -> b
+com.paypal.android.a.a.k -> com.paypal.android.a.a.h:
+    com.paypal.android.a.a.a a -> a
+    com.paypal.android.a.a.g b -> b
+    com.paypal.android.a.a.k a(org.w3c.dom.Element) -> a
+com.paypal.android.a.b -> com.paypal.android.a.b:
+    org.apache.http.client.methods.HttpPost c -> c
+    org.apache.http.impl.client.DefaultHttpClient d -> d
+    int e -> e
+    int f -> f
+    int g -> g
+    java.util.Hashtable h -> h
+    com.paypal.android.c.a a -> a
+    com.paypal.android.c.a b -> b
+    boolean i -> i
+    java.lang.Thread j -> j
+    java.util.List k -> k
+    com.paypal.android.a.b$a l -> l
+    byte[] m -> m
+    byte[] n -> n
+    byte[] o -> o
+    java.lang.String[] p -> p
+    java.lang.String q -> q
+    boolean a() -> b
+    java.lang.String b() -> c
+    java.lang.String p() -> p
+    java.lang.String q() -> q
+    java.lang.String r() -> r
+    void c() -> d
+    void d() -> e
+    com.paypal.android.a.b e() -> f
+    void a(int) -> a
+    boolean g(java.lang.String) -> g
+    boolean h(java.lang.String) -> h
+    boolean i(java.lang.String) -> i
+    boolean s() -> s
+    void a(java.lang.String) -> b
+    boolean t() -> t
+    boolean u() -> u
+    boolean v() -> v
+    boolean w() -> w
+    boolean x() -> x
+    java.lang.String b(java.lang.String) -> c
+    java.lang.String j(java.lang.String) -> j
+    void a(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    boolean a(java.lang.String,java.lang.String,java.lang.String) -> a
+    java.util.Hashtable y() -> y
+    java.util.Hashtable z() -> z
+    java.lang.String A() -> A
+    java.lang.String a(java.lang.String,java.lang.String,boolean) -> a
+    boolean B() -> B
+    boolean C() -> C
+    boolean D() -> D
+    java.lang.String f() -> g
+    boolean k(java.lang.String) -> k
+    boolean a(org.w3c.dom.Document,java.lang.String) -> a
+    void a(java.lang.String,java.lang.Object) -> a
+    java.lang.Object c(java.lang.String) -> d
+    java.util.Hashtable g() -> h
+    org.apache.http.impl.client.DefaultHttpClient h() -> i
+    void i() -> j
+    void j() -> k
+    int k() -> l
+    void l() -> a
+    void d(java.lang.String) -> a
+    void a(int,java.lang.Object) -> a
+    java.lang.String e(java.lang.String) -> e
+    java.lang.String f(java.lang.String) -> f
+    java.lang.String m() -> m
+    byte[] a(java.io.InputStream) -> a
+    java.lang.String n() -> n
+    boolean a(com.paypal.android.a.b) -> a
+    java.util.Hashtable b(com.paypal.android.a.b) -> b
+    int c(com.paypal.android.a.b) -> c
+    int a$6cba2b18(com.paypal.android.a.b) -> d
+    boolean a(com.paypal.android.a.b,java.lang.String,java.lang.String) -> a
+    int b$6cba2b18(com.paypal.android.a.b) -> e
+    void a(com.paypal.android.a.b,java.lang.String,com.paypal.android.MEP.a$b) -> a
+    boolean d(com.paypal.android.a.b) -> f
+    boolean e(com.paypal.android.a.b) -> g
+    java.util.Hashtable f(com.paypal.android.a.b) -> h
+    boolean g(com.paypal.android.a.b) -> i
+    java.lang.String h(com.paypal.android.a.b) -> j
+    java.util.Hashtable i(com.paypal.android.a.b) -> k
+    boolean j(com.paypal.android.a.b) -> l
+    boolean k(com.paypal.android.a.b) -> m
+    void a(com.paypal.android.a.b,int,com.paypal.android.c.a) -> a
+    boolean l(com.paypal.android.a.b) -> n
+    boolean m(com.paypal.android.a.b) -> o
+    boolean n(com.paypal.android.a.b) -> p
+    boolean o(com.paypal.android.a.b) -> q
+    java.util.List o() -> o
+com.paypal.android.a.b$a -> com.paypal.android.a.c:
+    boolean a -> a
+    void run() -> run
+com.paypal.android.a.c -> com.paypal.android.a.d:
+    javax.net.ssl.SSLSocketFactory a -> a
+    java.net.Socket createSocket() -> createSocket
+    java.net.Socket createSocket(java.net.Socket,java.lang.String,int,boolean) -> createSocket
+com.paypal.android.a.d -> com.paypal.android.a.e:
+    android.widget.LinearLayout a(android.content.Context,int,int) -> a
+    android.widget.LinearLayout a$6f8d179c(android.content.Context) -> a
+    android.graphics.drawable.GradientDrawable a() -> a
+    android.graphics.drawable.GradientDrawable a$a18cb9c(int,int) -> a
+    int b() -> b
+com.paypal.android.a.e -> com.paypal.android.a.f:
+    android.graphics.drawable.Drawable a(int,int) -> a
+    android.widget.ImageView a(android.content.Context,java.lang.String) -> a
+    android.graphics.drawable.StateListDrawable a() -> a
+    android.graphics.drawable.StateListDrawable b() -> b
+com.paypal.android.a.f -> com.paypal.android.a.g:
+com.paypal.android.a.g -> com.paypal.android.a.h:
+    byte[] a -> a
+    com.paypal.android.a.g b -> b
+    byte[] b(java.lang.String) -> b
+    byte[] a(java.lang.String) -> a
+    void a() -> a
+    byte[] a(int,int) -> a
+    byte[] a(int,int,byte[]) -> a
+com.paypal.android.a.h -> com.paypal.android.a.i:
+    java.lang.String[] a -> a
+    java.util.Hashtable b -> b
+    java.text.NumberFormat c -> c
+    java.lang.Object d -> d
+    java.lang.String a(java.lang.String) -> a
+    boolean b(java.lang.String) -> b
+    void c(java.lang.String) -> c
+    boolean d(java.lang.String) -> d
+    boolean e(java.lang.String) -> e
+    boolean f(java.lang.String) -> f
+    java.lang.String a(java.math.BigDecimal,java.lang.String) -> a
+    boolean g(java.lang.String) -> g
+    java.lang.String a(java.lang.String,int) -> a
+com.paypal.android.a.i -> com.paypal.android.a.j:
+    void a$1ef468a(int) -> a
+    void b$1ef468a(int) -> b
+com.paypal.android.a.j -> com.paypal.android.a.k:
+    void a$1ef468a(int) -> a
+    void b$1ef468a(int) -> b
+com.paypal.android.a.k -> com.paypal.android.a.l:
+    com.paypal.android.a.b a -> a
+    void run() -> run
+com.paypal.android.a.l -> com.paypal.android.a.m:
+    java.lang.String a(java.lang.String,java.lang.String) -> a
+    java.lang.String a(java.math.BigDecimal,java.lang.String) -> a
+com.paypal.android.a.m -> com.paypal.android.a.n:
+    java.lang.String[] a -> a
+    java.lang.String a() -> a
+    java.lang.String d() -> c
+    java.lang.String e() -> d
+    void a(java.lang.String,java.lang.String) -> a
+    java.lang.String d(java.lang.String) -> d
+    java.lang.StringBuilder a(java.lang.StringBuilder,java.lang.String,boolean) -> a
+    java.lang.StringBuilder a(java.lang.StringBuilder,java.lang.String,java.lang.String) -> a
+    boolean a(org.w3c.dom.Document,java.util.Hashtable) -> a
+    void a(org.w3c.dom.Document) -> a
+    void a(org.w3c.dom.Node) -> a
+    void a(java.util.Hashtable,org.w3c.dom.Node,java.lang.String) -> a
+    void b(java.lang.StringBuilder,java.lang.String,java.lang.String) -> b
+    java.lang.String a(java.util.Hashtable) -> a
+    java.lang.String b(java.util.Hashtable) -> b
+    java.lang.String c(java.util.Hashtable) -> c
+    java.lang.String d(java.util.Hashtable) -> d
+    java.lang.String e(java.util.Hashtable) -> e
+    java.lang.String f(java.util.Hashtable) -> f
+    boolean a(java.lang.String,java.util.Hashtable) -> a
+    java.lang.String g(java.util.Hashtable) -> g
+    boolean b(java.lang.String,java.util.Hashtable) -> b
+    boolean c(java.lang.String,java.util.Hashtable) -> c
+    boolean d(java.lang.String,java.util.Hashtable) -> d
+    boolean e(java.lang.String,java.util.Hashtable) -> e
+    java.lang.String a(java.util.Hashtable,java.lang.String) -> a
+    java.lang.String c() -> b
+    boolean b(org.w3c.dom.Document) -> b
+    boolean f(java.lang.String,java.util.Hashtable) -> f
+    int c(org.w3c.dom.Document) -> c
+    java.lang.String[] a(java.lang.String) -> a
+    java.lang.String b(java.lang.String) -> b
+    java.lang.String h(java.util.Hashtable) -> h
+    boolean g(java.lang.String,java.util.Hashtable) -> g
+    java.lang.String e(java.lang.String) -> e
+    java.lang.String f(java.lang.String) -> f
+    java.lang.String a(org.w3c.dom.NodeList) -> a
+    java.lang.String c(java.lang.String) -> c
+com.paypal.android.a.n -> com.paypal.android.a.o:
+com.paypal.android.a.o -> com.paypal.android.a.p:
+    android.widget.TextView a(com.paypal.android.a.o$a,android.content.Context) -> a
+    android.widget.TextView b(com.paypal.android.a.o$a,android.content.Context) -> b
+com.paypal.android.a.o$a -> com.paypal.android.a.q:
+    com.paypal.android.a.o$a a -> a
+    com.paypal.android.a.o$a b -> b
+    com.paypal.android.a.o$a c -> c
+    com.paypal.android.a.o$a d -> d
+    com.paypal.android.a.o$a e -> e
+    com.paypal.android.a.o$a f -> f
+    com.paypal.android.a.o$a g -> g
+    com.paypal.android.a.o$a h -> h
+    com.paypal.android.a.o$a[] i -> i
+    com.paypal.android.a.o$a[] values() -> values
+    com.paypal.android.a.o$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.a.p -> com.paypal.android.a.r:
+    void checkClientTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkClientTrusted
+    void checkServerTrusted(java.security.cert.X509Certificate[],java.lang.String) -> checkServerTrusted
+    java.security.cert.X509Certificate[] getAcceptedIssuers() -> getAcceptedIssuers
+com.paypal.android.b.a -> com.paypal.android.b.a:
+    android.graphics.drawable.StateListDrawable a -> a
+com.paypal.android.b.b -> com.paypal.android.b.b:
+    int a -> a
+    android.graphics.drawable.Drawable[] b -> b
+    void drawableStateChanged() -> drawableStateChanged
+    int a() -> a
+    void a(int) -> a
+    void a(int,android.graphics.drawable.Drawable) -> a
+    void onFocusChange(android.view.View,boolean) -> onFocusChange
+com.paypal.android.b.c -> com.paypal.android.b.c:
+    android.widget.LinearLayout a -> c
+    android.widget.LinearLayout b -> d
+    com.paypal.android.b.d c -> e
+    void a(android.graphics.drawable.Drawable) -> a
+    void b(android.graphics.drawable.Drawable) -> b
+    void a(int) -> a
+    void a() -> d
+    void onClick(android.view.View) -> onClick
+    void a(boolean) -> b
+com.paypal.android.b.d -> com.paypal.android.b.d:
+    com.paypal.android.b.d$a a -> a
+    void a(com.paypal.android.b.d$a) -> a
+    void drawableStateChanged() -> drawableStateChanged
+    void onClick(android.view.View) -> onClick
+com.paypal.android.b.d$a -> com.paypal.android.b.l:
+    void a() -> d
+com.paypal.android.b.e -> com.paypal.android.b.e:
+    android.graphics.drawable.AnimationDrawable a -> a
+    void a() -> a
+    void b() -> b
+com.paypal.android.b.f -> com.paypal.android.b.f:
+    android.widget.TextView a -> a
+    android.widget.TextView b -> b
+    void a(java.lang.String) -> a
+    void b(java.lang.String) -> b
+    void a(int) -> a
+    void b(int) -> b
+com.paypal.android.b.g -> com.paypal.android.b.g:
+    int d -> f
+    android.widget.LinearLayout$LayoutParams[] a -> a
+    com.paypal.android.b.g$a b -> b
+    int c -> c
+    void onFocusChange(android.view.View,boolean) -> onFocusChange
+    void b(boolean) -> a
+    void a(android.widget.LinearLayout$LayoutParams,int) -> a
+    void a(int) -> a
+    void a(com.paypal.android.b.g$a) -> a
+com.paypal.android.b.g$a -> com.paypal.android.b.m:
+    void a(com.paypal.android.b.g,int) -> a
+com.paypal.android.b.h -> com.paypal.android.b.h:
+com.paypal.android.b.i -> com.paypal.android.b.i:
+    android.content.Context a -> a
+    android.graphics.drawable.GradientDrawable b -> b
+    android.widget.ImageView c -> c
+    android.widget.TextView d -> d
+    void a(java.lang.String) -> a
+com.paypal.android.b.i$1 -> com.paypal.android.b.n:
+    int[] a -> a
+com.paypal.android.b.i$a -> com.paypal.android.b.o:
+    com.paypal.android.b.i$a a -> a
+    com.paypal.android.b.i$a b -> b
+    com.paypal.android.b.i$a c -> c
+    com.paypal.android.b.i$a d -> d
+    com.paypal.android.b.i$a[] e -> e
+    com.paypal.android.b.i$a[] values() -> values
+    com.paypal.android.b.i$a valueOf(java.lang.String) -> valueOf
+com.paypal.android.b.j -> com.paypal.android.b.j:
+    android.widget.ScrollView a -> a
+    android.widget.LinearLayout b -> b
+    void onMeasure(int,int) -> onMeasure
+    void a(android.content.Context) -> a
+    void addView(android.view.View) -> addView
+    void b() -> d
+    void a() -> e
+com.paypal.android.b.k -> com.paypal.android.b.k:
+    android.widget.LinearLayout e -> a
+    void setBackgroundDrawable(android.graphics.drawable.Drawable) -> setBackgroundDrawable
+    void c(android.graphics.drawable.Drawable) -> c
+    void a(android.view.View) -> a
+    void d() -> e
+    void c() -> c
+com.paypal.android.b.l -> com.paypal.android.b.p:
+    com.paypal.android.b.j a -> a
+    android.view.animation.Animation b -> b
+    void run() -> run
+com.paypal.android.c.a -> com.paypal.android.c.a:
+    void a$1ef468a(int) -> a
+    void b$1ef468a(int) -> b
 org.antczak.whereIsMyPackage.Details -> org.antczak.whereIsMyPackage.Details:
     java.util.List groupData -> a
     boolean currentSortAsc -> b
@@ -937,7 +1941,36 @@ org.antczak.whereIsMyPackage.Details -> org.antczak.whereIsMyPackage.Details:
     boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void fillList(java.util.List) -> a
-org.antczak.whereIsMyPackage.History -> org.antczak.whereIsMyPackage.a:
+org.antczak.whereIsMyPackage.Donate -> org.antczak.whereIsMyPackage.Donate:
+    int amount -> g
+    java.lang.String currency -> h
+    android.os.Handler hRefresh -> a
+    android.widget.TextView status -> b
+    android.widget.TextView message -> c
+    com.paypal.android.MEP.CheckoutButton launchSimplePayment -> d
+    android.widget.LinearLayout content -> e
+    android.content.SharedPreferences$OnSharedPreferenceChangeListener onSharedPreferenceChangedListiner -> i
+    java.lang.Thread libraryInitializationThread -> f
+    void onCreate(android.os.Bundle) -> onCreate
+    void onClick(android.view.View) -> onClick
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void access$0(org.antczak.whereIsMyPackage.Donate) -> a
+    void access$1(org.antczak.whereIsMyPackage.Donate) -> b
+    void access$2(org.antczak.whereIsMyPackage.Donate,int) -> a
+    int access$3(org.antczak.whereIsMyPackage.Donate) -> c
+    void access$4(org.antczak.whereIsMyPackage.Donate,java.lang.String) -> a
+    java.lang.String access$5(org.antczak.whereIsMyPackage.Donate) -> d
+    void access$6(org.antczak.whereIsMyPackage.Donate) -> e
+org.antczak.whereIsMyPackage.Donate$1 -> org.antczak.whereIsMyPackage.a:
+    org.antczak.whereIsMyPackage.Donate this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+org.antczak.whereIsMyPackage.Donate$2 -> org.antczak.whereIsMyPackage.b:
+    org.antczak.whereIsMyPackage.Donate this$0 -> a
+    void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
+org.antczak.whereIsMyPackage.Donate$3 -> org.antczak.whereIsMyPackage.c:
+    org.antczak.whereIsMyPackage.Donate this$0 -> a
+    void run() -> run
+org.antczak.whereIsMyPackage.History -> org.antczak.whereIsMyPackage.d:
     java.lang.String DATABASE_NAME -> a
     java.lang.String DATABASE_TABLE -> b
     android.database.sqlite.SQLiteDatabase myDB -> c
@@ -983,6 +2016,7 @@ org.antczak.whereIsMyPackage.Main -> org.antczak.whereIsMyPackage.Main:
     android.widget.AdapterView$OnItemClickListener historyListListiner -> x
     android.view.View$OnKeyListener packageNumberListiner -> y
     void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
     void onPause() -> onPause
     void onResume() -> onResume
     void onDestroy() -> onDestroy
@@ -991,7 +2025,6 @@ org.antczak.whereIsMyPackage.Main -> org.antczak.whereIsMyPackage.Main:
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void showToast(java.lang.CharSequence) -> a
-    boolean isCourierMonitorable(java.lang.String) -> a
     void readCustomCuriersOrder() -> b
     int getCustomCourierId(int) -> a
     int access$0(org.antczak.whereIsMyPackage.Main,java.lang.String) -> a
@@ -999,45 +2032,50 @@ org.antczak.whereIsMyPackage.Main -> org.antczak.whereIsMyPackage.Main:
     void access$2(org.antczak.whereIsMyPackage.Main,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     boolean access$3(org.antczak.whereIsMyPackage.Main,java.lang.String) -> b
     void access$4(org.antczak.whereIsMyPackage.Main) -> a
-    void access$5$ae35c23(org.antczak.whereIsMyPackage.Main,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-org.antczak.whereIsMyPackage.Main$1 -> org.antczak.whereIsMyPackage.b:
+    void access$5(org.antczak.whereIsMyPackage.Main,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+org.antczak.whereIsMyPackage.Main$1 -> org.antczak.whereIsMyPackage.e:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onItemSelected(android.widget.AdapterView,android.view.View,int,long) -> onItemSelected
     void onNothingSelected(android.widget.AdapterView) -> onNothingSelected
-org.antczak.whereIsMyPackage.Main$2 -> org.antczak.whereIsMyPackage.c:
+org.antczak.whereIsMyPackage.Main$2 -> org.antczak.whereIsMyPackage.f:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onClick(android.view.View) -> onClick
-org.antczak.whereIsMyPackage.Main$3 -> org.antczak.whereIsMyPackage.d:
+org.antczak.whereIsMyPackage.Main$3 -> org.antczak.whereIsMyPackage.g:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onClick(android.view.View) -> onClick
-org.antczak.whereIsMyPackage.Main$4 -> org.antczak.whereIsMyPackage.e:
+org.antczak.whereIsMyPackage.Main$4 -> org.antczak.whereIsMyPackage.h:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     org.antczak.whereIsMyPackage.Main access$0(org.antczak.whereIsMyPackage.Main$4) -> a
-org.antczak.whereIsMyPackage.Main$4$1 -> org.antczak.whereIsMyPackage.f:
+org.antczak.whereIsMyPackage.Main$4$1 -> org.antczak.whereIsMyPackage.i:
     org.antczak.whereIsMyPackage.Main$4 this$1 -> a
     java.lang.String val$packageNumber -> b
     java.lang.String val$courierName -> c
     java.lang.String val$courierCode -> d
     java.lang.String val$monitor -> e
     boolean val$desc -> f
+    java.lang.String val$descText -> g
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
     org.antczak.whereIsMyPackage.Main$4 access$0(org.antczak.whereIsMyPackage.Main$4$1) -> a
-org.antczak.whereIsMyPackage.Main$4$1$1 -> org.antczak.whereIsMyPackage.g:
+org.antczak.whereIsMyPackage.Main$4$1$1 -> org.antczak.whereIsMyPackage.j:
     org.antczak.whereIsMyPackage.Main$4$1 this$2 -> a
     java.lang.String val$packageNumber -> b
-    android.view.View val$textEntryView -> c
+    android.widget.EditText val$descView -> c
     void onClick(android.content.DialogInterface,int) -> onClick
-org.antczak.whereIsMyPackage.Main$5 -> org.antczak.whereIsMyPackage.h:
+org.antczak.whereIsMyPackage.Main$4$1$2 -> org.antczak.whereIsMyPackage.k:
+    org.antczak.whereIsMyPackage.Main$4$1 this$2 -> a
+    java.lang.String val$packageNumber -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+org.antczak.whereIsMyPackage.Main$5 -> org.antczak.whereIsMyPackage.l:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
-org.antczak.whereIsMyPackage.Main$6 -> org.antczak.whereIsMyPackage.i:
+org.antczak.whereIsMyPackage.Main$6 -> org.antczak.whereIsMyPackage.m:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-org.antczak.whereIsMyPackage.Main$7 -> org.antczak.whereIsMyPackage.j:
+org.antczak.whereIsMyPackage.Main$7 -> org.antczak.whereIsMyPackage.n:
     org.antczak.whereIsMyPackage.Main this$0 -> a
     void onClick(android.content.DialogInterface,int) -> onClick
-org.antczak.whereIsMyPackage.Main$GetData -> org.antczak.whereIsMyPackage.k:
+org.antczak.whereIsMyPackage.Main$GetData -> org.antczak.whereIsMyPackage.o:
     java.lang.String[] packageData -> a
     org.antczak.whereIsMyPackage.Main this$0 -> b
     void onPreExecute() -> onPreExecute
@@ -1046,9 +2084,10 @@ org.antczak.whereIsMyPackage.Main$GetData -> org.antczak.whereIsMyPackage.k:
     java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
 org.antczak.whereIsMyPackage.Preferences -> org.antczak.whereIsMyPackage.Preferences:
     android.app.PendingIntent monitorService -> a
-    android.content.SharedPreferences$OnSharedPreferenceChangeListener onSharedPreferenceChangedListiner -> b
+    android.preference.PreferenceScreen preferences -> b
+    android.content.SharedPreferences$OnSharedPreferenceChangeListener onSharedPreferenceChangedListiner -> c
     void onCreate(android.os.Bundle) -> onCreate
-org.antczak.whereIsMyPackage.Preferences$1 -> org.antczak.whereIsMyPackage.l:
+org.antczak.whereIsMyPackage.Preferences$1 -> org.antczak.whereIsMyPackage.p:
     org.antczak.whereIsMyPackage.Preferences this$0 -> a
     void onSharedPreferenceChanged(android.content.SharedPreferences,java.lang.String) -> onSharedPreferenceChanged
 org.antczak.whereIsMyPackage.PreferencesCourierOrder -> org.antczak.whereIsMyPackage.PreferencesCourierOrder:
@@ -1068,14 +2107,14 @@ org.antczak.whereIsMyPackage.PreferencesCourierOrder -> org.antczak.whereIsMyPac
     org.antczak.whereIsMyPackage.adpaters.ArrayAdapterCourierOrder access$0(org.antczak.whereIsMyPackage.PreferencesCourierOrder) -> a
     void access$1(org.antczak.whereIsMyPackage.PreferencesCourierOrder) -> b
     android.content.Context access$2(org.antczak.whereIsMyPackage.PreferencesCourierOrder) -> c
-org.antczak.whereIsMyPackage.PreferencesCourierOrder$1 -> org.antczak.whereIsMyPackage.m:
+org.antczak.whereIsMyPackage.PreferencesCourierOrder$1 -> org.antczak.whereIsMyPackage.q:
     org.antczak.whereIsMyPackage.PreferencesCourierOrder this$0 -> a
     void drop(int,int) -> a
-org.antczak.whereIsMyPackage.PreferencesCourierOrder$2 -> org.antczak.whereIsMyPackage.n:
+org.antczak.whereIsMyPackage.PreferencesCourierOrder$2 -> org.antczak.whereIsMyPackage.r:
     org.antczak.whereIsMyPackage.PreferencesCourierOrder this$0 -> a
     void remove(int) -> a
-org.antczak.whereIsMyPackage.R -> org.antczak.whereIsMyPackage.o:
-org.antczak.whereIsMyPackage.R$styleable -> org.antczak.whereIsMyPackage.p:
+org.antczak.whereIsMyPackage.R -> org.antczak.whereIsMyPackage.s:
+org.antczak.whereIsMyPackage.R$styleable -> org.antczak.whereIsMyPackage.t:
     int[] TouchListView -> TouchListView
     int TouchListView_dragndrop_background -> TouchListView_dragndrop_background
     int TouchListView_expanded_height -> TouchListView_expanded_height
