@@ -1,6 +1,6 @@
 package org.antczak.whereIsMyPackage.service;
 
-import org.antczak.whereIsMyPackage.Details;
+import org.antczak.whereIsMyPackage.DetailsActivity;
 import org.antczak.whereIsMyPackage.History;
 import org.antczak.whereIsMyPackage.R;
 import org.antczak.whereIsMyPackage.utils.CheckInternet;
@@ -82,7 +82,7 @@ public class MonitorService extends Service {
 											getString(R.string.notification),
 											System.currentTimeMillis());
 									Intent intent = new Intent(
-											MonitorService.this, Details.class);
+											MonitorService.this, DetailsActivity.class);
 									intent.putExtra("packageNumber",
 											c.getString(1));
 									intent.putExtra("packageDetails", result);
