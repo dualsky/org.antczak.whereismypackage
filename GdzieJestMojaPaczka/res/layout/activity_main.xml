@@ -4,10 +4,8 @@
     android:background="@drawable/background"
     android:orientation="horizontal" >
 
-    <fragment
+    <FrameLayout
         android:id="@+id/mainFragmentPhone"
-        android:name="org.antczak.whereIsMyPackage.fragments.MainFragment"
         android:layout_width="fill_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

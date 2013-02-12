@@ -4,9 +4,8 @@
     android:background="@drawable/background"
     android:orientation="horizontal" >
 
-    <fragment
+    <FrameLayout
         android:id="@+id/mainFragmentTablet"
-        android:name="org.antczak.whereIsMyPackage.fragments.MainFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2" />
