@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menuClearMonitored"
+        android:icon="@drawable/ic_menu_watch"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_clean_monitoring">
+    </item>
+    <item
+        android:id="@+id/menuClearHistory"
+        android:icon="@drawable/ic_menu_unwatch"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_clean_history">
+    </item>
+    <item
+        android:id="@+id/menuPreferences"
+        android:icon="@drawable/ic_action_settings"
+        android:showAsAction="ifRoom"
+        android:title="@string/menu_settings">
+    </item>
+    <item
+        android:id="@+id/menuDonate"
+        android:icon="@drawable/ic_action_favourite"
+        android:showAsAction="never"
+        android:title="@string/menu_donate">
+    </item>
+    <item
+        android:id="@+id/menuRate"
+        android:icon="@drawable/ic_action_important"
+        android:showAsAction="never"
+        android:title="@string/menu_rate">
+    </item>
+    <item
+        android:id="@+id/menuAbout"
+        android:icon="@drawable/ic_action_info"
+        android:showAsAction="never"
+        android:title="@string/menu_about">
+    </item>
+
+</menu>
