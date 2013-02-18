@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:holo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.mobeta.android.dslv.DragSortListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:dslv="http://schemas.android.com/apk/res/org.antczak.whereIsMyPackage"
+        android:id="@+id/listSlidingMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:choiceMode="singleChoice"
+        android:listSelector="@drawable/list_selector_holo_dark"
+        dslv:drag_enabled="false"
+        dslv:drag_handle_id="@id/dragHandler"
+        dslv:float_alpha="0.5"
+        dslv:float_background_color="@color/transparent" />
+
+    <org.holoeverywhere.widget.Switch
+        android:id="@+id/dragEnabler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp" />
+
+</FrameLayout>

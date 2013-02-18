@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.antczak.whereIsMyPackage.adpaters.ArrayAdapterCourierOrder;
-import org.antczak.whereIsMyPackage.views.TouchListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -18,7 +17,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class PreferencesCourierOrder extends ListActivity {
 
@@ -38,16 +36,16 @@ public class PreferencesCourierOrder extends ListActivity {
 		prefsEditor = prefs.edit();
 		this.res = getResources();
 		this.ctx = this;
-		TouchListView tlv = (TouchListView) getListView();
+		//TouchListView tlv = (TouchListView) getListView();
 		// adapter = new IconicAdapter(new
 		// ArrayList<String>(Arrays.asList(items)));
 		
-		tlv.setDropListener(onDrop);
-		tlv.setRemoveListener(onRemove);
+		//tlv.setDropListener(onDrop);
+		//tlv.setRemoveListener(onRemove);
 		
 		setAdpater(false);
 	}
-
+/*
 	private TouchListView.DropListener onDrop = new TouchListView.DropListener() {
 		@Override
 		public void drop(int from, int to) {
@@ -70,7 +68,7 @@ public class PreferencesCourierOrder extends ListActivity {
 			saveChanges(); }
 		}
 	};
-
+*/
 	private void saveChanges() {
 		int count = adapter.getCount();
 		JSONArray items = new JSONArray();

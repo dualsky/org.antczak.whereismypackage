@@ -128,7 +128,7 @@ public class DetailsFragment extends Fragment {
 	@Override
 	public void onPrepareOptionsMenu(Menu menu) {
 		super.onPrepareOptionsMenu(menu);
-		Log.d(TAG, "onPrepareOptionsMenu");
+		/*Log.d(TAG, "onPrepareOptionsMenu");
 		if (bundle != null) {
 			if (isTablet) {
 				if (currentSortAsc) {
@@ -159,7 +159,7 @@ public class DetailsFragment extends Fragment {
 
 				}
 			}
-		}
+		}*/
 	}
 
 	@Override

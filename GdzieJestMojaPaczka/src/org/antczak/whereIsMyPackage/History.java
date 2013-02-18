@@ -1,5 +1,9 @@
 package org.antczak.whereIsMyPackage;
 
+import java.util.Hashtable;
+
+import org.antczak.whereIsMyPackage.utils.ReadResource;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,9 +16,12 @@ public class History {
 	private final String DATABASE_NAME = "history";
 	private final String DATABASE_TABLE = "history";
 	private SQLiteDatabase myDB;
-
+	private Context context;
+	private Hashtable<Integer, String> queryMap = new Hashtable<Integer, String>();
+	
 	public History(Context context) {
 		super();
+		this.context = context;
 		String createTable = ""
 				+ "CREATE TABLE IF NOT EXISTS history "
 				+ "             ( "
@@ -93,51 +100,8 @@ public class History {
 	}
 
 	public Cursor getHistory(int limit) {
-		String sql = ""
-				+"SELECT MAX(adddate) + 1 AS _id          , " 
-				+"       '-1'             AS packageNumber, " 
-				+"       COUNT(*)         AS courierName  , " 
-				+"       1                AS courierCode  , " 
-				+"       1                AS monitor      , " 
-				+"       'monitor'        AS DESC " 
-				+"FROM   history " 
-				+"WHERE  monitor = 1 " 
-				+" " 
-				+"UNION " 
-				+" " 
-				+"SELECT adddate      , " 
-				+"       packagenumber, " 
-				+"       couriername  , " 
-				+"       couriercode  , " 
-				+"       monitor      , " 
-				+"       DESC " 
-				+"FROM   history " 
-				+"WHERE  monitor = 1 " 
-				+" " 
-				+"UNION " 
-				+" " 
-				+"SELECT MAX(adddate) + 1, " 
-				+"       '-2'            , " 
-				+"       COUNT(*)        , " 
-				+"       1               , " 
-				+"       0               , " 
-				+"       'nie monitor' " 
-				+"FROM   history " 
-				+"WHERE  monitor = 0 " 
-				+" " 
-				+"UNION " 
-				+" " 
-				+"SELECT   adddate      , " 
-				+"         packagenumber, " 
-				+"         couriername  , " 
-				+"         couriercode  , " 
-				+"         monitor      , " 
-				+"         DESC " 
-				+"FROM     history " 
-				+"WHERE    monitor = 0 " 
-				+"ORDER BY monitor DESC, " 
-				+"         _id DESC";
-
+		//String.format("Hello, %s on line %d",  aString, aInt );
+		String sql = getQuery(R.raw.get_history);
 		Log.v(TAG, "getHistory: " + sql);
 		return myDB.rawQuery(sql, null);
 	}
@@ -242,5 +206,12 @@ public class History {
 				+ "'";
 		Log.v(TAG, "addDesc: " + sql);
 		myDB.execSQL(sql);
+	}
+	private String getQuery(int queryId) {
+		if (!queryMap.containsKey(queryId)) {
+			queryMap.put(queryId, ReadResource.getString(context, queryId));
+		}
+		return queryMap.get(queryId);
+		
 	}
 }
