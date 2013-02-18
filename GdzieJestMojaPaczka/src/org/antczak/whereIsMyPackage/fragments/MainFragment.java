@@ -2,8 +2,8 @@ package org.antczak.whereIsMyPackage.fragments;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
-import org.antczak.whereIsMyPackage.DetailsActivity;
 import org.antczak.whereIsMyPackage.History;
 import org.antczak.whereIsMyPackage.MainActivity;
 import org.antczak.whereIsMyPackage.MainApplication;
@@ -16,8 +16,6 @@ import org.antczak.whereIsMyPackage.utils.CheckPackage;
 import org.antczak.whereIsMyPackage.utils.ReadFromURL;
 import org.holoeverywhere.ArrayAdapter;
 import org.holoeverywhere.LayoutInflater;
-import org.holoeverywhere.addon.AddonSlidingMenu;
-import org.holoeverywhere.addon.AddonSlidingMenu.AddonSlidingMenuA;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.app.Fragment;
@@ -36,8 +34,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -48,13 +48,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
-import com.slidingmenu.lib.SlidingMenu;
 
 public class MainFragment extends Fragment {
 	
@@ -75,7 +75,7 @@ public class MainFragment extends Fragment {
 	ListView historyList;
 	Dialog optionsMenu;
 	PendingIntent monitorService;
-	boolean isTablet = true;
+	boolean isDualPane = true;
 
 	SimpleCursorAdapterHistory sca;
 	Cursor searchHistory;
@@ -86,10 +86,10 @@ public class MainFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		prefs = PreferenceManager.getDefaultSharedPreferences(this
-				.getActivity());
+		prefs = MainApplication.getPrefs();
 		prefsEditor = prefs.edit();
-		isTablet = prefs.getBoolean("isTablet", false);
+		isDualPane = prefs.getBoolean("isTablet", false) && (getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE);
 
 		
 		//TODO zbadac
@@ -159,6 +159,8 @@ public class MainFragment extends Fragment {
 		Log.v(TAG, "onCustomResume()");
 		if (history == null)
 			history = ((MainApplication)getActivity().getApplication()).getHistory(); 
+		if (tracker == null)
+			tracker = ((MainApplication)getActivity().getApplication()).getTracker();
 		readCustomCuriersOrder();
 		refreshHistory();
 
@@ -203,6 +205,10 @@ public class MainFragment extends Fragment {
 				String courierName, String courierCode, String monitor,
 				String isMonitorable) {
 
+			InputMethodManager inputMethodManager = (InputMethodManager)  getSupportActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+		    inputMethodManager.hideSoftInputFromWindow(getSupportActivity().getCurrentFocus().getWindowToken(), 0);
+		    //this.packageNumber.clearFocus();
+		    
 			Bundle b = new Bundle();
 			b.putCharSequence("packageNumber", packageNumber);
 			b.putCharSequence("packageDetails", packageDetails);
@@ -210,26 +216,27 @@ public class MainFragment extends Fragment {
 			b.putCharSequence("courierName", courierName);
 			b.putCharSequence("monitor", monitor);
 			b.putCharSequence("isMonitorable", isMonitorable);
-			if (!isTablet) {
-
-			//	Intent i = new Intent(MainActivity.this, DetailsActivity.class);
-			//	i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			//	i.putExtras(b);
-			//	startActivity(i);
+			
+			DetailsFragment detailsFragment = new DetailsFragment();
+			detailsFragment.setArguments(b);
+			((MainActivity)getActivity()).setDetailsBundle(b);
+			((MainActivity)getActivity()).setDetailsSet(true);
+			FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+					.beginTransaction();
+			if (!isDualPane) {
+				fragmentTransaction.replace(R.id.mainFragment,
+						detailsFragment);
 			} else {
 				// TODO optymalizacja
-				DetailsFragment newFragment = new DetailsFragment();
-				newFragment.setArguments(b);
-				Log.e(TAG, "is just created");
-				FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-						.beginTransaction();
-				fragmentTransaction.replace(R.id.detailsFragmentPhone,
-						newFragment, newFragment.getTag());
+				
+				fragmentTransaction.replace(R.id.detailsFragment,
+						detailsFragment, detailsFragment.getTag());
 				// fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
 				// android.R.anim.fade_out);
 				// fragmentTransaction.show(newFragment);
-				fragmentTransaction.commit();
 			}
+			fragmentTransaction.commit();
+			
 		}
 
 		private void checkPackage(String packageNumber, String courierName,
@@ -300,7 +307,7 @@ public class MainFragment extends Fragment {
 						else {
 							showToast(getString(R.string.receiving_no_data));
 						}
-						if (isTablet)
+						if (isDualPane)
 							refreshHistory();
 					}
 
@@ -350,7 +357,7 @@ public class MainFragment extends Fragment {
 				else {
 					checkPackage(
 							packageNumber.getText().toString()
-									.replaceAll("[^a-zA-Z0-9]", "").toUpperCase(),
+									.replaceAll("[^a-zA-Z0-9]", "").toUpperCase(Locale.US),
 							(String) courierNameDropdown.getSelectedItem(),
 							courierCodes[getRealCourierId(courierNameDropdown
 									.getSelectedItem().toString())], "0");
@@ -363,6 +370,8 @@ public class MainFragment extends Fragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
+				//view.setSelected(true);
+				
 				searchHistory.moveToPosition(position);
 				final String packageNumber = searchHistory.getString(1);
 				final String courierName = searchHistory.getString(2);

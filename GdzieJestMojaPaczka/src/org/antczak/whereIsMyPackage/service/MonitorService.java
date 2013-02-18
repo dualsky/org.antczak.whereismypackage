@@ -1,6 +1,5 @@
 package org.antczak.whereIsMyPackage.service;
 
-import org.antczak.whereIsMyPackage.DetailsActivity;
 import org.antczak.whereIsMyPackage.History;
 import org.antczak.whereIsMyPackage.R;
 import org.antczak.whereIsMyPackage.utils.CheckInternet;
@@ -10,7 +9,6 @@ import org.json.JSONObject;
 
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -81,7 +79,7 @@ public class MonitorService extends Service {
 											R.drawable.ic_stat_notify,
 											getString(R.string.notification),
 											System.currentTimeMillis());
-									Intent intent = new Intent(
+									/*Intent intent = new Intent(
 											MonitorService.this, DetailsActivity.class);
 									intent.putExtra("packageNumber",
 											c.getString(1));
@@ -99,7 +97,8 @@ public class MonitorService extends Service {
 													+ ": " + c.getString(1),
 											getString(R.string.notification),
 											contentIntent);
-									nm.notify(R.layout.details, notification);
+									nm.notify(R.layout.details, notification);*/ 
+									//TODO poprawic activity
 								}
 							}
 						}
