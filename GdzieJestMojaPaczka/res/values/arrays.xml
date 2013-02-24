@@ -82,4 +82,10 @@
 		<item>USD</item>
 		<item>EUR</item>
 	</string-array>
+
+	<string-array name="tags">
+		<item>Bieżące</item>
+		<item>Monitorowane</item>
+		<item>Archiwum</item>
+	</string-array>
 </resources>

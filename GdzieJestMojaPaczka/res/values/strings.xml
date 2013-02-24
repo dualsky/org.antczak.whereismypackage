@@ -105,6 +105,10 @@
 	<string name="about_email">***REMOVED***</string>
 	<string name="about_web">http://antczak.org</string>
 
+	<string name="sliding_edit">Tryb edycji</string>
+	<string name="sliding_addtag">Nowa etykieta</string>
+	<string name="sliding_tags">Etykiety</string>
+	
 	<string name="whats_new_title">Co nowego?</string>
 	<string name="whats_new">v1.4.4
 	    \nPoprawiono automatyczne skanowanie

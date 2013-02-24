@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:holo="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tagSeparator"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="@string/sliding_tags" >
+    </TextView>
 
     <com.mobeta.android.dslv.DragSortListView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +20,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
+        android:layout_weight="1"
         android:choiceMode="singleChoice"
         android:listSelector="@drawable/list_selector_holo_dark"
         dslv:drag_enabled="false"
@@ -19,11 +28,41 @@
         dslv:float_alpha="0.5"
         dslv:float_background_color="@color/transparent" />
 
+    <LinearLayout
+        android:id="@+id/tagAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="?listPreferredItemHeightSmall"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="20dp"
+            android:src="@drawable/ic_action_new" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/sliding_addtag"
+            android:textAppearance="?android:textAppearanceMedium" >
+        </TextView>
+    </LinearLayout>
+
     <org.holoeverywhere.widget.Switch
         android:id="@+id/dragEnabler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="20dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="0"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/sliding_edit" />
 
-</FrameLayout>
+</LinearLayout>

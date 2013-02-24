@@ -7,33 +7,29 @@ import java.util.List;
 import org.antczak.whereIsMyPackage.R;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Checkable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SlidingMenuAdapter extends ArrayAdapter<String> implements OnItemClickListener {
-    private LayoutInflater mInflater;
-    private List<String> folders;
+public class SlidingMenuAdapter extends SimpleCursorAdapter implements OnItemClickListener {
+  
+	private LayoutInflater mInflater;
+    private Cursor folders;
 	private static final String TAG = "org.antczak.whereIsMyPackage.adpaters.SlidingMenuAdapter";
-	 
-	public SlidingMenuAdapter(Context context, int resource,
-			int textViewResourceId, String[] objects) {
-		super(context, resource, textViewResourceId, objects);
 
-	}
-
-	public SlidingMenuAdapter(Context context, int resource,
-			int textViewResourceId, List<String> objects) {
-		super(context, resource, textViewResourceId, objects);
-		 mInflater = LayoutInflater.from(context);
-		 folders = objects;
+	public SlidingMenuAdapter(Context context, int layout, Cursor c,
+			String[] from, int[] to, int flags) {
+		super(context, layout, c, from, to, flags);
+		mInflater = LayoutInflater.from(context);
+	folders = c;
 	}
 
 	@Override
@@ -46,9 +42,10 @@ public class SlidingMenuAdapter extends ArrayAdapter<String> implements OnItemCl
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		  ViewHolder holder;
-
+			folders.moveToPosition(position);
+			Log.v(TAG, "getView() " + position);
           if (convertView == null) {
-              convertView = mInflater.inflate(R.layout.list_item_slidingmenu, parent);
+              convertView = mInflater.inflate(R.layout.list_item_slidingmenu, parent, false);
               holder = new ViewHolder();
               holder.mText1 = (TextView) convertView.findViewById(android.R.id.text1);
               holder.mText2 = (TextView) convertView.findViewById(android.R.id.text2);
@@ -59,7 +56,7 @@ public class SlidingMenuAdapter extends ArrayAdapter<String> implements OnItemCl
               holder = (ViewHolder) convertView.getTag();
           }
 
-          holder.mText1.setText(folders.get(position));
+          holder.mText1.setText(folders.getString(1));
           holder.mText2.setText("(34)");
           if (position % 3 ==0) 
         	  holder.mImageView.setImageResource(R.drawable.pro);
