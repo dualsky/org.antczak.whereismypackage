@@ -30,7 +30,7 @@ public class MonitorService extends Service {
 		super.onCreate();
 		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		sp = PreferenceManager.getDefaultSharedPreferences(MonitorService.this);
-		history = new History(MonitorService.this);
+		history = new History();
 		Log.d(TAG, "onCreate.");
 	}
 

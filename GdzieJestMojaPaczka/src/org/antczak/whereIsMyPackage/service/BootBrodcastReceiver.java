@@ -25,7 +25,7 @@ public class BootBrodcastReceiver extends BroadcastReceiver {
 				.getDefaultSharedPreferences(context);
 		if (prefs.getBoolean("autoStart", false)) {
 			Log.d(TAG, "Boot monitor enabled.");
-			history = new History(context);
+			history = new History();
 			int monitoredCount = history.getMonitoredCount();
 			history.closeConnection();
 			if (monitoredCount > 0) {
