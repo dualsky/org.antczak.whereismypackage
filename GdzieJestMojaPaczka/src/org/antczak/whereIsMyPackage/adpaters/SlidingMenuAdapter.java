@@ -45,7 +45,7 @@ public class SlidingMenuAdapter extends SimpleCursorAdapter implements OnItemCli
 			folders.moveToPosition(position);
 			Log.v(TAG, "getView() " + position);
           if (convertView == null) {
-              convertView = mInflater.inflate(R.layout.list_item_slidingmenu, parent, false);
+              convertView = mInflater.inflate(R.layout.list_slidingmenu_item, parent, false);
               holder = new ViewHolder();
               holder.mText1 = (TextView) convertView.findViewById(android.R.id.text1);
               holder.mText2 = (TextView) convertView.findViewById(android.R.id.text2);
@@ -57,7 +57,7 @@ public class SlidingMenuAdapter extends SimpleCursorAdapter implements OnItemCli
           }
 
           holder.mText1.setText(folders.getString(1));
-          holder.mText2.setText("(34)");
+          holder.mText2.setText("34");
           if (position % 3 ==0) 
         	  holder.mImageView.setImageResource(R.drawable.pro);
           return convertView;

@@ -4,10 +4,10 @@ import java.util.Hashtable;
 
 import org.antczak.whereIsMyPackage.utils.ReadResource;
 
-import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.util.SparseArray;
 
 public class History {
 
@@ -15,13 +15,20 @@ public class History {
 
     private final String DATABASE_NAME = "history";
     private final String DATABASE_TABLE = "history";
+
     private SQLiteDatabase myDB;
     private Hashtable<Integer, String> queryMap = new Hashtable<Integer, String>();
+    private SparseArray<String> sortField = new SparseArray<String>();
 
     public History() {
 	super();
 	myDB = MainApplication.getAppContext().openOrCreateDatabase(
 		DATABASE_NAME, 0, null);
+
+	sortField.put(0, "lastUpdate");
+	sortField.put(1, "addDate");
+	sortField.put(2, "packageNumber");
+	sortField.put(3, "courierName");
 
     }
 
@@ -32,7 +39,7 @@ public class History {
 	String oldVersion = MainApplication.getPrefs().getString(
 		"oldAppVersion", "0");
 
-	if (oldVersion.compareTo("1.2.0") >= 0) {
+	if (!oldVersion.equals("0") && oldVersion.compareTo("1.2.0") >= 0) {
 	    myDB.execSQL(getQuery(R.raw.create_packages));
 	    myDB.execSQL(getQuery(R.raw.create_tags));
 	    myDB.execSQL(getQuery(R.raw.create_tags_packages));
@@ -52,9 +59,47 @@ public class History {
     // /////////////////////////////////////////
     // Packages
     // /////////////////////////////////////////
+    public Cursor getHistory(int sortField, int sortOrder) {
+	String q = String.format(getQuery(R.raw.select_packages),
+		this.sortField.get(sortField), sortOrder == 0 ? "ASC" : "DESC");
+	Log.v(TAG, q);
+	return myDB.rawQuery(q, null);
 
-    public Cursor getHistory(int limit) {
-	return myDB.rawQuery(getQuery(R.raw.select_packages), null);
+    }
+
+    public int getMonitoredCount() {
+	Cursor c = myDB.rawQuery(getQuery(R.raw.select_monitored_count), null);
+	c.moveToFirst();
+	int count = c.getInt(0);
+	c.close();
+	return count;
+    }
+
+    public void clearHistory() {
+	myDB.rawQuery(getQuery(R.raw.delete_all_from_tags_packages), null);
+	myDB.rawQuery(getQuery(R.raw.delete_all_from_packages), null);
+    }
+
+    public void clearMonitored() {
+	myDB.rawQuery(getQuery(R.raw.update_clear_monitored), null);
+    }
+
+    public void addToHistory(String packageNumber, String courierName,
+	    String courierCode, String rows) {
+	String sql = "insert or ignore into history(addDate, packageNumber,courierName, courierCode, rows) "
+		+ " values (strftime('%s','now'),"
+		+ "'"
+		+ packageNumber
+		+ "','" + courierName + "','" + courierCode + "'," + rows + ")";
+	Log.v(TAG, "addToHistory: " + sql);
+	myDB.execSQL(sql);
+    }
+
+    public void deleteFromHistory(String packageNumber) {
+	String sql = "delete from " + DATABASE_TABLE
+		+ " where packageNumber = '" + packageNumber + "'";
+	Log.v(TAG, "deleteFromHistory: " + sql);
+	myDB.execSQL(sql);
     }
 
     // /////////////////////////////////////////
@@ -67,58 +112,13 @@ public class History {
 	    myDB.execSQL(String.format(getQuery(R.raw.insert_tags), tag));
 	}
     }
-    
+
     public Cursor getTags() {
 	return myDB.rawQuery(getQuery(R.raw.select_tags), null);
     }
 
     // po staremu
     // //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void addToHistory(String packageNumber, String courierName,
-	    String courierCode, String rows) {
-	String sql = "insert or ignore into history(addDate, packageNumber,courierName, courierCode, rows) "
-		+ " values (strftime('%s','now'),"
-		+ "'"
-		+ packageNumber
-		+ "','" + courierName + "','" + courierCode + "'," + rows + ")";
-	Log.v(TAG, "addToHistory: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    public void clearHistory() {
-	String sql = "delete from " + DATABASE_TABLE;
-	Log.v(TAG, "clearHistory: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    public void clearMonitored() {
-	String sql = "update " + DATABASE_TABLE + " set monitor = 0";
-	Log.v(TAG, "clearMonitored: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    public void deleteFromHistory(String packageNumber) {
-	String sql = "delete from " + DATABASE_TABLE
-		+ " where packageNumber = '" + packageNumber + "'";
-	Log.v(TAG, "deleteFromHistory: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    /**
-     * Count sum of all package checks
-     * 
-     * @return int
-     */
-    public int getHistoryCount() {
-	Cursor c = (Cursor) myDB.query(DATABASE_TABLE,
-		new String[] { "sum(checkCount)" }, "", new String[] {}, "",
-		"", "", "");
-	c.moveToFirst();
-	int count = c.getInt(0);
-	c.close();
-	Log.v("History", "getHistoryCount: " + count);
-	return count;
-    }
 
     /**
      * Lista monitorowanych wykorzystywana w Service
@@ -137,27 +137,6 @@ public class History {
 	return myDB.rawQuery(sql, null);
     }
 
-    public void oneMoreCheck(String packageNumber) {
-	String sql = "update "
-		+ DATABASE_TABLE
-		+ " set checkCount = checkCount+1, adddate = strftime('%s','now') "
-		+ "where packageNumber = '" + packageNumber + "'";
-	Log.v(TAG, "oneMoreCheck: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    public int getMonitoredCount() {
-	String sql = "select count(*) " + "from " + DATABASE_TABLE
-		+ " where monitor = 1 ";
-	Log.v("History", "getMonitoredCount: " + sql);
-	Cursor c = (Cursor) myDB.rawQuery(sql, null);
-	c.moveToFirst();
-	int count = c.getInt(0);
-	c.close();
-	Log.v("History", "getMonitoredCount: " + count);
-	return count;
-    }
-
     public void startMonitoring(String packageNumber) {
 	String sql = "update " + DATABASE_TABLE
 		+ " set monitor = 1, adddate = strftime('%s','now') "
@@ -171,25 +150,6 @@ public class History {
 		+ " set monitor = 0, adddate = strftime('%s','now') "
 		+ "where packageNumber = '" + packageNumber + "'";
 	Log.v(TAG, "stopMonitoring: " + sql);
-	myDB.execSQL(sql);
-    }
-
-    public void closeConnection() {
-	if (this.myDB.isOpen())
-	    this.myDB.close();
-    }
-
-    /**
-     * Zmienia iloœæ wierszy. Dla Service.
-     * 
-     * @param packageNumber
-     * @param rows
-     */
-    public void updateRowsCount(String packageNumber, int rows) {
-	String sql = "update " + DATABASE_TABLE + " set rows = " + rows
-		+ " where packageNumber = '" + packageNumber
-		+ "' and monitor = 1";
-	Log.v(TAG, "updateRowsCount: " + sql);
 	myDB.execSQL(sql);
     }
 
@@ -215,6 +175,10 @@ public class History {
 		    MainApplication.getAppContext(), queryId));
 	}
 	return queryMap.get(queryId);
+    }
 
+    public void closeConnection() {
+	if (this.myDB.isOpen())
+	    this.myDB.close();
     }
 }

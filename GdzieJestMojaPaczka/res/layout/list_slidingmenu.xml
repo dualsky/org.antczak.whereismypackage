@@ -24,9 +24,10 @@
         android:choiceMode="singleChoice"
         android:listSelector="@drawable/list_selector_holo_dark"
         dslv:drag_enabled="false"
-        dslv:drag_handle_id="@id/dragHandler"
+
         dslv:float_alpha="0.5"
-        dslv:float_background_color="@color/transparent" />
+        dslv:float_background_color="@color/transparent"
+        dslv:use_default_controller="true" />
 
     <LinearLayout
         android:id="@+id/tagAdd"
