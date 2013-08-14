@@ -4,10 +4,11 @@ import org.antczak.whereIsMyPackage.adpaters.SlidingMenuAdapter;
 import org.antczak.whereIsMyPackage.fragments.DetailsFragment;
 import org.antczak.whereIsMyPackage.fragments.MainFragment;
 import org.holoeverywhere.LayoutInflater;
-import org.holoeverywhere.addon.AddonSlidingMenu;
-import org.holoeverywhere.addon.AddonSlidingMenu.AddonSlidingMenuA;
+import org.holoeverywhere.addon.AddonSlider;
+import org.holoeverywhere.addon.AddonSlider.AddonSliderA;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.app.AlertDialog;
+import org.holoeverywhere.slider.SliderMenu;
 import org.holoeverywhere.widget.LinearLayout;
 import org.holoeverywhere.widget.Switch;
 
@@ -32,10 +33,13 @@ import com.actionbarsherlock.internal.widget.IcsAdapterView.OnItemSelectedListen
 import com.actionbarsherlock.internal.widget.IcsSpinner;
 import com.actionbarsherlock.view.Window;
 import com.mobeta.android.dslv.DragSortListView;
-import com.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends Activity implements OnItemSelectedListener {
 
+    public AddonSliderA addonSlider() {
+        return addon(AddonSlider.class);
+    }
+    
     private static final String TAG = "org.antczak.whereIsMyPackage.MainActivity";
 
     android.content.SharedPreferences prefs;
@@ -206,9 +210,10 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
      * list.setSelected(itemPosition); list.setAsc(true); } return true; }
      */
     private void addSlidingMenu() {
-	AddonSlidingMenuA addonSlidingMenu = requireSlidingMenu();
-	SlidingMenu slidingMenu = addonSlidingMenu.getSlidingMenu();
 
+
+	 final SliderMenu sliderMenu = addonSlider().obtainDefaultSliderMenu(R.layout.list_slidingmenu);
+	
 	View v = findViewById(R.id.mainTags);
 	if (v == null) {
 	    v = getLayoutInflater().inflate(R.layout.list_slidingmenu);
@@ -231,7 +236,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	listSlidingMenu.setDropListener(onDrop);
 	// list.setChoiceMode(ListView.CHOICE_MODE_NONE);
 	listSlidingMenu.setItemChecked(0, true);
-	if (isDualPane) {
+	/*if (isDualPane) {
 	    // FrameLayout ff = (FrameLayout) findViewById(R.id.mainTags);
 	    // ff.addView(v);
 	    addonSlidingMenu.setBehindContentView(getLayoutInflater().inflate(
@@ -246,12 +251,10 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	    slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 	    slidingMenu.setSlidingEnabled(!isDualPane);
 	    getSupportActionBar().setDisplayHomeAsUpEnabled(!isDualPane);
-	}
+	}*/
     }
 
-    public AddonSlidingMenuA requireSlidingMenu() {
-	return requireAddon(AddonSlidingMenu.class).activity(this);
-    }
+
 
     private int computeMenuWidth() {
 	int widthPixels = getResources().getDisplayMetrics().widthPixels;
@@ -296,6 +299,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	}
     };
 
+    /*
     @Override
     protected Holo onCreateConfig(Bundle savedInstanceState) {
 	Log.v(TAG, "onCreateConfig()");
@@ -303,7 +307,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	config.requireSlidingMenu = true;
 	return config;
     }
-
+*/
     // ////////////////////////////////////////////////////////////////////////////////
     // Menu
     // ////////////////////////////////////////////////////////////////////////////////
