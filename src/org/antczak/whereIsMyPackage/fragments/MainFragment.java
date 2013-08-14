@@ -14,11 +14,11 @@ import org.antczak.whereIsMyPackage.service.MonitorService;
 import org.antczak.whereIsMyPackage.utils.CheckInternet;
 import org.antczak.whereIsMyPackage.utils.CheckPackage;
 import org.antczak.whereIsMyPackage.utils.ReadFromURL;
-import org.holoeverywhere.ArrayAdapter;
 import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.app.Fragment;
+import org.holoeverywhere.widget.ArrayAdapter;
 import org.holoeverywhere.widget.Button;
 import org.holoeverywhere.widget.EditText;
 import org.holoeverywhere.widget.ListView;
@@ -221,8 +221,7 @@ public class MainFragment extends Fragment {
 	detailsFragment.setArguments(b);
 	((MainActivity) getActivity()).setDetailsBundle(b);
 	((MainActivity) getActivity()).setDetailsSet(true);
-	FragmentTransaction fragmentTransaction = getSupportFragmentManager()
-		.beginTransaction();
+	FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 	if (!isDualPane) {
 	    fragmentTransaction.replace(R.id.mainFragment, detailsFragment);
 	} else {
