@@ -7,7 +7,9 @@ import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.addon.AddonSlider;
 import org.holoeverywhere.addon.AddonSlider.AddonSliderA;
 import org.holoeverywhere.app.Activity;
+import org.holoeverywhere.app.Activity.Addons;
 import org.holoeverywhere.app.AlertDialog;
+import org.holoeverywhere.app.Fragment;
 import org.holoeverywhere.slider.SliderMenu;
 import org.holoeverywhere.widget.LinearLayout;
 import org.holoeverywhere.widget.Switch;
@@ -23,10 +25,12 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 
 import com.actionbarsherlock.internal.widget.IcsAdapterView;
 import com.actionbarsherlock.internal.widget.IcsAdapterView.OnItemSelectedListener;
@@ -34,12 +38,13 @@ import com.actionbarsherlock.internal.widget.IcsSpinner;
 import com.actionbarsherlock.view.Window;
 import com.mobeta.android.dslv.DragSortListView;
 
+@Addons(Activity.ADDON_SLIDER)
 public class MainActivity extends Activity implements OnItemSelectedListener {
 
     public AddonSliderA addonSlider() {
-        return addon(AddonSlider.class);
+	return addon(AddonSlider.class);
     }
-    
+
     private static final String TAG = "org.antczak.whereIsMyPackage.MainActivity";
 
     android.content.SharedPreferences prefs;
@@ -60,14 +65,15 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	Log.v(TAG, "onCreate()");
+
 	requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
 	getSupportActionBar().setIcon(R.drawable.ic_launcher2);
 	getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+	// addSlidingMenu();
 	setContentView(R.layout.activity_main);
 	setSupportProgressBarIndeterminateVisibility(false);
-
+	addSlidingMenu();
 	prefs = PreferenceManager.getDefaultSharedPreferences(this);
 	prefsEditor = prefs.edit();
 	if (prefs.getBoolean("showWhatsNew", false)) {
@@ -79,7 +85,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	isDualPane = prefs.getBoolean("isTablet", false)
 		&& (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
 
-	addSlidingMenu();
 	addSortList();
 	Log.v(TAG, "getBackStackEntryCount():"
 		+ getSupportFragmentManager().getBackStackEntryCount());
@@ -210,51 +215,56 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
      * list.setSelected(itemPosition); list.setAsc(true); } return true; }
      */
     private void addSlidingMenu() {
-
-
-	 final SliderMenu sliderMenu = addonSlider().obtainDefaultSliderMenu(R.layout.list_slidingmenu);
 	
-	View v = findViewById(R.id.mainTags);
-	if (v == null) {
-	    v = getLayoutInflater().inflate(R.layout.list_slidingmenu);
-	}
-	Switch editSwitch = (Switch) v.findViewById(R.id.dragEnabler);
-	editSwitch.setOnCheckedChangeListener(onEdit);
-	addTagButton = (LinearLayout) v.findViewById(R.id.tagAdd);
-	addTagButton.setOnClickListener(onAdd);
-	listSlidingMenu = (DragSortListView) v
-		.findViewById(R.id.listSlidingMenu);
-	folders = MainApplication.getHistory().getTags();
-	folders.moveToFirst();
-	slidingMenuAdapter = new SlidingMenuAdapter(this,
-		R.layout.list_slidingmenu_item, folders, new String[] { "NAME",
-			"_id" }, new int[] { android.R.id.text1,
-			android.R.id.text2 }, CursorAdapter.NO_SELECTION);
-	listSlidingMenu.setAdapter(slidingMenuAdapter);
-	// list.setItemChecked(2, false);
-	listSlidingMenu.setOnItemClickListener(slidingMenuAdapter);
-	listSlidingMenu.setDropListener(onDrop);
-	// list.setChoiceMode(ListView.CHOICE_MODE_NONE);
-	listSlidingMenu.setItemChecked(0, true);
-	/*if (isDualPane) {
-	    // FrameLayout ff = (FrameLayout) findViewById(R.id.mainTags);
-	    // ff.addView(v);
-	    addonSlidingMenu.setBehindContentView(getLayoutInflater().inflate(
-		    R.layout.fragment_details)); // dummy view
-	    slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
-	    slidingMenu.setSlidingEnabled(!isDualPane);
-	    getSupportActionBar().setDisplayHomeAsUpEnabled(!isDualPane);
-	} else {
-	    addonSlidingMenu.setBehindContentView(v);
-	    addonSlidingMenu.setSlidingActionBarEnabled(true);
-	    slidingMenu.setBehindWidth(computeMenuWidth());
-	    slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-	    slidingMenu.setSlidingEnabled(!isDualPane);
-	    getSupportActionBar().setDisplayHomeAsUpEnabled(!isDualPane);
-	}*/
+	 final SliderMenu sliderMenu = addonSlider().obtainDefaultSliderMenu(R.layout.list_slidingmenu);
+	 sliderMenu.add("main", MainFragment.class);
+
+       // slidingMenu.add("menu",SliderFragment.class);
+        View v = findViewById(R.id.mainTags);
+        if (v == null) {
+            v = getLayoutInflater().inflate(R.layout.list_slidingmenu);
+        }
+        Switch editSwitch = (Switch) v.findViewById(R.id.dragEnabler);
+        editSwitch.setOnCheckedChangeListener(onEdit);
+        addTagButton = (LinearLayout) v.findViewById(R.id.tagAdd);
+        addTagButton.setOnClickListener(onAdd);
+        listSlidingMenu = (DragSortListView) v
+                .findViewById(R.id.listView1);
+        if (listSlidingMenu instanceof ListView) {
+            
+        }
+        folders = MainApplication.getHistory().getTags();
+        folders.moveToFirst();
+        slidingMenuAdapter = new SlidingMenuAdapter(this,
+                R.layout.list_slidingmenu_item, folders, new String[] { "NAME",
+                        "_id" }, new int[] { android.R.id.text1,
+                        android.R.id.text2 }, CursorAdapter.NO_SELECTION);
+        listSlidingMenu.setAdapter(slidingMenuAdapter);
+        // list.setItemChecked(2, false);
+        listSlidingMenu.setOnItemClickListener(slidingMenuAdapter);
+        listSlidingMenu.setDropListener(onDrop);
+        // list.setChoiceMode(ListView.CHOICE_MODE_NONE);
+        listSlidingMenu.setItemChecked(0, true);
+
+        
+        /*
+        if (isDualPane) {
+            // FrameLayout ff = (FrameLayout) findViewById(R.id.mainTags);
+            // ff.addView(v);
+            addonSlidingMenu.setBehindContentView(getLayoutInflater().inflate(
+                    R.layout.fragment_details)); // dummy view
+            slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+            slidingMenu.setSlidingEnabled(!isDualPane);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(!isDualPane);
+        } else {
+            addonSlidingMenu.setBehindContentView(v);
+            addonSlidingMenu.setSlidingActionBarEnabled(true);
+            slidingMenu.setBehindWidth(computeMenuWidth());
+            slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+            slidingMenu.setSlidingEnabled(!isDualPane);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(!isDualPane);
+        }*/
     }
-
-
 
     private int computeMenuWidth() {
 	int widthPixels = getResources().getDisplayMetrics().widthPixels;
@@ -300,14 +310,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
     };
 
     /*
-    @Override
-    protected Holo onCreateConfig(Bundle savedInstanceState) {
-	Log.v(TAG, "onCreateConfig()");
-	Holo config = super.onCreateConfig(savedInstanceState);
-	config.requireSlidingMenu = true;
-	return config;
-    }
-*/
+     * @Override protected Holo onCreateConfig(Bundle savedInstanceState) {
+     * Log.v(TAG, "onCreateConfig()"); Holo config =
+     * super.onCreateConfig(savedInstanceState); config.requireSlidingMenu =
+     * true; return config; }
+     */
     // ////////////////////////////////////////////////////////////////////////////////
     // Menu
     // ////////////////////////////////////////////////////////////////////////////////
@@ -431,6 +438,26 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
     public void setSortOrder(int sortOrder) {
 	this.sortOrder = sortOrder;
+    }
+
+    public static class SliderFragment extends Fragment {
+
+	public SliderFragment() {
+	    super();
+	    // TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+		Bundle savedInstanceState) {
+
+	    View fragView;
+
+	    fragView = inflater.inflate(R.layout.list_slidingmenu, container,
+		    false);
+	    return fragView;
+	}
+
     }
 
 }

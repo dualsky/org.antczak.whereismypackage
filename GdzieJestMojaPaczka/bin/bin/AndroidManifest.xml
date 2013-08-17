@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.antczak.whereIsMyPackage"
+    android:versionCode="11"
+    android:versionName="2.0.0alpha" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher2"
+        android:label="@string/app_name"
+        android:theme="@style/Holo.Theme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DetailsActivity"
+            class=".DetailsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="Preferences"
+            class=".Preferences"
+            android:label="@string/preferences"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="PreferencesCourierOrder"
+            class=".PreferencesCourierOrder"
+            android:label="@string/preferences_courier_order"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="Donate"
+            class=".Donate"
+            android:label="@string/donate"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity
+            android:name="com.paypal.android.MEP.PayPalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver android:name=".service.BootBrodcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".service.MonitorService" >
+            <intent-filter>
+                <action android:name="org.antczak.whereIsMyPackage.MonitorService" >
+                </action>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
