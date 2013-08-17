@@ -13,10 +13,17 @@
         android:text="@string/sliding_tags" >
     </TextView>
 
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0" >
+    </ListView>
+
     <com.mobeta.android.dslv.DragSortListView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:dslv="http://schemas.android.com/apk/res/org.antczak.whereIsMyPackage"
-        android:id="@+id/listSlidingMenu"
+        android:id="@+id/listView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -24,7 +31,6 @@
         android:choiceMode="singleChoice"
         android:listSelector="@drawable/list_selector_holo_dark"
         dslv:drag_enabled="false"
-
         dslv:float_alpha="0.5"
         dslv:float_background_color="@color/transparent"
         dslv:use_default_controller="true" />
