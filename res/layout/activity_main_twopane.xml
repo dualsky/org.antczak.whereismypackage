@@ -22,7 +22,7 @@
     -->
 
     <fragment
-        android:id="@+id/package_list"
+        android:id="@+id/main_fragment_placeholder"
         android:name="org.antczak.whereIsMyPackage.MainFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"

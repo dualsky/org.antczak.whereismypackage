@@ -27,7 +27,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 		MainFragment.Callbacks {
 
 	private final String TAG = "MainActivity";
-	
+
 	/**
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
 	 * device.
@@ -40,6 +40,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// Do we have static sliding menu?
 		if (findViewById(R.id.sliding_menu) != null) {
 			mThreePane = true;
 			View v = new View(this);
@@ -47,31 +48,25 @@ public class MainActivity extends SlidingFragmentActivity implements
 			getSlidingMenu().setSlidingEnabled(false);
 			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
 		} else {
-			setBehindContentView(R.layout.menu_frame);
+			setBehindContentView(R.layout.fragment_sliding_menu_placeholder);
 			getSlidingMenu().setSlidingEnabled(true);
 			getActionBar().setDisplayHomeAsUpEnabled(true);
 			getSlidingMenu()
 					.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-			getSupportFragmentManager().beginTransaction()
-					.replace(R.id.menu_frame, new SlidingMenuFragment())
-					.commit();
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.sliding_menu_placeholder,
+							new SlidingMenuFragment()).commit();
+
 		}
 
-		if (findViewById(R.id.package_detail_container) == null) {
-			// The detail container view will be present only in the
-			// large-screen layouts (res/values-large and
-			// res/values-sw600dp). If this view is present, then the
-			// activity should be in two-pane mode.
-		} else {
+		// Do we have static details?
+		if (findViewById(R.id.package_detail_container) != null) {
 			mTwoPane = true;
-
-			// In two-pane mode, list items should be given the
-			// 'activated' state when touched.
 			((MainFragment) getSupportFragmentManager().findFragmentById(
-					R.id.package_list)).setActivateOnItemClick(true);
-
-		}
-
+					R.id.main_fragment_placeholder)).setActivateOnItemClick(true);
+		} 
+		
 		SlidingMenu sm = getSlidingMenu();
 		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
 		sm.setShadowWidthRes(R.dimen.shadow_width);
@@ -79,8 +74,9 @@ public class MainActivity extends SlidingFragmentActivity implements
 		sm.setBehindScrollScale(0.25f);
 		sm.setFadeDegree(0.25f);
 
-		Log.d(TAG, "smallestScreenWidthDp" + getResources().getConfiguration().smallestScreenWidthDp);
-		
+		Log.d(TAG, "smallestScreenWidthDp"
+				+ getResources().getConfiguration().smallestScreenWidthDp);
+
 	}
 
 	/**
