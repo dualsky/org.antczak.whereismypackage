@@ -21,7 +21,7 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	 * The serialization (saved instance state) Bundle key representing the
 	 * activated item position. Only used on tablets.
 	 */
-	private static final String STATE_ACTIVATED_POSITION = "activated_position";
+	private static final String ACTIV_POSITION = "activated_position";
 
 	/**
 	 * The fragment's current callback object, which is notified of list item
@@ -33,6 +33,8 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	 * The current activated item position. Only used on tablets.
 	 */
 	private int mActivatedPosition = ListView.INVALID_POSITION;
+
+	private boolean mActivateOnItemClick = false;
 
 	/**
 	 * A callback interface that all activities containing this fragment must
@@ -81,6 +83,9 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		mPackagesList.setAdapter(new ArrayAdapter<DummyContent.DummyItem>(
 				getActivity(), android.R.layout.simple_list_item_activated_1,
 				android.R.id.text1, DummyContent.ITEMS));
+		mPackagesList
+				.setChoiceMode(isActivateOnItemClick() ? ListView.CHOICE_MODE_SINGLE
+						: ListView.CHOICE_MODE_NONE);
 		mPackagesList.setOnItemClickListener(this);
 
 		return rootView;
@@ -92,9 +97,9 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 
 		// Restore the previously serialized activated item position.
 		if (savedInstanceState != null
-				&& savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
+				&& savedInstanceState.containsKey(ACTIV_POSITION)) {
 			setActivatedPosition(savedInstanceState
-					.getInt(STATE_ACTIVATED_POSITION));
+					.getInt(ACTIV_POSITION));
 		}
 	}
 
@@ -130,20 +135,8 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		super.onSaveInstanceState(outState);
 		if (mActivatedPosition != ListView.INVALID_POSITION) {
 			// Serialize and persist the activated item position.
-			outState.putInt(STATE_ACTIVATED_POSITION, mActivatedPosition);
+			outState.putInt(ACTIV_POSITION, mActivatedPosition);
 		}
-	}
-
-	/**
-	 * Turns on activate-on-click mode. When this mode is on, list items will be
-	 * given the 'activated' state when touched.
-	 */
-	public void setActivateOnItemClick(boolean activateOnItemClick) {
-		// When setting CHOICE_MODE_SINGLE, ListView will automatically
-		// give items the 'activated' state when touched.
-		mPackagesList
-				.setChoiceMode(activateOnItemClick ? ListView.CHOICE_MODE_SINGLE
-						: ListView.CHOICE_MODE_NONE);
 	}
 
 	private void setActivatedPosition(int position) {
@@ -154,6 +147,14 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		}
 
 		mActivatedPosition = position;
+	}
+
+	public boolean isActivateOnItemClick() {
+		return mActivateOnItemClick;
+	}
+
+	public void setActivateOnItemClick(boolean activateOnItemClick) {
+		this.mActivateOnItemClick = activateOnItemClick;
 	}
 
 }

@@ -9,53 +9,41 @@ import android.widget.TextView;
 
 import org.antczak.whereIsMyPackage.dummy.DummyContent;
 
-/**
- * A fragment representing a single Package detail screen.
- * This fragment is either contained in a {@link MainActivity}
- * in two-pane mode (on tablets) or a {@link DetailsActivity}
- * on handsets.
- */
 public class DetailsFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
 
-    /**
-     * The dummy content this fragment is presenting.
-     */
-    private DummyContent.DummyItem mItem;
+	public static final String PACKAGE_NUMBER = "package_number";
+	public static final String COURIER_CODE = "courier_code";
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public DetailsFragment() {
-    }
+	private String mPackageNumber;
+	private String mCourierCode;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	public DetailsFragment() {
+	}
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
-        }
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_details, container, false);
+		mPackageNumber = null;
+		mCourierCode = null;
 
-        // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.package_detail)).setText(mItem.content);
-        }
+		if (getArguments().containsKey(PACKAGE_NUMBER)) {
+			mPackageNumber = getArguments().getString(PACKAGE_NUMBER);
+			mCourierCode = getArguments().getString(COURIER_CODE);
+		}
+	}
 
-        return rootView;
-    }
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.fragment_details, container,
+				false);
+
+		if (mPackageNumber != null) {
+			((TextView) rootView.findViewById(R.id.package_detail))
+					.setText(mPackageNumber + " " + mCourierCode);
+		}
+
+		return rootView;
+	}
 }
