@@ -23,8 +23,8 @@ public class SlidingMenuFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_details,
-				container, false);
+		View rootView = inflater.inflate(R.layout.fragment_slidingmenu, container,
+				false);
 
 		((TextView) rootView.findViewById(R.id.package_detail))
 				.setText("I'm sliding menu");
