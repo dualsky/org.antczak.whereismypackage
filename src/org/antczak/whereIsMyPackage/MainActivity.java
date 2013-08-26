@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -16,24 +19,21 @@ public class MainActivity extends FragmentActivity implements
 
 	private boolean mTwoPane;
 	private boolean mThreePane;
+	private boolean mAreDetailsVisible;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-
-
 		// configure the SlidingMenu
 
 		// Do we have static sliding menu?
 		if (findViewById(R.id.sliding_fragment_container) != null) {
 			mThreePane = true;
-			getActionBar().setDisplayHomeAsUpEnabled(false);
 
 		} else {
 			mThreePane = false;
-			getActionBar().setDisplayHomeAsUpEnabled(true);
 			mSlidingMenu = new SlidingMenu(this);
 			mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 			mSlidingMenu.setBehindScrollScale(0.5f);
@@ -53,23 +53,94 @@ public class MainActivity extends FragmentActivity implements
 
 		// Do we have static details?
 		if (findViewById(R.id.details_fragment_container) != null) {
-			mTwoPane = true;
+			mTwoPane = mThreePane ? false : true;
 		} else {
 			mTwoPane = false;
 		}
 
+		Log.i(TAG, "How many panes? One? " + (!mTwoPane && !mThreePane)
+				+ " Two? " + mTwoPane + " Three? " + mThreePane);
+
 		if (savedInstanceState == null) {
+
+			Log.i(TAG, "savedInstanceState == null");
+
 			MainFragment mainFragment = new MainFragment();
 
-			if (mTwoPane) {
+			if (mThreePane) {
+				Log.i(TAG, "mThreePane");
+				mainFragment.setActivateOnItemClick(true);
+
+			} else if (mTwoPane) {
+				Log.i(TAG, "mTwoPane");
+				setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+				getActionBar().setDisplayHomeAsUpEnabled(true);
+				getActionBar().setHomeButtonEnabled(true);
 				mainFragment.setActivateOnItemClick(true);
 
 			} else {
+				Log.i(TAG, "mOnePane");
+				setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+				getActionBar().setDisplayHomeAsUpEnabled(true);
+				getActionBar().setHomeButtonEnabled(true);
 				mainFragment.setActivateOnItemClick(false);
 
 			}
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.main_fragment_container, mainFragment).commit();
+
+			getSupportFragmentManager()
+					.beginTransaction()
+					.add(R.id.main_fragment_container, mainFragment,
+							MainFragment.FRAGMENT_TAG).commit();
+
+		} else {
+
+			Log.i(TAG, "savedInstanceState != null");
+
+			if (mThreePane) {
+				Log.i(TAG, "mThreePane");
+				MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
+						.findFragmentByTag(MainFragment.FRAGMENT_TAG);
+				mainFragment.setActivateOnItemClick(true);
+
+			} else if (mTwoPane) {
+				Log.i(TAG, "mTwoPane");
+				// setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+				MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
+						.findFragmentByTag(MainFragment.FRAGMENT_TAG);
+				setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+				getActionBar().setDisplayHomeAsUpEnabled(true);
+				getActionBar().setHomeButtonEnabled(true);
+				mainFragment.setActivateOnItemClick(true);
+
+			} else {
+				Log.i(TAG, "mOnePane");
+				// setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+				getActionBar().setHomeButtonEnabled(true);
+				DetailsFragment detailsFragment = (DetailsFragment) getSupportFragmentManager()
+						.findFragmentByTag(DetailsFragment.FRAGMENT_TAG);
+				if (detailsFragment == null) {
+
+					setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+					getActionBar().setDisplayHomeAsUpEnabled(true);
+					getActionBar().setHomeButtonEnabled(true);
+
+					MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
+							.findFragmentByTag(MainFragment.FRAGMENT_TAG);
+					mainFragment.setActivateOnItemClick(false);
+
+				} else {
+
+					setHomeAsUpIndicator(android.R.attr.homeAsUpIndicator);
+					getActionBar().setDisplayHomeAsUpEnabled(true);
+					getActionBar().setHomeButtonEnabled(true);
+
+					getSupportFragmentManager()
+							.beginTransaction()
+							.add(R.id.main_fragment_container, detailsFragment,
+									DetailsFragment.FRAGMENT_TAG).commit();
+				}
+			}
+
 		}
 
 		Log.d(TAG, "smallestScreenWidthDp"
@@ -83,20 +154,32 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	@Override
 	public void onItemSelected(String id) {
-		if (mTwoPane) {
-			// In two-pane mode, show the detail view in this activity by
-			// adding or replacing the detail fragment using a
-			// fragment transaction.
+		Log.i(TAG, "onItemSelected, id:" + id);
+		Log.i(TAG, "How many panes? One? " + (!mTwoPane && !mThreePane)
+				+ " Two? " + mTwoPane + " Three? " + mThreePane);
+		DetailsFragment detailsFragment = (DetailsFragment) getSupportFragmentManager()
+				.findFragmentByTag(DetailsFragment.FRAGMENT_TAG);
+		if (detailsFragment == null) {
 			Bundle arguments = new Bundle();
 			arguments.putString(DetailsFragment.PACKAGE_NUMBER, id);
-			DetailsFragment fragment = new DetailsFragment();
-			fragment.setArguments(arguments);
-			getSupportFragmentManager().beginTransaction()
-					.replace(R.id.details_fragment_container, fragment)
-					.commit();
+			detailsFragment = new DetailsFragment();
+			detailsFragment.setArguments(arguments);
+		}
+		if (mTwoPane || mThreePane) {
+			getSupportFragmentManager()
+					.beginTransaction()
+					.replace(R.id.details_fragment_container, detailsFragment,
+							DetailsFragment.FRAGMENT_TAG).commit();
 
 		} else {
-
+			setHomeAsUpIndicator(android.R.attr.homeAsUpIndicator);
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+			getActionBar().setHomeButtonEnabled(true);
+			getSupportFragmentManager()
+					.beginTransaction()
+					.addToBackStack(null)
+					.replace(R.id.main_fragment_container, detailsFragment,
+							DetailsFragment.FRAGMENT_TAG).commit();
 		}
 	}
 
@@ -107,5 +190,24 @@ public class MainActivity extends FragmentActivity implements
 			mSlidingMenu.toggle();
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void setHomeAsUpIndicator(int resId) {
+		final View home = findViewById(android.R.id.home);
+		if (home == null)
+			return;
+
+		final ViewGroup parent = (ViewGroup) home.getParent();
+		final int childcount = parent.getChildCount();
+		if (childcount != 2)
+			return;
+
+		final View first = parent.getChildAt(0);
+		final View second = parent.getChildAt(1);
+		final View up = first.getId() == android.R.id.home ? second : first;
+		if (up instanceof ImageView)
+			((ImageView) up).setImageResource(resId);
+		((ImageView) up).setImageResource(resId);
+
 	}
 }
