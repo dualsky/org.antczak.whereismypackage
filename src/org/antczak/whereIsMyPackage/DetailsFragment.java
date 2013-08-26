@@ -5,12 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.antczak.whereIsMyPackage.dummy.DummyContent;
 
 public class DetailsFragment extends Fragment {
 
+	public static final String FRAGMENT_TAG = "DetailsFragment";
+	
 	public static final String PACKAGE_NUMBER = "package_number";
 	public static final String COURIER_CODE = "courier_code";
 
@@ -45,5 +48,12 @@ public class DetailsFragment extends Fragment {
 		}
 
 		return rootView;
+	}
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+			outState.putString(PACKAGE_NUMBER, mPackageNumber);
+			outState.putString(COURIER_CODE, mCourierCode);
+
 	}
 }

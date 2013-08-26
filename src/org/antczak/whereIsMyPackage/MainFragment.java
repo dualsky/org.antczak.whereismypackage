@@ -5,6 +5,7 @@ import org.antczak.whereIsMyPackage.dummy.DummyContent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,10 @@ import android.widget.ListView;
 
 public class MainFragment extends Fragment implements OnItemClickListener {
 
+	private final String TAG = "MainFragment";
+
+	public static final String FRAGMENT_TAG = "MainFragment";
+	
 	private ListView mPackagesList;
 
 	/**
@@ -63,6 +68,8 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	 * fragment (e.g. upon screen orientation changes).
 	 */
 	public MainFragment() {
+		Log.d(TAG, "I'm main fragment.");
+		Log.d(TAG, "mActivateOnItemClick:" + mActivateOnItemClick);
 	}
 
 	@Override
@@ -98,8 +105,7 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		// Restore the previously serialized activated item position.
 		if (savedInstanceState != null
 				&& savedInstanceState.containsKey(ACTIV_POSITION)) {
-			setActivatedPosition(savedInstanceState
-					.getInt(ACTIV_POSITION));
+			setActivatedPosition(savedInstanceState.getInt(ACTIV_POSITION));
 		}
 	}
 
@@ -127,6 +133,7 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> adapter, View view, int position,
 			long id) {
+		Log.d(TAG, "onItemClick: " + position);
 		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
 	}
 
@@ -150,10 +157,12 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	}
 
 	public boolean isActivateOnItemClick() {
+		Log.d(TAG, "isActivateOnItemClick:" + mActivateOnItemClick);
 		return mActivateOnItemClick;
 	}
 
 	public void setActivateOnItemClick(boolean activateOnItemClick) {
+		Log.d(TAG, "setActivateOnItemClick:" + activateOnItemClick);
 		this.mActivateOnItemClick = activateOnItemClick;
 	}
 
