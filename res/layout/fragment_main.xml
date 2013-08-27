@@ -3,10 +3,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <ListView
+    <com.tjerkw.slideexpandable.library.ActionSlideExpandableListView
         android:id="@+id/package_list"
+
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
-    </ListView>
+    </com.tjerkw.slideexpandable.library.ActionSlideExpandableListView>
 
 </LinearLayout>

@@ -14,13 +14,17 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainFragment extends Fragment implements OnItemClickListener {
+import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
+import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView.OnActionClickListener;
+import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
+
+public class MainFragment extends Fragment implements OnActionClickListener, OnItemClickListener {
 
 	private final String TAG = "MainFragment";
 
 	public static final String FRAGMENT_TAG = "MainFragment";
 	
-	private ListView mPackagesList;
+	private ActionSlideExpandableListView mPackagesList;
 
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
@@ -84,17 +88,27 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		View rootView = inflater.inflate(R.layout.fragment_main, container,
 				false);
 
-		mPackagesList = (ListView) rootView.findViewById(R.id.package_list);
-
+		mPackagesList = (ActionSlideExpandableListView) rootView.findViewById(R.id.package_list);
+		ArrayAdapter adapter = new ArrayAdapter<DummyContent.DummyItem>(
+				getActivity(), R.layout.list_item_packages,
+				android.R.id.text1, DummyContent.ITEMS);
+		mPackagesList.setAdapter(
+	            new SlideExpandableListAdapter(
+	                adapter,
+	                R.id.expandable_toggle_button,
+	                R.id.expandable
+	            )
+	        );
+		//mPackagesList.setAdapter(adapter);
 		// TODO: replace with a real list adapter.
-		mPackagesList.setAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-				getActivity(), android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, DummyContent.ITEMS));
+		//mPackagesList.setAdapter();
 		mPackagesList
 				.setChoiceMode(isActivateOnItemClick() ? ListView.CHOICE_MODE_SINGLE
 						: ListView.CHOICE_MODE_NONE);
+		mPackagesList.setItemActionListener(this, R.id.buttonA);
+		//mPackagesList.enableExpandOnItemClick();
 		mPackagesList.setOnItemClickListener(this);
-
+		
 		return rootView;
 	}
 
@@ -130,12 +144,7 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 		mCallbacks = sDummyCallbacks;
 	}
 
-	@Override
-	public void onItemClick(AdapterView<?> adapter, View view, int position,
-			long id) {
-		Log.d(TAG, "onItemClick: " + position);
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
-	}
+
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -164,6 +173,19 @@ public class MainFragment extends Fragment implements OnItemClickListener {
 	public void setActivateOnItemClick(boolean activateOnItemClick) {
 		Log.d(TAG, "setActivateOnItemClick:" + activateOnItemClick);
 		this.mActivateOnItemClick = activateOnItemClick;
+	}
+
+	@Override
+	public void onClick(View itemView, View clickedView, int position) {
+		Log.d(TAG, "onClick: " + position);
+		
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		Log.d(TAG, "onItemClick: " + arg2);
+		mCallbacks.onItemSelected(DummyContent.ITEMS.get(arg2).id);
+		
 	}
 
 }

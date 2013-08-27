@@ -3,6 +3,9 @@ package org.antczak.whereIsMyPackage;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +30,8 @@ public class MainActivity extends FragmentActivity implements
 		setContentView(R.layout.activity_main);
 
 		// configure the SlidingMenu
-
+		View customNav = LayoutInflater.from(this).inflate(R.layout.activity_main_actionbar, null);
+		getActionBar().setCustomView(customNav);
 		// Do we have static sliding menu?
 		if (findViewById(R.id.sliding_fragment_container) != null) {
 			mThreePane = true;
@@ -192,6 +196,14 @@ public class MainActivity extends FragmentActivity implements
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu items for use in the action bar
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.activity_main, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
 	private void setHomeAsUpIndicator(int resId) {
 		final View home = findViewById(android.R.id.home);
 		if (home == null)
@@ -210,4 +222,5 @@ public class MainActivity extends FragmentActivity implements
 		((ImageView) up).setImageResource(resId);
 
 	}
+
 }
