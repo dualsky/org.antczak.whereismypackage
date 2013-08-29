@@ -1,7 +1,27 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/package_detail"
-    style="?android:attr/textAppearanceLarge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:textIsSelectable="true" />
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="fill_parent"
+        android:text="Foldery"
+        android:layout_height="wrap_content" >
+    </TextView>
+
+    <com.mobeta.android.dslv.DragSortListView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:dslv="http://schemas.android.com/apk/res/org.antczak.whereIsMyPackage"
+        android:id="@+id/folders_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        dslv:drag_enabled="false"
+        dslv:float_alpha="0.5"
+        dslv:use_default_controller="true" />
+
+</LinearLayout>

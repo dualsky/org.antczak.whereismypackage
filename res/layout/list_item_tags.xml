@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.antczak.whereIsMyPackage.view.CheckableListViewItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dragHandler"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall" >
+
+    <ImageView
+        android:id="@+id/selectionHandler"
+        android:layout_width="6dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
+        android:paddingRight="?android:attr/listPreferredItemPaddingRight"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <TextView
+        android:id="@android:id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/holo_blue_bright"
+        android:gravity="center"
+        android:text="1"
+        android:textAppearance="?android:textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imageViewPro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:src="@drawable/ic_navigation_drawer" >
+    </ImageView>
+
+</org.antczak.whereIsMyPackage.view.CheckableListViewItem>
