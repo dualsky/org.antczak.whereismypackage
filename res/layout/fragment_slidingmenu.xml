@@ -1,27 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
 
-    <TextView
-        style="?android:attr/listSeparatorTextViewStyle"
-        android:layout_width="fill_parent"
-        android:text="Foldery"
-        android:layout_height="wrap_content" >
-    </TextView>
-
-    <com.mobeta.android.dslv.DragSortListView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:dslv="http://schemas.android.com/apk/res/org.antczak.whereIsMyPackage"
-        android:id="@+id/folders_list"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:choiceMode="singleChoice"
-        dslv:drag_enabled="false"
-        dslv:float_alpha="0.5"
-        dslv:use_default_controller="true" />
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <TextView
+            style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Foldery" >
+        </TextView>
+
+        <com.mobeta.android.dslv.DragSortListView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:dslv="http://schemas.android.com/apk/res/org.antczak.whereIsMyPackage"
+            android:id="@+id/folders_list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            dslv:click_remove_id="@+id/imageViewRemove"
+            dslv:drag_enabled="false"
+            dslv:drag_handle_id="@+id/imageViewDrag"
+            dslv:float_alpha="0.5"
+            dslv:remove_enabled="true"
+            dslv:remove_mode="clickRemove"
+            dslv:use_default_controller="true" />
+
+        <LinearLayout
+            android:id="@+id/tagAdd"
+            android:layout_width="fill_parent"
+            android:layout_height="?android:attr/listPreferredItemHeightSmall"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="20dp"
+                android:src="@drawable/ic_action_new" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Dodaj folder"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" >
+            </TextView>
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/editMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Tryb edycji" />
+    </LinearLayout>
+
+</ScrollView>

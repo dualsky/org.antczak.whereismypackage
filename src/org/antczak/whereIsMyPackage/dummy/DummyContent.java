@@ -1,3 +1,4 @@
+
 package org.antczak.whereIsMyPackage.dummy;
 
 import java.util.ArrayList;
@@ -25,9 +26,36 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        addItem(new DummyItem("1", "Wszystkie"));
+        addItem(new DummyItem("2", "Oczekiwane"));
+        addItem(new DummyItem("3", "Wys³ane"));
+        addItem(new DummyItem("4", "Archiwum"));
+        addItem(new DummyItem("5", "2013-08-30"));
+        addItem(new DummyItem("6", "2013-08-31"));
+        addItem(new DummyItem("7", "2013-08-32"));
+        addItem(new DummyItem("8", "2013-08-33"));
+        addItem(new DummyItem("9", "2013-08-34"));
+        addItem(new DummyItem("10", "2013-08-35"));
+        addItem(new DummyItem("11", "2013-08-36"));
+
+    }
+
+    public static String[] dummyStringArray = new String[11];
+
+    static {
+        // Add 3 sample items.
+        dummyStringArray[0] = "Wszystkie";
+        dummyStringArray[1] = "Oczekiwane";
+        dummyStringArray[2] = "Wys³ane";
+        dummyStringArray[3] = "Archiwum";
+        dummyStringArray[4] = "2013-08-30";
+        dummyStringArray[5] = "2013-08-31";
+        dummyStringArray[6] = "2013-08-32";
+        dummyStringArray[7] = "2013-08-33";
+        dummyStringArray[8] = "2013-08-34";
+        dummyStringArray[9] = "2013-08-35";
+        dummyStringArray[10] = "2013-08-36";
+
     }
 
     private static void addItem(DummyItem item) {
