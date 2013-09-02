@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.antczak.whereIsMyPackage.view.CheckableListViewItem xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/dragHandler"
+    android:id="@+id/checkableView1"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/activatedBackgroundIndicator"
@@ -26,11 +26,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginRight="30dp"
+        android:layout_marginRight="60dp"
         android:background="@android:color/holo_blue_bright"
         android:gravity="center"
         android:text="1"
         android:textAppearance="?android:textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/imageViewDrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_action_import_export" >
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/imageViewRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_action_remove" >
+    </ImageView>
 
     <ImageView
         android:id="@+id/imageViewPro"
@@ -38,8 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:src="@drawable/ic_navigation_drawer" >
     </ImageView>
 

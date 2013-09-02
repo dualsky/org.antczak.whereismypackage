@@ -12,7 +12,7 @@ import org.antczak.whereIsMyPackage.R;
 
 public class CheckableListViewItem extends LinearLayout implements Checkable {
 
-    private static final String TAG = "org.antczak.whereIsMyPackage.adpaters.SlidingMenuAdapter";
+    private static final String TAG = "CheckableListViewItem";
 
     private boolean isChecked;
 
@@ -36,7 +36,7 @@ public class CheckableListViewItem extends LinearLayout implements Checkable {
 
     @Override
     public void setChecked(boolean isChecked) {
-        Log.d(TAG, "setChecked(" + isChecked + ") " + this.toString());
+        Log.d(TAG, "setChecked(" + isChecked + ")");
         this.isChecked = isChecked;
         View v = findViewById(R.id.selectionHandler);
         v.setBackgroundResource(isChecked ? R.drawable.list_activated_holo

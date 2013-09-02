@@ -106,7 +106,7 @@ public class MainFragment extends Fragment implements OnActionClickListener, OnI
         mPackagesList
                 .setChoiceMode(isActivateOnItemClick() ? ListView.CHOICE_MODE_SINGLE
                         : ListView.CHOICE_MODE_NONE);
-        mPackagesList.setItemActionListener(this, R.id.buttonA);
+        mPackagesList.setItemActionListener(this, R.id.submenu_search, R.id.submenu_delete);
         mPackagesList.setOnItemClickListener(this);
 
         return rootView;
