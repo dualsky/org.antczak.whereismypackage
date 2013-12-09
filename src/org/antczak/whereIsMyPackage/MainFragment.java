@@ -1,8 +1,6 @@
 
 package org.antczak.whereIsMyPackage;
 
-import org.antczak.whereIsMyPackage.dummy.DummyContent;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,17 +13,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
-import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView.OnActionClickListener;
-import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
+import org.antczak.whereIsMyPackage.dummy.DummyContent;
 
-public class MainFragment extends Fragment implements OnActionClickListener, OnItemClickListener {
+public class MainFragment extends Fragment implements OnItemClickListener {
 
     private final String TAG = "MainFragment";
 
     public static final String FRAGMENT_TAG = "MainFragment";
 
-    private ActionSlideExpandableListView mPackagesList;
+    private ListView mPackagesList;
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -89,24 +85,18 @@ public class MainFragment extends Fragment implements OnActionClickListener, OnI
         View rootView = inflater.inflate(R.layout.fragment_main, container,
                 false);
 
-        mPackagesList = (ActionSlideExpandableListView) rootView.findViewById(R.id.package_list);
+        mPackagesList = (ListView) rootView.findViewById(R.id.package_list);
         ArrayAdapter adapter = new ArrayAdapter<DummyContent.DummyItem>(
                 getActivity(), R.layout.list_item_packages,
                 android.R.id.text1, DummyContent.ITEMS);
-        mPackagesList.setAdapter(
-                new SlideExpandableListAdapter(
-                        adapter,
-                        R.id.expandable_toggle_button,
-                        R.id.expandable
-                )
-                );
-        // mPackagesList.setAdapter(adapter);
+        
+        mPackagesList.setAdapter(adapter);
         // TODO: replace with a real list adapter.
         // mPackagesList.setAdapter();
         mPackagesList
                 .setChoiceMode(isActivateOnItemClick() ? ListView.CHOICE_MODE_SINGLE
                         : ListView.CHOICE_MODE_NONE);
-        mPackagesList.setItemActionListener(this, R.id.submenu_search, R.id.submenu_delete);
+
         mPackagesList.setOnItemClickListener(this);
 
         return rootView;
@@ -171,12 +161,6 @@ public class MainFragment extends Fragment implements OnActionClickListener, OnI
     public void setActivateOnItemClick(boolean activateOnItemClick) {
         Log.d(TAG, "setActivateOnItemClick:" + activateOnItemClick);
         this.mActivateOnItemClick = activateOnItemClick;
-    }
-
-    @Override
-    public void onClick(View itemView, View clickedView, int position) {
-        Log.d(TAG, "onClick: " + position);
-
     }
 
     @Override
