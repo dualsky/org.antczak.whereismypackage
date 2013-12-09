@@ -3,24 +3,23 @@ package org.antczak.whereIsMyPackage;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnDragListener;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ListView;
 import android.widget.Switch;
-
-import com.mobeta.android.dslv.DragSortListView;
 
 import org.antczak.whereIsMyPackage.adapter.TagsAdapter;
 
 public class SlidingMenuFragment extends Fragment implements OnCheckedChangeListener,
         OnClickListener {
 
-    private DragSortListView mTagsList;
+    public static final String FRAGMENT_TAG = "SlidingMenuFragment";
+    
+    private ListView mTagsList;
     private View mTagAdd;
     private OnEditModeStateChangeListener mOnEditModeStateChangeListener;
     private TagsAdapter mAdapter;
@@ -54,7 +53,7 @@ public class SlidingMenuFragment extends Fragment implements OnCheckedChangeList
                 getActivity(), R.layout.list_item_tags,
                 MainApp.getDB().getTags(), from, null);
         mOnEditModeStateChangeListener = mAdapter;
-        mTagsList = (DragSortListView) rootView.findViewById(R.id.folders_list);
+        mTagsList = (ListView) rootView.findViewById(R.id.folders_list);
         mTagsList.setAdapter(mAdapter);
 
 
@@ -63,14 +62,7 @@ public class SlidingMenuFragment extends Fragment implements OnCheckedChangeList
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            mTagAdd.setVisibility(View.VISIBLE);
-            mTagsList.setDragEnabled(true);
-        } else {
-            mTagAdd.setVisibility(View.GONE);
-            mTagsList.setDragEnabled(false);
 
-        }
         if (mOnEditModeStateChangeListener != null) {
             mOnEditModeStateChangeListener.editModeStateChanged(isChecked);
         }

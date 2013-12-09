@@ -1,62 +1,85 @@
 
 package org.antczak.whereIsMyPackage;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 public class MainActivity extends FragmentActivity implements
         MainFragment.Callbacks {
 
     private final String TAG = "MainActivity";
 
-    private SlidingMenu mSlidingMenu;
-
     private boolean mTwoPane;
     private boolean mThreePane;
     private boolean mAreDetailsVisible;
+
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // configure the SlidingMenu
-        // Do we have static sliding menu?
-        if (findViewById(R.id.sliding_fragment_container) != null) {
-            Log.i(TAG, "sliding_fragment_container != null");
-            mThreePane = true;
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (mDrawerLayout != null) {
+            mThreePane = false;
+            mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+            mDrawerToggle = new ActionBarDrawerToggle(
+                    this, /* host Activity */
+                    mDrawerLayout, /* DrawerLayout object */
+                    R.drawable.ic_drawer, /*
+                                           * nav drawer image to replace 'Up'
+                                           * caret
+                                           */
+                    R.string.app_name, /*
+                                        * "open drawer" description for
+                                        * accessibility
+                                        */
+                    R.string.title_package_detail /*
+                                                   * "close drawer" description
+                                                   * for accessibility
+                                                   */
+                    ) {
+                        public void onDrawerClosed(View view) {
+                            getActionBar().setTitle("sdf");
+                            invalidateOptionsMenu();
+                            // creates call to
+                            // onPrepareOptionsMenu()
+                        }
+
+                        public void onDrawerOpened(View drawerView) {
+                            getActionBar().setTitle("dddd");
+                            invalidateOptionsMenu();
+                            // creates call to
+                            // onPrepareOptionsMenu()
+                        }
+                    };
+            mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         } else {
-            Log.i(TAG, "sliding_fragment_container == null");
-            mThreePane = false;
-            mSlidingMenu = new SlidingMenu(this);
-            mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-            mSlidingMenu.setBehindScrollScale(1f);
-            mSlidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-            mSlidingMenu.setFadeEnabled(false);
-            mSlidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-            mSlidingMenu.setMenu(R.layout.fragment_slidingmenu_placeholder);
-            mSlidingMenu.setShadowWidth(20);
-            mSlidingMenu.setSlidingEnabled(true);
-
+            mThreePane = true;
         }
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.sliding_fragment_container,
-                        new SlidingMenuFragment()).commit();
+        SlidingMenuFragment slidingMenuFragment = (SlidingMenuFragment) getSupportFragmentManager()
+                .findFragmentByTag(SlidingMenuFragment.FRAGMENT_TAG);
+        if (slidingMenuFragment == null) {
+            slidingMenuFragment = new SlidingMenuFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.sliding_fragment_container, slidingMenuFragment,
+                            SlidingMenuFragment.FRAGMENT_TAG).commit();
+        }
 
         // Do we have static details?
         if (findViewById(R.id.details_fragment_container) != null) {
@@ -69,46 +92,40 @@ public class MainActivity extends FragmentActivity implements
                 + " Two? " + mTwoPane + " Three? " + mThreePane);
 
         if (savedInstanceState == null) {
-
             Log.i(TAG, "savedInstanceState == null");
-
             MainFragment mainFragment = new MainFragment();
-
-            if (mThreePane) {
-                Log.i(TAG, "mThreePane");
-                showHomeNone();
-                mainFragment.setActivateOnItemClick(true);
-
-            } else if (mTwoPane) {
-                Log.i(TAG, "mTwoPane");
-                showHomeAsSlidingMenu();
-                mainFragment.setActivateOnItemClick(true);
-
-            } else {
-                Log.i(TAG, "mOnePane");
-                showHomeAsSlidingMenu();
-            }
-
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.main_fragment_container, mainFragment,
                             MainFragment.FRAGMENT_TAG).commit();
+            if (mThreePane) {
+                Log.i(TAG, "mThreePane");
+                disableHomeAsUp();
+                mainFragment.setActivateOnItemClick(true);
+
+            } else if (mTwoPane) {
+                Log.i(TAG, "mTwoPane");
+                enableDrawer();
+                mainFragment.setActivateOnItemClick(true);
+
+            } else {
+                Log.i(TAG, "mOnePane");
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+                getActionBar().setHomeButtonEnabled(true);
+            }
 
         } else {
 
             Log.i(TAG, "savedInstanceState != null");
 
-            if (mThreePane) {
-                Log.i(TAG, "mThreePane");
-                showHomeNone();
-                MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
-                        .findFragmentByTag(MainFragment.FRAGMENT_TAG);
-                mainFragment.setActivateOnItemClick(true);
-
-            } else if (mTwoPane) {
-                Log.i(TAG, "mTwoPane");
-                showHomeAsSlidingMenu();
-
+            if (mThreePane || mTwoPane) {
+                if (mTwoPane) {
+                    Log.i(TAG, "mTwoPane");
+                    enableDrawer();
+                } else {
+                    Log.i(TAG, "mThreePane");
+                    disableHomeAsUp();
+                }
                 MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
                         .findFragmentByTag(MainFragment.FRAGMENT_TAG);
                 mainFragment.setActivateOnItemClick(true);
@@ -119,16 +136,13 @@ public class MainActivity extends FragmentActivity implements
                 DetailsFragment detailsFragment = (DetailsFragment) getSupportFragmentManager()
                         .findFragmentByTag(DetailsFragment.FRAGMENT_TAG);
                 if (detailsFragment == null) {
-
-                    showHomeAsSlidingMenu();
-
+                    enableDrawer();
                     MainFragment mainFragment = (MainFragment) getSupportFragmentManager()
                             .findFragmentByTag(MainFragment.FRAGMENT_TAG);
                     mainFragment.setActivateOnItemClick(false);
 
                 } else {
-                    showHomeButton();
-
+                    enableHomeAsUp();
                     // getSupportFragmentManager()
                     // .beginTransaction()
                     // .replace(R.id.main_fragment_container, detailsFragment,
@@ -138,7 +152,11 @@ public class MainActivity extends FragmentActivity implements
 
         }
 
-        Log.d(TAG, "smallestScreenWidthDp"
+        if (!mThreePane) {
+            mDrawerToggle.syncState();
+        }
+
+        Log.d(TAG, "smallestScreenWidthDp "
                 + getResources().getConfiguration().smallestScreenWidthDp);
 
     }
@@ -161,13 +179,15 @@ public class MainActivity extends FragmentActivity implements
             detailsFragment.setArguments(arguments);
         }
         if (mTwoPane || mThreePane) {
+            if (mTwoPane)
+                enableDrawer();
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.details_fragment_container, detailsFragment,
                             DetailsFragment.FRAGMENT_TAG).commit();
 
         } else {
-            showHomeButton();
+
             getSupportFragmentManager()
                     .beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right,
@@ -175,76 +195,45 @@ public class MainActivity extends FragmentActivity implements
                             R.anim.slide_out_right)
                     .addToBackStack(null).replace(R.id.main_fragment_container,
                             detailsFragment, DetailsFragment.FRAGMENT_TAG).commit();
+            enableHomeAsUp();
 
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    private void setHomeAsUpIndicator(int resId) {
-        final View home = findViewById(android.R.id.home);
-        if (home == null)
-            return;
-
-        final ViewGroup parent = (ViewGroup) home.getParent();
-        final int childcount = parent.getChildCount();
-        if (childcount != 2)
-            return;
-
-        final View first = parent.getChildAt(0);
-        final View second = parent.getChildAt(1);
-        final View up = first.getId() == android.R.id.home ? second : first;
-        if (up instanceof ImageView)
-            ((ImageView) up).setImageResource(resId);
-        ((ImageView) up).setImageResource(resId);
-
-    }
-
-    private void showHomeButton() {
-        if (mSlidingMenu != null)
-            mSlidingMenu.setSlidingEnabled(false);
-        setHomeAsUpIndicator(R.drawable.ic_ab_back);
+    private void enableDrawer() {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
-    private void showHomeAsSlidingMenu() {
-        if (mSlidingMenu != null)
-            mSlidingMenu.setSlidingEnabled(true);
-        setHomeAsUpIndicator(R.drawable.ic_navigation_drawer);
+    private void enableHomeAsUp() {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-
+        mDrawerToggle.setDrawerIndicatorEnabled(false);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
-    private void showHomeNone() {
-        if (mSlidingMenu != null)
-            mSlidingMenu.setSlidingEnabled(true);
+    private void disableHomeAsUp() {
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setHomeButtonEnabled(false);
     }
 
     private void handleBackAndUp(boolean isUp) {
-        if (mSlidingMenu.isMenuShowing()) {
-            mSlidingMenu.toggle();
-        }
-        else {
 
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                showHomeAsSlidingMenu();
-                getSupportFragmentManager().popBackStack();
-            } else {
-                if (isUp) {
-                    mSlidingMenu.toggle();
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            enableDrawer();
+            getSupportFragmentManager().popBackStack();
+        } else {
+            if (isUp) {
+                if (mDrawerLayout.isDrawerVisible(Gravity.START)) {
+                    mDrawerLayout.closeDrawer(Gravity.START);
                 } else {
-                    super.onBackPressed();
+                    mDrawerLayout.openDrawer(Gravity.START);
                 }
+            }
+            else {
+                super.onBackPressed();
             }
         }
     }
@@ -261,5 +250,22 @@ public class MainActivity extends FragmentActivity implements
                 handleBackAndUp(true);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Pass any configuration change to the drawer toggls
+        if (mDrawerToggle != null) {
+            mDrawerToggle.onConfigurationChanged(newConfig);
+        }
     }
 }
