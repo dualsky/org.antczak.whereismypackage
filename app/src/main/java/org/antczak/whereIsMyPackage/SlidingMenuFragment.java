@@ -81,7 +81,7 @@ public class SlidingMenuFragment extends Fragment implements OnCheckedChangeList
 
     
     
-    //TODO czy to musi byæ?
+    //TODO czy to musi byc
     @Override
     public void onSaveInstanceState(Bundle outState) {
         setUserVisibleHint(false);

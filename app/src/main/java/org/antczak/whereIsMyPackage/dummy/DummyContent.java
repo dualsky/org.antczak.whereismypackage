@@ -28,7 +28,7 @@ public class DummyContent {
         // Add 3 sample items.
         addItem(new DummyItem("1", "Wszystkie"));
         addItem(new DummyItem("2", "Oczekiwane"));
-        addItem(new DummyItem("3", "Wys≥ane"));
+        addItem(new DummyItem("3", "Wys≈Çane"));
         addItem(new DummyItem("4", "Archiwum"));
         addItem(new DummyItem("5", "2013-08-30"));
         addItem(new DummyItem("6", "2013-08-31"));
@@ -46,7 +46,7 @@ public class DummyContent {
         // Add 3 sample items.
         dummyStringArray[0] = "Wszystkie";
         dummyStringArray[1] = "Oczekiwane";
-        dummyStringArray[2] = "Wys≥ane";
+        dummyStringArray[2] = "Wys≈Çane";
         dummyStringArray[3] = "Archiwum";
         dummyStringArray[4] = "2013-08-30";
         dummyStringArray[5] = "2013-08-31";
